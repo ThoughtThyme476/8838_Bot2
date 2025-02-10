@@ -70,7 +70,7 @@ void opcontrol(void);
 #ifdef __cplusplus
 }
 #endif
-
+extern int atn;
 #ifdef __cplusplus
 /**
  * You can add C++-only headers here

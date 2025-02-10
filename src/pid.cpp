@@ -988,7 +988,87 @@ if(init_heading > 180) {
     
 }
 
-void driveArcR(double theta, double radius, int timeout){
+void driveArcL(double theta, double radius, int timeout, int speed = 100){
+    setConstants(STRAIGHT_KI, STRAIGHT_KI, STRAIGHT_KD);
+
+
+double ltarget = 0;
+double rtarget = 0;
+double pi =  3.14159265359;
+double init_heading = imu.get_heading();
+if(init_heading > 180){
+    init_heading = init_heading - 360;
+}
+int count = 0;
+time2 = 0;
+resetEncoders();
+
+ltarget = double((theta/360) *2 * pi * radius);
+rtarget = double((theta / 360) * 2 * pi *(radius + 850)); 
+
+while (true){
+
+if(init_heading > 180){
+    init_heading = init_heading - 360;
+}
+double position = imu.get_heading();
+
+if(position > 180){
+    position = position - 360;
+}
+double encoderAVGL = (LF.get_position() + LB.get_position()) /2;
+double encoderAVGR = (RB.get_position() + RB.get_position()) /2;
+double leftcorrect = (encoderAVGL * 360) / (2 * pi * radius);
+
+if((leftcorrect < 0) && (position > 0)){
+        if((position - leftcorrect) >= 180){
+            leftcorrect = leftcorrect + 360;
+            position = imu.get_heading();
+        }
+    } else if((leftcorrect > 0) && (position < 0)){
+        if ((leftcorrect - position) >= 180){
+            position = imu.get_heading();
+        }
+     }
+    setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);
+
+
+         int voltageL = calcPID(ltarget, encoderAVGL, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL); 
+    if (voltageL > 127 * double(speed)/100.0){
+        voltageL = 127 * double(speed)/100.0;
+    }else if(voltageL < -127  * double(speed)/100.0){
+        voltageL = -127  * double(speed)/100.0;
+    }
+
+    int voltageR = calcPID2(rtarget, encoderAVGR, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
+    if (voltageR > 127 * double(speed)/100.0){
+        voltageR = 127 * double(speed)/100.0;
+    }else if(voltageR < -127  * double(speed)/100.0){
+        voltageR = -127  * double(speed)/100.0;
+    }
+    
+    setConstants(ARC_HEADING_KP, ARC_HEADING_KI, ARC_HEADING_KD);
+int fix = calcPID3((init_heading + leftcorrect), position, ARC_HEADING_INTEGRAL_KI, ARC_HEADING_MAX_INTEGRAL);
+    if (abs(ltarget - encoderAVGL) <= 25) fix = 0;  
+
+    chasMove( (voltageL + fix), (voltageL + fix ), (voltageL + fix), (voltageR - fix), (voltageR - fix), (voltageR - fix));
+    if ((abs(ltarget - encoderAVGL) <= 4) && (abs(rtarget - encoderAVGR)<= 4)) count++;
+    if (count >= 20  || time2 > timeout){
+       break;
+    }
+     if(time2 % 50 == 0 && time2 % 100 != 0 && time2 % 150!= 0){
+            con.print(0,0, "fix: %f           ", float(fix));
+        } else if(time2 % 50 == 0 && time2 % 100 != 0){
+            con.print(1,0, "position: %f           ", float(position));
+        }else if(time2 % 50 == 0){
+            con.print(2,0, "init_heading: %f         ", float(init_heading + leftcorrect));
+        }
+        time2 += 10;
+        delay(10);
+    }   
+}
+
+void driveArcR(double theta, double radius, int timeout, int speed = 100){
     setConstants(STRAIGHT_KI, STRAIGHT_KI, STRAIGHT_KD);
 
 
@@ -1033,17 +1113,17 @@ if((rightcorrect < 0) && (position > 0)){
     setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);
        
          int voltageL = calcPID(ltarget, encoderAVGL, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL); 
-    if (voltageL > 127){
-        voltageL = 127;
-    }else if(voltageL < -127){
-        voltageL = -127;
-    }
+         if (voltageL > 127 * double(speed)/100.0){
+            voltageL = 127 * double(speed)/100.0;
+        }else if(voltageL < -127  * double(speed)/100.0){
+            voltageL = -127  * double(speed)/100.0;
+        }
 
     int voltageR = calcPID2(rtarget, encoderAVGR, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
-    if (voltageR > 127){
-        voltageR = 127;
-    }else if(voltageR < -127){
-        voltageR = -127;
+    if (voltageR > 127 * double(speed)/100.0){
+        voltageR = 127 * double(speed)/100.0;
+    }else if(voltageR < -127  * double(speed)/100.0){
+        voltageR = -127  * double(speed)/100.0;
     }
     
     setConstants(ARC_HEADING_KP, ARC_HEADING_KI, ARC_HEADING_KD);
@@ -1067,7 +1147,7 @@ int fix = calcPID3((init_heading + rightcorrect), position, ARC_HEADING_INTEGRAL
     }   
 }
 
-void driveArcLF(double theta, double radius, int timeout){
+void driveArcLF(double theta, double radius, int timeout, int speed = 100){
 
 setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);
 int true_theta = theta;
@@ -1118,17 +1198,17 @@ if(((init_heading + leftcorrect) < 0) && (position > 0)){
     setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);
  
     int voltageL = calcPID(ltarget, encoderAvgL, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
-    if (voltageL > 127){
-        voltageL = 127;
-    }else if(voltageL < -127){
-        voltageL = -127;
+    if (voltageL > 127 * double(speed)/100.0){
+        voltageL = 127 * double(speed)/100.0;
+    }else if(voltageL < -127  * double(speed)/100.0){
+        voltageL = -127  * double(speed)/100.0;
     }
 
     int voltageR = calcPID2(rtarget, encoderAvgR, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
-    if (voltageR > 127){
-        voltageR = 127;
-    }else if(voltageR < -127){
-        voltageR = -127;
+    if (voltageR > 127 * double(speed)/100.0){
+        voltageR = 127 * double(speed)/100.0;
+    }else if(voltageR < -127  * double(speed)/100.0){
+        voltageR = -127  * double(speed)/100.0;
     }
 
  setConstants(ARC_HEADING_KP, ARC_HEADING_KI, ARC_HEADING_KD);
@@ -1171,7 +1251,7 @@ if (abs(ltarget - encoderAvgL) <= 25) fix = 0;
     }
 }
 
-void driveArcRF(double theta, double radius, int timeout){
+void driveArcRF(double theta, double radius, int timeout, int speed = 100){
     setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);
     int true_theta = theta;
 bool over = false;
@@ -1223,17 +1303,17 @@ if(((init_heading + rightcorrect) < 0) && (position > 0)){
          double encoderAVGL = (LF.get_position() + LB.get_position()) /2;
          double encoderAVGR = (RB.get_position() + RB.get_position()) /2;
          int voltageL = calcPID(ltarget, encoderAVGL, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL); 
-    if (voltageL > 127){
-        voltageL = 127;
-    } else if(voltageL < -127){
-        voltageL = -127;
-    }
+         if (voltageL > 127 * double(speed)/100.0){
+            voltageL = 127 * double(speed)/100.0;
+        }else if(voltageL < -127  * double(speed)/100.0){
+            voltageL = -127  * double(speed)/100.0;
+        }
 
     int voltageR = calcPID2(rtarget, encoderAVGR, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
-    if (voltageR > 127){
-        voltageR = 127;
-    }else if(voltageR < -127){
-        voltageR = -127;
+    if (voltageR > 127 * double(speed)/100.0){
+        voltageR = 127 * double(speed)/100.0;
+    }else if(voltageR < -127  * double(speed)/100.0){
+        voltageR = -127  * double(speed)/100.0;
     }
     rightcorrect = (encoderAVGR * 360) / (2 * pi * radius);
         setConstants(ARC_HEADING_KP, ARC_HEADING_KI, ARC_HEADING_KD);

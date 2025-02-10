@@ -9,6 +9,8 @@ bool stay_clamp = true;
 using namespace pros;
 using namespace std;
 
+int atn = 1;
+string autstr;
 // Task colorSortTask;
 // bool colorSortActive = false;
 
@@ -28,6 +30,58 @@ void initialize() {
 	pros::lcd::set_text(1, "Hello PROS User!");
 
 	pros::lcd::register_btn1_cb(on_center_button);
+
+	while(true){
+		if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
+			atn++;
+		}
+		if(atn>7){//change number to number of autons
+			atn=0;
+		}
+		if (atn == 0) {
+			autstr = "NONE";
+			con.print(0,0, "Aut 0:%s", autstr);
+		}
+		else if (atn ==1) {
+			autstr = "RED RING";
+			con.print(0,0, "Aut 1: %s", autstr);
+		}
+		else if (atn ==2) {
+			autstr = "BLUE RING";
+			con.print(0,0, "Aut 2: %s", autstr);
+		}
+		else if (atn ==3) {
+			autstr = "RED GOAL QUALS";
+			con.print(0,0, "Aut 3: %s", autstr);
+		}
+		else if (atn ==4) {
+			autstr = "BLUE GOAL QUALS";
+			con.print(0,0, "Aut 4: %s", autstr);
+		}
+		else if (atn ==5) {
+			autstr = "RED GOAL ELIMS";
+			con.print(0,0, "Aut 5: %s", autstr);
+		}
+		else if (atn ==6) {
+			autstr = "BLUE GOALS ELIMS";
+			con.print(0,0, "Aut 6: %s", autstr);
+		}
+		else if (atn ==7) {
+			autstr = "SKILLS";
+			con.print(0,0, "Aut 7: %s", autstr);
+		}
+
+		if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_X)){
+			break;
+		}
+
+
+
+
+			}
+
+//auton selector
+
 }
 void disabled() { 
 	// imu.tare(); 
@@ -36,24 +90,11 @@ void disabled() {
 	// }
 }
 
-void autonomous() {
-	autons4();
-	    //delay(10);
-        // if(time2 % 50 == 0 && time2 % 100 != 0 && time2 % 150!= 0){
-        //     con.print(0,0, "ERROR: %f           ", float(error));
-        // }
-        //  if(time2 % 50 == 0 && time2 % 100 != 0){
-        //     con.print(2,0, "EncoderAVG: %f           ", float(imu.get_heading()));
-        // }
-        //  if(time2 % 50 == 0){
-        //     con.print(1,0, "Time2: %f           ", float(time2));
-        // }
-        
-        
-        // time2 += 10;
+//void autonomous moved into just auton.cpp
+
+void competition_initialize() {
 
 }
-void competition_initialize() {}
 
 
 void opcontrol() {
@@ -244,9 +285,6 @@ if (time % 50 == 0 && time % 100 !=0 && time % 150 !=0){
 } else if (time % 150 == 0){
     con.print(2,0,"Error:%f      ",float(error));
 }
-
-
-
 
 delay(10);
 time += 10;

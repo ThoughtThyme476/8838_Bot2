@@ -12,9 +12,29 @@
 // auton3= red side elims goal side
 // autons4= blue side elims goal side
 // autons5 = auto skills
-void auton(){
-  driveStraight2(1000);
-  driveTurn2(90);
+void autonomous(){
+  if (atn == 0) {
+  } else if (atn == 1) {
+
+  } 
+  else if (atn ==2) {
+
+  } 
+  else if (atn ==3) {
+
+  } 
+  else if (atn ==4) {
+
+  } 
+  else if (atn ==5) {
+
+  } 
+  else if (atn ==6) {
+
+  } 
+  else if (atn ==7) {
+
+  }
 }
  
  void autons1(){
