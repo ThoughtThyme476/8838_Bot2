@@ -36,7 +36,7 @@ void autonomous(){
 
   }
 }
- 
+ //don't use autons 1 and that stuff anymore just use the above 
  void autons1(){
   //red ring side
    Redirect.move(-17);
