@@ -12,13 +12,13 @@
 #define STRAIGHT_INTEGRAL_KI 40//
 #define STRAIGHT_MAX_INTEGRAL 14.5//
 
+extern double calcPID(double target, double input, int integralKi, int maxIntergral);
 extern void driveStraight(int target);
 extern void driveStraight2(int target);
 extern void driveStraightC(int target);
 extern void driveTurn(int target);
 extern void driveTurn2(int target);
 extern void driveStraightSlow(int target, int speed);
-extern double calcPID(double target, double input, int integralKi, int maxIntergral);
 extern void driveIntake(int target, int start, int stop);
 extern void driveClamp (int target, int clampDistance);
 extern void setConstants( double kp, double ki, double kd);
@@ -52,6 +52,13 @@ extern int viewTime;
 #define TURN_INTRGRAL_KI 30
 #define TURN_MAX_INTEGRAL 25
 
+#define TURN_KP_2 8//
+#define TURN_KI_2 0.5// 
+#define TURN_KD_2 85// 
+
+#define TURN_INTRGRAL_KI_2 30
+#define TURN_MAX_INTEGRAL_2 25
+
 #define LIFT_KP 1.5// 
 #define LIFT_KI 0// 
 #define LIFT_KD 0// 
@@ -70,6 +77,9 @@ extern int viewTime;
 #define ARC_HEADING_MAX_INTEGRAL 0
 #define ARC_HEADING_INTEGRAL_KI 0 // to- do list, tune 
 
+#define MACRO_KP 0.5
+#define MACRO_KI 0
+#define MACRO_KD 0
 
 
 

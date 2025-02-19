@@ -59,7 +59,19 @@ float error3;
 int integral3;
 int derivitive3;
 int time4;
-
+// round four this time :/ :/ :/ 
+double vKp4;
+double vKi4;
+double vKd4;
+double prePower4;
+double cur4entpower4;
+double prevError4;
+double h4;
+double power4;
+float error4;
+int integral4;
+int derivitive4;
+int time5;
 
 void hooks(int speed){
     direc = speed; 
@@ -205,6 +217,35 @@ double calcPID3(double target3, double input3, int integralKI3, int maxIntegral3
     return power3;
 
 }
+
+// double calcPID4(double target4, double input4, int integralKI4, int maxIntegral4){
+
+//     int integral4;
+//     prevError4 = error4;
+//     error4 = target4 - input4;
+
+//     if(abs(error4) < integralKI4){
+//         integral4 += error4;
+//     }
+//     else{
+//         integral4 = 0;
+//     }
+//     if(integral4 >= 0){
+//         integral4 = min(integral4, maxIntegral4);
+//     }
+//     else{
+//         integral4 = max(integral4, -maxIntegral4); 
+//     }
+
+//     if((error4/error4) != (prevError4))
+
+//     derivitive4 = error4 - prevError4;
+
+//     power4 = (vKp * error4) + (vKi * integral4) + (vKd * derivitive4);
+
+//     return power4;
+
+// }
 
 
 void ColorSort(int color){
