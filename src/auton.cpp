@@ -39,16 +39,16 @@ void autonomous(){
  //don't use autons 1 and that stuff anymore just use the above 
  void autons1(){
   //red ring side
-   Redirect.move(-17);
+   LadyBrown.move(-17);
   delay(50);
   driveTurn2(-40);
   driveStraightSlow(350, 100);
-   Redirect.move(-127);
+   LadyBrown.move(-127);
    delay(650);
-   Redirect.move(127);
+   LadyBrown.move(127);
    delay(500);
-   Redirect.move(0);
-   Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+   LadyBrown.move(0);
+   LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
    driveStraight2(-1140);
    driveTurn2(11);
    driveStraightSlow(-800, 60);
@@ -56,7 +56,7 @@ void autonomous(){
    driveClampS(-250, 10, 30);
    driveTurn2(120);
    Intake.move(-100);
-   Intake_Layer1.move(-127);
+   //ErrorFixayer1.move(-127);
    driveStraight2(680);
    delay(200);
    driveTurn2(110);
@@ -66,18 +66,18 @@ void autonomous(){
    driveStraight2(500);
    delay(500);
    driveTurn2(-100);
-   Redirect.move(-50);
+   LadyBrown.move(-50);
    driveStraight2(1200);
-  // Redirect.move(-17);
+  // LadyBrown.move(-17);
   // delay(50);
   // driveTurn2(-40);
   // driveStraightSlow(350, 100);
-  //  Redirect.move(-127);
+  //  LadyBrown.move(-127);
   //  delay(650);
-  //  Redirect.move(127);
+  //  LadyBrown.move(127);
   //  delay(500);
-  //  Redirect.move(0);
-  //  Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+  //  LadyBrown.move(0);
+  //  LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
   //  driveStraight2(-1140);
   //  driveTurn2(11);
   //  driveStraightSlow(-800, 60);
@@ -86,7 +86,7 @@ void autonomous(){
   //  delay(200);
   //  driveTurn2(125);
   //  Intake.move(-100);
-  //  Intake_Layer1.move(-127);
+  //  //ErrorFixayer1.move(-127);
   //  driveStraightSlow(740, 50);
   //  driveTurn2(105);
   //  driveStraightSlow(300, 75);
@@ -99,11 +99,11 @@ void autonomous(){
    }
  void autons2(){
    //skills
-    Redirect.move(-127);
+    LadyBrown.move(-127);
     delay(550);
-    Redirect.move(127);
+    LadyBrown.move(127);
     delay(450);
-    Redirect.move(0);
+    LadyBrown.move(0);
     driveStraight2(-445);
     driveTurn2(89);
     driveStraight2(-660);
@@ -111,7 +111,7 @@ void autonomous(){
     driveClampS(-330, 10, 20);
     driveTurn2(-170);
     Intake.move(-100);
-    Intake_Layer1.move(-127);
+    //ErrorFixayer1.move(-127);
     driveStraight2(950);
     delay(500);
     driveTurn2(-90);
@@ -144,16 +144,16 @@ void autonomous(){
  }
  void autons3(){
   //blue ring side
- Redirect.move(-17);
+ LadyBrown.move(-17);
   delay(50);
   driveTurn2(40);
   driveStraightSlow(350, 100);
-   Redirect.move(-127);
+   LadyBrown.move(-127);
    delay(650);
-   Redirect.move(127);
+   LadyBrown.move(127);
    delay(500);
-   Redirect.move(0);
-   Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+   LadyBrown.move(0);
+   LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
    driveStraight2(-1140);
    driveTurn2(-11);
    driveStraightSlow(-800, 60);
@@ -162,7 +162,7 @@ void autonomous(){
    //driveStraight2(300);
    driveTurn2(-115);
    Intake.move(-100);
-   Intake_Layer1.move(-127);
+   //ErrorFixayer1.move(-127);
    driveStraight2(680);
    delay(200);
    driveTurn2(-105);
@@ -172,7 +172,7 @@ void autonomous(){
    driveStraight2(500);
    delay(550);
    driveTurn2(100);
-   Redirect.move(-35);
+   LadyBrown.move(-35);
    driveStraight2(1200);
   //
   //  StakeWing.set_value(true);
@@ -207,7 +207,7 @@ void autonomous(){
   StakeWing.set_value(false);
   delay(500);
   driveTurn2(-140);
-  Intake_Layer1.move(-127);
+  //ErrorFixayer1.move(-127);
   driveStraightSlow(720, 75);
   delay(100);
   driveTurn2(100);
@@ -218,11 +218,11 @@ void autonomous(){
   MogoMech.set_value(true);
   delay(100);
   Intake.move(-100);
-  Intake_Layer1.move(-127);
+  //ErrorFixayer1.move(-127);
   delay(700);
   // StakeWing.set_value(true);
   // driveTurn2(-180);
-  // Intake_Layer1.move(127);
+  // //ErrorFixayer1.move(127);
   // driveArcLF(90, 1300, 1500);
   // driveStraight2(10); 
   // driveTurn2(10);
@@ -253,7 +253,7 @@ void autonomous(){
  driveTurn2(-95);
  driveStraightSlow(-760, 50);
  driveTurn2(-135);
- Intake_Layer1.move(-127);
+ //ErrorFixayer1.move(-127);
  driveStraight2(600);
  driveTurn2(-81);
  driveClampS(-1100, 20, 40); 
@@ -272,7 +272,7 @@ void autonomous(){
 //  driveStraight2(250);
 //  MogoMech.set_value(true);
 //  driveTurn2(-85);
-//  Intake_Layer1.move(-127);
+//  //ErrorFixayer1.move(-127);
 //  Intake.move(-90);
 //  driveStraight2(750);
 //  delay(500);
@@ -285,22 +285,22 @@ void autonomous(){
 //blue ring side touch bar bc not doing corner stack
  void autons6(){
  //blue ring side
-   Redirect.move(-17);
+   LadyBrown.move(-17);
    delay(50);
    driveTurn2(39);
    driveStraight2(360);
-   Redirect.move(-127);
+   LadyBrown.move(-127);
    delay(650);
-   Redirect.move(127);
+   LadyBrown.move(127);
    delay(300);
-   Redirect.move(0);
+   LadyBrown.move(0);
    driveStraight2(-1150);
    driveTurn2(-11);
    driveClampS(-1250, 100, 50);
    driveStraight2(500);
    driveTurn2(-90);
    Intake.move(-90);
-   Intake_Layer1.move(-127);
+   //ErrorFixayer1.move(-127);
    driveStraight2(900);
    delay(400);
    driveTurn2(-180);
@@ -345,23 +345,23 @@ void autonomous(){
 
 
 // // StakeWing.set_value(false);
-// // Redirect.move(-127);
+// // LadyBrown.move(-127);
 // // delay(410);
-// // Redirect.move(127);
+// // LadyBrown.move(127);
 // // delay(300);
-// // Redirect.move(0);
-// // Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// // LadyBrown.move(0);
+// // LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // // driveTurn(30);
 // // driveClampSlow(-950, 25, 50);
 // // driveStraight2(75);
-// // Redirect.move(127);
+// // LadyBrown.move(127);
 // // delay(200);
-// // Redirect.move(0); //alliance stake code & mogo
+// // LadyBrown.move(0); //alliance stake code & mogo
 // // //driveArcL(-95, 200, 1000);
 // // MogoMech.set_value(true);
 // // driveTurn(125);
 // // Intake.move(-90);
-// // Intake_Layer1.move(-127);
+// // //ErrorFixayer1.move(-127);
 // // driveStraight2(900);
 // // delay(50);
 // // driveTurn(75);
@@ -377,35 +377,35 @@ void autonomous(){
 // // delay(300);
 // // Intake.move(0);
 // // driveTurn(85);
-// // Redirect.move(-127);
+// // LadyBrown.move(-127);
 // // delay(410);
-// // Redirect.move(127);
+// // LadyBrown.move(127);
 // // delay(300);
-// // Redirect.move(0);
+// // LadyBrown.move(0);
 
 
 // //ring side auton red
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveTurn(-35);
 // driveSlow(280, 15);
-// Redirect.move(-127);
+// LadyBrown.move(-127);
 // delay(600);
-// Redirect.move(127);
+// LadyBrown.move(127);
 // delay(350);
-// Redirect.move(0);
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.move(0);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveTurn(10.5);
 // // driveTurn(-10);
 // driveClampSlow(-1780, 40, 50);
 // driveStraight2(100);
-// Redirect.move(127);
+// LadyBrown.move(127);
 // delay(200);
-// Redirect.move(0);
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.move(0);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveTurn(150);
 // driveTurn(14);
 // Intake.move(-80);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // driveStraight2(750); // first ring 
 // driveTurn(-26);
 // driveSlow(350, 20);
@@ -415,38 +415,38 @@ void autonomous(){
 // Intake.move(-95);
 // delay(90);
 // // Intake.move(0);
-// // Intake_Layer1.move(0);
+// // //ErrorFixayer1.move(0);
 // // ColorSenseIntakeRed(-80);//third ring 
 // driveTurn(-115);
 // driveStraight2(1000);
-// Redirect.move(-127);//touches ladder
+// LadyBrown.move(-127);//touches ladder
 
 
 
 
 // //red side ring side 
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveTurn(-35);
 // driveSlow(300, 15);
-// Redirect.move(-127);
+// LadyBrown.move(-127);
 // delay(450);
-// Redirect.move(127);
+// LadyBrown.move(127);
 // delay(350);
-// Redirect.move(0);
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.move(0);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveStraight2(-525);
 // driveTurn(-60);
-// Redirect.move(127);
+// LadyBrown.move(127);
 // delay(200);
-// Redirect.move(0);
+// LadyBrown.move(0);
 //     Intake.move(-80);
-//     Intake_Layer1.move(-127);
+//     //ErrorFixayer1.move(-127);
 //     driveSlow(700, 25);  
 //     bool color = true;
 //     while(color){
 // if(eyes.get_hue()<25){
 //     Intake.move(0);
-//     Intake_Layer1.move(0);
+//     //ErrorFixayer1.move(0);
 //     break;
 // }
 
@@ -456,14 +456,14 @@ void autonomous(){
 // driveStraight2(100);
 // driveTurn(110);
 // Intake.move(-90);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // delay(300);
 // driveStraight2(775);
 // Intake.move(-100);
 // delay(600);
 // driveTurn(160);
 // driveSlow(900, 100);
-// Redirect.move(-127);
+// LadyBrown.move(-127);
 
 
 // /*
@@ -474,32 +474,32 @@ void autonomous(){
 // delay(500);
 // driveTurn(-80);
 // StakeWing.set_value(false);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // driveStraight2(400);
 // driveTurn(-120);
 // //blue side ring side    
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveTurn(35);
 // driveSlow(300, 15);
-// Redirect.move(-127);
+// LadyBrown.move(-127);
 // delay(450);
-// Redirect.move(127);
+// LadyBrown.move(127);
 // delay(350);
-// Redirect.move(0);
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.move(0);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveStraight2(-525);
 // driveTurn(60);
-// Redirect.move(127);
+// LadyBrown.move(127);
 // delay(200);
-// Redirect.move(0);
+// LadyBrown.move(0);
 //     Intake.move(-80);
-//     Intake_Layer1.move(-127);
+//     //ErrorFixayer1.move(-127);
 //     driveSlow(700, 25);  
 //     bool color = true;
 //     while(color){
 // if(eyes.get_hue()<25){
 //     Intake.move(0);
-//     Intake_Layer1.move(0);
+//     //ErrorFixayer1.move(0);
 //     break;
 
     
@@ -509,14 +509,14 @@ void autonomous(){
 // driveStraight2(100);
 // driveTurn(-110);
 // Intake.move(-90);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // delay(300);
 // driveStraight2(775);
 // Intake.move(-100);
 // delay(600);
 // driveTurn(-160);
 // driveSlow(900, 100);
-// Redirect.move(-127);
+// LadyBrown.move(-127);
 
 // /*
 // void () {
@@ -527,18 +527,18 @@ void autonomous(){
 // delay(500);
 // driveTurn(-80);
 // StakeWing.set_value(false);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // driveStraight2(400);
 // driveTurn(-120);
 // // work in progress
        
 
 // void arc(){
-// Redirect.move(-127);
+// LadyBrown.move(-127);
 // delay(600);
-// Redirect.move(127);
+// LadyBrown.move(127);
 // delay(300);
-// Redirect.move(0);
+// LadyBrown.move(0);
 // driveStraight2(-450);
 // driveTurn(89);
 // driveClampSlow(-1200, 30, 25);
@@ -546,15 +546,15 @@ void autonomous(){
 // delay(200);
 // driveTurn(91);
 // Intake.move(-95);
-// Intake_Layer1.move(-127);
-// Redirect.move(10);
+// //ErrorFixayer1.move(-127);
+// LadyBrown.move(10);
 // // StakeWing.set_value(true);
 // imu.tare();
 // delay(500);
 // driveArcRF(90, 725, 2000);
 // driveStraight2(450);
-// Redirect.move(0);
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.move(0);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveTurn(-75);
 // driveStraight2(500);
 // // driveArcLF(70, 500, 1500);
@@ -564,44 +564,44 @@ void autonomous(){
 // // if(eyes.get_hue()<25){
 // //     delay(40);
 // //     Intake.move(0);
-// //     Intake_Layer1.move(0);
+// //     //ErrorFixayer1.move(0);
 // //     break;
 // // }
 // //     }
 // // driveTurn(-150);
 // // driveTurn(-20);
 // // driveSlow(25, 150);
-// // Redirect.move(-127);
+// // LadyBrown.move(-127);
 // // delay(600);
-// // Redirect.move(127);
+// // LadyBrown.move(127);
 // // delay(650);
-// // Redirect.move(0);
+// // LadyBrown.move(0);
 
 // }
 
 // void autons4(){
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveTurn(-35);
 // driveSlow(305, 15);
-// Redirect.move(-127);
+// LadyBrown.move(-127);
 // delay(450);
-// Redirect.move(127);
+// LadyBrown.move(127);
 // delay(350);
-// Redirect.move(0);
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.move(0);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveStraight2(-500);
 // driveTurn(-60);
-// Redirect.move(127);
+// LadyBrown.move(127);
 // delay(200);
-// Redirect.move(0);
+// LadyBrown.move(0);
 //     Intake.move(-80);
-//     Intake_Layer1.move(-127);
+//     //ErrorFixayer1.move(-127);
 //     driveSlow(700, 25);  
 //     bool color = true;
 //     while(color){
 // if(eyes.get_hue()>150){
 //     Intake.move(0);
-//     Intake_Layer1.move(0);
+//     //ErrorFixayer1.move(0);
 //     break;
 // }
 //     }
@@ -611,31 +611,31 @@ void autonomous(){
 // driveStraight2(200);
 // driveTurn(110);
 // Intake.move(-80);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // delay(250);
 // driveStraight2(775);
 // Intake.move(-100);
 // delay(250);
 // driveTurn(160);
 // driveSlow(950, 100);
-// Redirect.move(-180);
+// LadyBrown.move(-180);
 // }
 
 // void fiveRing(){
 // driveTurn(-35);
 // driveSlow(240, 50);
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
-// Redirect.move(-127);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.move(-127);
 // delay(500);
-// Redirect.move(127);
+// LadyBrown.move(127);
 // delay(500);
-// Redirect.move(0);
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.move(0);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveTurn(9);
 // driveClampSlow(-1700, 25, 50);
 // driveTurn(170);
 // Intake.move(-85);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // StakeWing.set_value(true);
 // driveArcLF(75, 800, 1000);
 // driveTurn(-115);
@@ -644,28 +644,28 @@ void autonomous(){
  
 // void autons5 () {
 // //ring side auton blue
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveTurn(35);
 // driveSlow(280, 15);
-// Redirect.move(-127);
+// LadyBrown.move(-127);
 // delay(600);
-// Redirect.move(127);
+// LadyBrown.move(127);
 // delay(350);
-// Redirect.move(0);
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.move(0);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveTurn(-15);
 // // driveTurn(-10);
 // driveClampSlow(-1950, 60, 50);
 // delay(400);
 // driveStraight2(250);
-// Redirect.move(127);
+// LadyBrown.move(127);
 // delay(200);
-// Redirect.move(0);
-// Redirect.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+// LadyBrown.move(0);
+// LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 // driveTurn(-150);
 // driveTurn(-20);
 // Intake.move(-90);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // driveStraight2(740); // first ring 
 // driveTurn(37);
 // driveSlow(300, 20);
@@ -674,9 +674,9 @@ void autonomous(){
 // driveSlow(600, 50);
 // delay(100);
 // Intake.move(-95);
-// Intake_Layer1.move(0); 
+// //ErrorFixayer1.move(0); 
 // driveTurn(110);
 // Intake.move(0);
 // driveStraight2(1000);
-// Redirect.move(-127);//touches ladder
+// LadyBrown.move(-127);//touches ladder
 // }*/

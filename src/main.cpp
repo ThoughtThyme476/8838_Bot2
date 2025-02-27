@@ -110,6 +110,8 @@ bool  hooks_Macro_Rev = false;
 bool fishy_macro = false;
 bool return_fishmech = false;
 bool MogoMechToggle = false;
+bool LBC = false;
+int Macro = 0;
 
 while (true) {
 
@@ -119,88 +121,88 @@ while (true) {
 // }
 
 //macro fishy
-if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_UP)){
-	fishy_macro=!fishy_macro;
-}
+// if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_UP)){
+// 	fishy_macro=!fishy_macro;
+// }
 
-//Mogo Mech
-if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_X)){
-	MogoMechToggle = !MogoMechToggle;
-}
-MogoMech.set_value(MogoMechToggle); 
+// //Mogo Mech
+// if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_X)){
+// 	MogoMechToggle = !MogoMechToggle;
+// }
+// MogoMech.set_value(MogoMechToggle); 
 
-//Stakewing toggle
-if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)) {
-            StakeWingToggle = !StakeWingToggle;
- }
- StakeWing.set_value(StakeWingToggle);
+// //Stakewing toggle
+// if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)) {
+//             StakeWingToggle = !StakeWingToggle;
+//  }
+//  StakeWing.set_value(StakeWingToggle);
 
-// Fish mech
-bool is_above = (fishy.get_angle() >= 9000) && (fishy.get_angle() < 27000);
-if (con.get_digital(E_CONTROLLER_DIGITAL_L1)){
-	// Rotates fishmech back to the starting position
-	bool forbidden = ((fishy.get_angle() >= 27000) && (fishy.get_angle() <= 34000));
+// // Fish mech
+// bool is_above = (fishy.get_angle() >= 9000) && (fishy.get_angle() < 27000);
+// if (con.get_digital(E_CONTROLLER_DIGITAL_L1)){
+// 	// Rotates fishmech back to the starting position
+// 	bool forbidden = ((fishy.get_angle() >= 27000) && (fishy.get_angle() <= 34000));
 
-    if (forbidden == false) {
-		// Safe to move
-		int speed = 70;
-		if (!is_above && (fishy.get_angle() >= 27000)) {
-			// Close to the limit so slow down
-			speed = 20;
-		}
-    	Redirect.move(speed);
-	} else 
-		// There isn't a BRAKE mode, so just move the other way to
-		// stay in place
-		Redirect.move(0);
-	} else if (con.get_digital(E_CONTROLLER_DIGITAL_L2)){
-	// Rotates fishmech to put the ring on the stake
-	bool forbidden = (is_above && (fishy.get_angle() >= 23000));
+//     if (forbidden == false) {
+// 		// Safe to move
+// 		int speed = 70;
+// 		if (!is_above && (fishy.get_angle() >= 27000)) {
+// 			// Close to the limit so slow down
+// 			speed = 20;
+// 		}
+//     	Redirect.move(speed);
+// 	} else 
+// 		// There isn't a BRAKE mode, so just move the other way to
+// 		// stay in place
+// 		Redirect.move(0);
+// 	} else if (con.get_digital(E_CONTROLLER_DIGITAL_L2)){
+// 	// Rotates fishmech to put the ring on the stake
+// 	bool forbidden = (is_above && (fishy.get_angle() >= 23000));
 
-    if (forbidden == false) {
-		// Safe to move
-		int speed = -70;
-		if (is_above && (fishy.get_angle() >= 19000)) {
-			// Close to the limit so slow down
-			speed = -20;
-		}
-    	Redirect.move(speed);
-	} else {
-		// There isn't a BRAKE mode, so just move the other way to stay in place 
-		Redirect.move(10);
-	}
+//     if (forbidden == false) {
+// 		// Safe to move
+// 		int speed = -70;
+// 		if (is_above && (fishy.get_angle() >= 19000)) {
+// 			// Close to the limit so slow down
+// 			speed = -20;
+// 		}
+//     	Redirect.move(speed);
+// 	} else {
+// 		// There isn't a BRAKE mode, so just move the other way to stay in place 
+// 		Redirect.move(10);
+// 	}
 
-	// Once we are above automatically return to start
-	if (is_above) {
-		return_fishmech = true;
-	}
+// 	// Once we are above automatically return to start
+// 	if (is_above) {
+// 		return_fishmech = true;
+// 	}
 
-	fishy_macro=false; 
-	liftAngle = fishy.get_position();
-	Redirect.set_brake_mode(MOTOR_BRAKE_HOLD);
-} 
-else if (fishy_macro){
-	setConstants(LIFT_KP,LIFT_KI,LIFT_KD);
-	Redirect.move(calcPID(37000,fishy.get_position(),0,0));
-	if(abs(fishy.get_position()-37000)<200){
-		fishy_macro=false;
-	}
-}
-else {
-	// We aren't in macro mode, and no buttons are pressed
-	// setConstants(LIFT_KP,LIFT_KI,LIFT_KD);
-	// Redirect.move(0);
-	//Redirect.move(calPID(liftAngle,fishy.get_position(),0,0));
-	if (return_fishmech && is_above) {
-		// fish mech is above horizontal, automatically return to start
-	    Redirect.move(50);
-	} else {
-		// fish mech is below horizontal, let it just coast
-		return_fishmech = false;
-		Redirect.move(0);
-		Redirect.set_brake_mode(MOTOR_BRAKE_BRAKE);
-	}
-}
+// 	fishy_macro=false; 
+// 	liftAngle = fishy.get_position();
+// 	Redirect.set_brake_mode(MOTOR_BRAKE_HOLD);
+// } 
+// else if (fishy_macro){
+// 	setConstants(LIFT_KP,LIFT_KI,LIFT_KD);
+// 	Redirect.move(calcPID(37000,fishy.get_position(),0,0));
+// 	if(abs(fishy.get_position()-37000)<200){
+// 		fishy_macro=false;
+// 	}
+// }
+// else {
+// 	// We aren't in macro mode, and no buttons are pressed
+// 	// setConstants(LIFT_KP,LIFT_KI,LIFT_KD);
+// 	// Redirect.move(0);
+// 	//Redirect.move(calPID(liftAngle,fishy.get_position(),0,0));
+// 	if (return_fishmech && is_above) {
+// 		// fish mech is above horizontal, automatically return to start
+// 	    Redirect.move(50);
+// 	} else {
+// 		// fish mech is below horizontal, let it just coast
+// 		return_fishmech = false;
+// 		Redirect.move(0);
+// 		Redirect.set_brake_mode(MOTOR_BRAKE_BRAKE);
+// 	}
+// }
 //pid tester m 
 // if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
 // autons5();
@@ -210,44 +212,60 @@ else {
 
 //Intake
 if (con.get_digital(E_CONTROLLER_DIGITAL_R1)){
-	Intake.move(90);
-	Intake_Layer1.move(127);
+	Intake.move(127);
 	Intake.tare_position();
 	hooks_Macro = false; 
 }
 else if (con.get_digital(E_CONTROLLER_DIGITAL_R2)){
-	Intake.move (-90);
-	Intake_Layer1.move(-127);
+	Intake.move (-127);
 	Intake.tare_position(); 
 	hooks_Macro = false; 
-}
-// else if(hooks_Macro){
-	
-//  if(Intake.get_position() > 900){
-// 	hooks_Macro_Rev = true;
-//  }
-//  if((hooks_Macro_Rev == true) && (Intake.get_position() < 200)){
-
-// 	hooks_Macro_Rev = false;
-// 	hooks_Macro = false;
-//  } else if(hooks_Macro_Rev){
-// 	delay(1000);
-// 	setConstants(1, 0, 0);
-// 	Intake.move(calPID (150, Intake.get_position(), 0, 0));
-// 	Intake_Layer1.move(calPID (150, Intake.get_position(), 0, 0));
-//  } else{
-// 	setConstants(1, 0, 0);
-// 	Intake.move(calPID (850, Intake.get_position(), 0, 0));
-// 	Intake_Layer1.move(calPID (1000, Intake.get_position(), 0, 0));
-//  }
-
-//}
-else {
+} else {
 	Intake.move(0);
-	Intake_Layer1.move(0);
 	Intake.tare_position(); 
 	hooks_Macro = false; 
 }
+
+
+//lady brown macro 
+if(con.get_digital(E_CONTROLLER_DIGITAL_L1)){
+	LadyBrown.move(127);
+	// LBC = false;
+} else if(con.get_digital(E_CONTROLLER_DIGITAL_L2)){
+	LadyBrown.move(-127);
+	// LBC = false;
+// } else if (LBC = false){
+// 	LadyBrown.move(0);
+// }
+} else {
+LadyBrown.move(0);
+LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+}
+
+if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)){
+	Macro ++;
+	LBC = false;
+}
+
+if(LBC){
+	setConstants(MACRO_KP, MACRO_KI, MACRO_KD);
+	if (Macro == 0){
+		LadyBrown.move(calcPID(15000, roto.get_angle(), 0, 0));
+	} else if (Macro == 1){
+		LadyBrown.move(calcPID(20000, roto.get_angle(), 0, 0));
+	} else if(Macro == 2){
+		LadyBrown.move(calcPID(27000, roto.get_angle(), 0, 0));
+	} else {
+		Macro = 0;
+	}
+}
+
+//pistons for mogo
+
+if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_X)){
+MogoMechToggle = !MogoMechToggle;
+}  MogoMech.set_value(MogoMechToggle);
+
 //chassis drive 
 int power = con.get_analog(ANALOG_LEFT_Y);
 int RX = con.get_analog(ANALOG_RIGHT_X);
