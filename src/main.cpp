@@ -212,19 +212,16 @@ while (true) {
 
 //Intake
 if (con.get_digital(E_CONTROLLER_DIGITAL_R1)){
-	Intake.move(90);
-	Intake_Layer1.move(127);
+	Intake.move(127);
 	Intake.tare_position();
 	hooks_Macro = false; 
 }
 else if (con.get_digital(E_CONTROLLER_DIGITAL_R2)){
-	Intake.move (-90);
-	Intake_Layer1.move(-127);
+	Intake.move (-127);
 	Intake.tare_position(); 
 	hooks_Macro = false; 
 } else {
 	Intake.move(0);
-	Intake_Layer1.move(0);
 	Intake.tare_position(); 
 	hooks_Macro = false; 
 }
@@ -233,17 +230,21 @@ else if (con.get_digital(E_CONTROLLER_DIGITAL_R2)){
 //lady brown macro 
 if(con.get_digital(E_CONTROLLER_DIGITAL_L1)){
 	LadyBrown.move(127);
-	LBC = false;
+	// LBC = false;
 } else if(con.get_digital(E_CONTROLLER_DIGITAL_L2)){
 	LadyBrown.move(-127);
-	LBC = false;
-} else if (LBC = false){
-	LadyBrown.move(0);
+	// LBC = false;
+// } else if (LBC = false){
+// 	LadyBrown.move(0);
+// }
+} else {
+LadyBrown.move(0);
+LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 }
 
-if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_X)){
+if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)){
 	Macro ++;
-	LBC = true;
+	LBC = false;
 }
 
 if(LBC){
@@ -258,6 +259,12 @@ if(LBC){
 		Macro = 0;
 	}
 }
+
+//pistons for mogo
+
+if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_X)){
+MogoMechToggle = !MogoMechToggle;
+}  MogoMech.set_value(MogoMechToggle);
 
 //chassis drive 
 int power = con.get_analog(ANALOG_LEFT_Y);

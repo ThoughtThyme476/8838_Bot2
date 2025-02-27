@@ -56,7 +56,7 @@ void autonomous(){
    driveClampS(-250, 10, 30);
    driveTurn2(120);
    Intake.move(-100);
-   Intake_Layer1.move(-127);
+   //ErrorFixayer1.move(-127);
    driveStraight2(680);
    delay(200);
    driveTurn2(110);
@@ -86,7 +86,7 @@ void autonomous(){
   //  delay(200);
   //  driveTurn2(125);
   //  Intake.move(-100);
-  //  Intake_Layer1.move(-127);
+  //  //ErrorFixayer1.move(-127);
   //  driveStraightSlow(740, 50);
   //  driveTurn2(105);
   //  driveStraightSlow(300, 75);
@@ -111,7 +111,7 @@ void autonomous(){
     driveClampS(-330, 10, 20);
     driveTurn2(-170);
     Intake.move(-100);
-    Intake_Layer1.move(-127);
+    //ErrorFixayer1.move(-127);
     driveStraight2(950);
     delay(500);
     driveTurn2(-90);
@@ -162,7 +162,7 @@ void autonomous(){
    //driveStraight2(300);
    driveTurn2(-115);
    Intake.move(-100);
-   Intake_Layer1.move(-127);
+   //ErrorFixayer1.move(-127);
    driveStraight2(680);
    delay(200);
    driveTurn2(-105);
@@ -207,7 +207,7 @@ void autonomous(){
   StakeWing.set_value(false);
   delay(500);
   driveTurn2(-140);
-  Intake_Layer1.move(-127);
+  //ErrorFixayer1.move(-127);
   driveStraightSlow(720, 75);
   delay(100);
   driveTurn2(100);
@@ -218,11 +218,11 @@ void autonomous(){
   MogoMech.set_value(true);
   delay(100);
   Intake.move(-100);
-  Intake_Layer1.move(-127);
+  //ErrorFixayer1.move(-127);
   delay(700);
   // StakeWing.set_value(true);
   // driveTurn2(-180);
-  // Intake_Layer1.move(127);
+  // //ErrorFixayer1.move(127);
   // driveArcLF(90, 1300, 1500);
   // driveStraight2(10); 
   // driveTurn2(10);
@@ -253,7 +253,7 @@ void autonomous(){
  driveTurn2(-95);
  driveStraightSlow(-760, 50);
  driveTurn2(-135);
- Intake_Layer1.move(-127);
+ //ErrorFixayer1.move(-127);
  driveStraight2(600);
  driveTurn2(-81);
  driveClampS(-1100, 20, 40); 
@@ -272,7 +272,7 @@ void autonomous(){
 //  driveStraight2(250);
 //  MogoMech.set_value(true);
 //  driveTurn2(-85);
-//  Intake_Layer1.move(-127);
+//  //ErrorFixayer1.move(-127);
 //  Intake.move(-90);
 //  driveStraight2(750);
 //  delay(500);
@@ -300,7 +300,7 @@ void autonomous(){
    driveStraight2(500);
    driveTurn2(-90);
    Intake.move(-90);
-   Intake_Layer1.move(-127);
+   //ErrorFixayer1.move(-127);
    driveStraight2(900);
    delay(400);
    driveTurn2(-180);
@@ -361,7 +361,7 @@ void autonomous(){
 // // MogoMech.set_value(true);
 // // driveTurn(125);
 // // Intake.move(-90);
-// // Intake_Layer1.move(-127);
+// // //ErrorFixayer1.move(-127);
 // // driveStraight2(900);
 // // delay(50);
 // // driveTurn(75);
@@ -405,7 +405,7 @@ void autonomous(){
 // driveTurn(150);
 // driveTurn(14);
 // Intake.move(-80);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // driveStraight2(750); // first ring 
 // driveTurn(-26);
 // driveSlow(350, 20);
@@ -415,7 +415,7 @@ void autonomous(){
 // Intake.move(-95);
 // delay(90);
 // // Intake.move(0);
-// // Intake_Layer1.move(0);
+// // //ErrorFixayer1.move(0);
 // // ColorSenseIntakeRed(-80);//third ring 
 // driveTurn(-115);
 // driveStraight2(1000);
@@ -440,13 +440,13 @@ void autonomous(){
 // delay(200);
 // LadyBrown.move(0);
 //     Intake.move(-80);
-//     Intake_Layer1.move(-127);
+//     //ErrorFixayer1.move(-127);
 //     driveSlow(700, 25);  
 //     bool color = true;
 //     while(color){
 // if(eyes.get_hue()<25){
 //     Intake.move(0);
-//     Intake_Layer1.move(0);
+//     //ErrorFixayer1.move(0);
 //     break;
 // }
 
@@ -456,7 +456,7 @@ void autonomous(){
 // driveStraight2(100);
 // driveTurn(110);
 // Intake.move(-90);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // delay(300);
 // driveStraight2(775);
 // Intake.move(-100);
@@ -474,7 +474,7 @@ void autonomous(){
 // delay(500);
 // driveTurn(-80);
 // StakeWing.set_value(false);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // driveStraight2(400);
 // driveTurn(-120);
 // //blue side ring side    
@@ -493,13 +493,13 @@ void autonomous(){
 // delay(200);
 // LadyBrown.move(0);
 //     Intake.move(-80);
-//     Intake_Layer1.move(-127);
+//     //ErrorFixayer1.move(-127);
 //     driveSlow(700, 25);  
 //     bool color = true;
 //     while(color){
 // if(eyes.get_hue()<25){
 //     Intake.move(0);
-//     Intake_Layer1.move(0);
+//     //ErrorFixayer1.move(0);
 //     break;
 
     
@@ -509,7 +509,7 @@ void autonomous(){
 // driveStraight2(100);
 // driveTurn(-110);
 // Intake.move(-90);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // delay(300);
 // driveStraight2(775);
 // Intake.move(-100);
@@ -527,7 +527,7 @@ void autonomous(){
 // delay(500);
 // driveTurn(-80);
 // StakeWing.set_value(false);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // driveStraight2(400);
 // driveTurn(-120);
 // // work in progress
@@ -546,7 +546,7 @@ void autonomous(){
 // delay(200);
 // driveTurn(91);
 // Intake.move(-95);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // LadyBrown.move(10);
 // // StakeWing.set_value(true);
 // imu.tare();
@@ -564,7 +564,7 @@ void autonomous(){
 // // if(eyes.get_hue()<25){
 // //     delay(40);
 // //     Intake.move(0);
-// //     Intake_Layer1.move(0);
+// //     //ErrorFixayer1.move(0);
 // //     break;
 // // }
 // //     }
@@ -595,13 +595,13 @@ void autonomous(){
 // delay(200);
 // LadyBrown.move(0);
 //     Intake.move(-80);
-//     Intake_Layer1.move(-127);
+//     //ErrorFixayer1.move(-127);
 //     driveSlow(700, 25);  
 //     bool color = true;
 //     while(color){
 // if(eyes.get_hue()>150){
 //     Intake.move(0);
-//     Intake_Layer1.move(0);
+//     //ErrorFixayer1.move(0);
 //     break;
 // }
 //     }
@@ -611,7 +611,7 @@ void autonomous(){
 // driveStraight2(200);
 // driveTurn(110);
 // Intake.move(-80);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // delay(250);
 // driveStraight2(775);
 // Intake.move(-100);
@@ -635,7 +635,7 @@ void autonomous(){
 // driveClampSlow(-1700, 25, 50);
 // driveTurn(170);
 // Intake.move(-85);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // StakeWing.set_value(true);
 // driveArcLF(75, 800, 1000);
 // driveTurn(-115);
@@ -665,7 +665,7 @@ void autonomous(){
 // driveTurn(-150);
 // driveTurn(-20);
 // Intake.move(-90);
-// Intake_Layer1.move(-127);
+// //ErrorFixayer1.move(-127);
 // driveStraight2(740); // first ring 
 // driveTurn(37);
 // driveSlow(300, 20);
@@ -674,7 +674,7 @@ void autonomous(){
 // driveSlow(600, 50);
 // delay(100);
 // Intake.move(-95);
-// Intake_Layer1.move(0); 
+// //ErrorFixayer1.move(0); 
 // driveTurn(110);
 // Intake.move(0);
 // driveStraight2(1000);

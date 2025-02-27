@@ -32,6 +32,7 @@ extern void ColorSenseIntakeRed(int speed);
 extern void ColorSenseIntakeBlue(int speed);
 extern void WallStakePos(int speed, int SlowSense);
 extern void RingHold(int speed);
+extern void driveTurnT(int target);
 //extern void ColorSort(int color);
 
 
@@ -52,12 +53,12 @@ extern int viewTime;
 #define TURN_INTRGRAL_KI 30
 #define TURN_MAX_INTEGRAL 25
 
-#define TURN_KP_2 8//
-#define TURN_KI_2 0.5// 
-#define TURN_KD_2 85// 
+#define TURNT_KP 8//
+#define TURNT_KI 0.5// 
+#define TURNT_KD 85// 
 
-#define TURN_INTRGRAL_KI_2 30
-#define TURN_MAX_INTEGRAL_2 25
+#define TURNT_INTRGRAL_KI 30
+#define TURNT_MAX_INTEGRAL 25
 
 #define LIFT_KP 1.5// 
 #define LIFT_KI 0// 

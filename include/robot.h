@@ -14,7 +14,6 @@ extern pros::Motor RM;
 extern pros::Motor RB;
 
 extern pros::Motor Intake;
-extern pros::Motor Intake_Layer1;
 extern pros::Motor LadyBrown;
 
 extern pros::Imu imu;
