@@ -4,12 +4,12 @@
 
 //header Guards, safety
 
-#define LF_PORT 5
-#define LM_PORT 13
-#define LB_PORT 1
+#define LF_PORT 5 //yes
+#define LM_PORT 4 //yes
+#define LB_PORT 1 //yes
 #define RF_PORT 6
-#define RM_PORT 4
-#define RB_PORT 2
+#define RM_PORT 3 //yes
+#define RB_PORT 2 //yes
 #define IMU_PORT 14
 #define Intake_port 7
 #define LadyBrown_PORT 8
@@ -19,7 +19,7 @@
 
 
 pros::Motor LF (LF_PORT, pros::E_MOTOR_GEARSET_06, true); //keep
-pros::Motor LM (LM_PORT, pros::E_MOTOR_GEARSET_06, false); //
+pros::Motor LM (LM_PORT, pros::E_MOTOR_GEARSET_06, true); //
 pros::Motor LB (LB_PORT, pros::E_MOTOR_GEARSET_06, true); //keep
 pros::Motor RF (RF_PORT, pros::E_MOTOR_GEARSET_06, false); //keep
 pros::Motor RM (RM_PORT, pros::E_MOTOR_GEARSET_06, false); //keep
