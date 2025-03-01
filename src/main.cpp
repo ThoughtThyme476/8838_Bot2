@@ -115,27 +115,18 @@ int Macro = 0;
 
 while (true) {
 
-// if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
-// driveTurn(175);
-// delay(3000);
-// }
+
 
 //macro fishy
 // if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_UP)){
 // 	fishy_macro=!fishy_macro;
 // }
 
-// //Mogo Mech
-// if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_X)){
-// 	MogoMechToggle = !MogoMechToggle;
-// }
-// MogoMech.set_value(MogoMechToggle); 
-
-// //Stakewing toggle
-// if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)) {
-//             StakeWingToggle = !StakeWingToggle;
-//  }
-//  StakeWing.set_value(StakeWingToggle);
+//Stakewing toggle
+ if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)) {
+             StakeWingToggle = !StakeWingToggle;
+			  }
+  StakeWing.set_value(StakeWingToggle);
 
 // // Fish mech
 // bool is_above = (fishy.get_angle() >= 9000) && (fishy.get_angle() < 27000);
@@ -203,10 +194,10 @@ while (true) {
 // 		Redirect.set_brake_mode(MOTOR_BRAKE_BRAKE);
 // 	}
 // }
-//pid tester m 
-// if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
-// autons5();
-// }
+//pid tester
+ if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
+ void autonomus();
+ }
 
 
 
