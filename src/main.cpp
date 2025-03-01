@@ -102,7 +102,7 @@ void opcontrol() {
 
 bool arcToggle = true;
 bool tankToggle=false;
-bool StakeWingToggle=false;
+bool StakeWingToggle=true;
 double liftAngle=true;
 int time =0;
 bool hooks_Macro = false;
