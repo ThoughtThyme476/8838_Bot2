@@ -102,7 +102,7 @@ void opcontrol() {
 
 bool arcToggle = true;
 bool tankToggle=false;
-bool StakeWingToggle=true;
+bool StakeWingToggle=false;
 double liftAngle=true;
 int time =0;
 bool hooks_Macro = false;
@@ -115,7 +115,9 @@ int Macro = 0;
 
 while (true) {
 
-
+	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
+		driveStraight(100);
+	}
 
 //macro fishy
 // if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_UP)){
@@ -128,17 +130,17 @@ while (true) {
 			  }
   StakeWing.set_value(StakeWingToggle);
 
-// // Fish mech
+//  Fish mech
 // bool is_above = (fishy.get_angle() >= 9000) && (fishy.get_angle() < 27000);
 // if (con.get_digital(E_CONTROLLER_DIGITAL_L1)){
-// 	// Rotates fishmech back to the starting position
+// 	 Rotates fishmech back to the starting position
 // 	bool forbidden = ((fishy.get_angle() >= 27000) && (fishy.get_angle() <= 34000));
 
 //     if (forbidden == false) {
-// 		// Safe to move
+// 		 Safe to move
 // 		int speed = 70;
 // 		if (!is_above && (fishy.get_angle() >= 27000)) {
-// 			// Close to the limit so slow down
+// 			 Close to the limit so slow down
 // 			speed = 20;
 // 		}
 //     	Redirect.move(speed);
@@ -195,9 +197,9 @@ while (true) {
 // 	}
 // }
 //pid tester
- if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
- void autonomus();
- }
+ //if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
+ //driveStraight(100);
+ //}
 
 
 

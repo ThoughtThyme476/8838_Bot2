@@ -10,7 +10,7 @@
 #define RF_PORT 6
 #define RM_PORT 3 //yes
 #define RB_PORT 2 //yes
-#define IMU_PORT 14
+#define IMU_PORT 9
 #define Intake_port 7
 #define LadyBrown_PORT 8
 #define OPTICAL_PORT 18
