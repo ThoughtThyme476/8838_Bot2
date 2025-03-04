@@ -117,8 +117,8 @@ while (true) {
 
 	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
 		
-		driveStraight(500);
-		delay(30000);
+	driveTurn(90);
+		delay(3000);
 	}
 
 //macro fishy
@@ -237,7 +237,7 @@ LadyBrown.move(0);
 LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 }
 
-if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)){
+if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_UP)){
 	Macro ++;
 	LBC = false;
 }

@@ -5,10 +5,9 @@
 #ifndef PIDH
 #define PIDH
 
-#define STRAIGHT_KP 5 //make it bigger untill it goes back and fourth and make sure that the error is less than 2-3 //8.05
-#define STRAIGHT_KI 0// 0.001(breaks out of the loop) //0.5
-#define STRAIGHT_KD 0
-// start at what kp is at then make it bigger //50
+#define STRAIGHT_KP 3.1   //make it bigger untill it goes back and fourth and make sure that the error is less than 2-3 //8.05
+#define STRAIGHT_KI 0.8 // 0.001(breaks out of the loop) //0.5
+#define STRAIGHT_KD 20 // start at what kp is at then make it bigger //50
 
 #define STRAIGHT_INTEGRAL_KI 40//
 #define STRAIGHT_MAX_INTEGRAL 14.5//
@@ -47,9 +46,9 @@ extern int viewTime;
 
 
 
-#define TURN_KP 8//
+#define TURN_KP 9//
 #define TURN_KI 0.5// 
-#define TURN_KD 85// 
+#define TURN_KD 70// 
 
 #define TURN_INTRGRAL_KI 30
 #define TURN_MAX_INTEGRAL 25
@@ -66,9 +65,9 @@ extern int viewTime;
 #define LIFT_KD 0// 
 
 //straight stuff
-#define HEADING_KP 6
-#define HEADING_KI 0
-#define HEADING_KD 20
+#define HEADING_KP 4.5
+#define HEADING_KI 0.2
+#define HEADING_KD 12
 #define HEADING_MAX_INTEGRAL 0
 #define HEADING_INTEGRAL_KI 0
 
