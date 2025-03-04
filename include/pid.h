@@ -5,9 +5,10 @@
 #ifndef PIDH
 #define PIDH
 
-#define STRAIGHT_KP 0.01// make it bigger untill it goes back and fourth and make sure that the error is less than 2-3 //8.05
-#define STRAIGHT_KI 20// 0.001(breaks out of the loop) //0.5
-#define STRAIGHT_KD 10// start at what kp is at then make it bigger //50
+#define STRAIGHT_KP 5 //make it bigger untill it goes back and fourth and make sure that the error is less than 2-3 //8.05
+#define STRAIGHT_KI 0// 0.001(breaks out of the loop) //0.5
+#define STRAIGHT_KD 0
+// start at what kp is at then make it bigger //50
 
 #define STRAIGHT_INTEGRAL_KI 40//
 #define STRAIGHT_MAX_INTEGRAL 14.5//
