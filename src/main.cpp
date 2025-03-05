@@ -116,9 +116,10 @@ int Macro = 0;
 while (true) {
 
 	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
+		driveStraightC(500);
+		driveArcRF(90, 600, 1000, 50);
+		driveStraight2(10);
 		
-	driveTurn(90);
-		delay(3000);
 	}
 
 //macro fishy

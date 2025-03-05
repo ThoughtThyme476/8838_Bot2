@@ -24,10 +24,10 @@ extern void driveClamp (int target, int clampDistance);
 extern void setConstants( double kp, double ki, double kd);
 extern void driveClampS (int target, int clampDistance, int speed);
 extern void driveIntakeSlow (int target, int start, int stop, int speed);
-extern void driveArcR(double theta, double radius, int timeout);
-extern void driveArcLF(double theta, double radius, int timeout);
-extern void driveArcL(double theta, double radius, int timeout);
-extern void driveArcRF(double theta, double radius, int timeout);
+extern void driveArcR(double theta, double radius, int timeout, int speed);
+extern void driveArcLF(double theta, double radius, int timeout, int speed);
+extern void driveArcL(double theta, double radius, int timeout, int speed);
+extern void driveArcRF(double theta, double radius, int timeout, int speed);
 extern void ColorSenseIntakeRed(int speed);
 extern void ColorSenseIntakeBlue(int speed);
 extern void WallStakePos(int speed, int SlowSense);
@@ -72,9 +72,9 @@ extern int viewTime;
 #define HEADING_INTEGRAL_KI 0
 
 //arc turn stuff
-#define ARC_HEADING_KP 6 //make it bigger untill u can see it correcting along the path // 40
-#define ARC_HEADING_KI 0.1
-#define ARC_HEADING_KD 10 // make it bigger untill it is smooth //18
+#define ARC_HEADING_KP 8 //make it bigger untill u can see it correcting along the path // 40
+#define ARC_HEADING_KI 0.2
+#define ARC_HEADING_KD 20 // make it bigger untill it is smooth //18
 #define ARC_HEADING_MAX_INTEGRAL 0
 #define ARC_HEADING_INTEGRAL_KI 0 // to- do list, tune 
 
