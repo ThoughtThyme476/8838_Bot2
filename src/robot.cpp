@@ -15,7 +15,7 @@
 #define LadyBrown_PORT 8
 #define OPTICAL_PORT 18
 #define DISTANCE_PORT 19
-#define ROTATION_PORT 20//random port
+#define ROTATION_PORT 21
 
 
 pros::Motor LF (LF_PORT, pros::E_MOTOR_GEARSET_06, true); //keep

@@ -132,10 +132,10 @@ while (true) {
   StakeWing.set_value(StakeWingToggle);
 
 //  Fish mech
-// bool is_above = (fishy.get_angle() >= 9000) && (fishy.get_angle() < 27000);
-// if (con.get_digital(E_CONTROLLER_DIGITAL_L1)){
+//bool is_above = (fishy.get_angle() >= 9000) && (fishy.get_angle() < 27000);
+//if (con.get_digital(E_CONTROLLER_DIGITAL_L1)){
 // 	 Rotates fishmech back to the starting position
-// 	bool forbidden = ((fishy.get_angle() >= 27000) && (fishy.get_angle() <= 34000));
+//bool forbidden = ((fishy.get_angle() >= 27000) && (fishy.get_angle() <= 34000));
 
 //     if (forbidden == false) {
 // 		 Safe to move
@@ -174,35 +174,30 @@ while (true) {
 // 	fishy_macro=false; 
 // 	liftAngle = fishy.get_position();
 // 	Redirect.set_brake_mode(MOTOR_BRAKE_HOLD);
-// } 
-// else if (fishy_macro){
-// 	setConstants(LIFT_KP,LIFT_KI,LIFT_KD);
+//  } 
+//   else if (fishy_macro){
+//  	setConstants(LIFT_KP,LIFT_KI,LIFT_KD);
 // 	Redirect.move(calcPID(37000,fishy.get_position(),0,0));
-// 	if(abs(fishy.get_position()-37000)<200){
-// 		fishy_macro=false;
-// 	}
-// }
-// else {
-// 	// We aren't in macro mode, and no buttons are pressed
-// 	// setConstants(LIFT_KP,LIFT_KI,LIFT_KD);
-// 	// Redirect.move(0);
-// 	//Redirect.move(calPID(liftAngle,fishy.get_position(),0,0));
+//  	if(abs(fishy.get_position()-37000)<200){
+//  		fishy_macro=false;
+//  	}
+//  }
+ // We aren't in macro mode, and no buttons are pressed
+	// setConstants(LIFT_KP,LIFT_KI,LIFT_KD);
+ 	// Redirect.move(0);
+ 	//Redirect.move(calPID(liftAngle,fishy.get_position(),0,0));
+//  else {
+	
 // 	if (return_fishmech && is_above) {
-// 		// fish mech is above horizontal, automatically return to start
+// // 		// fish mech is above horizontal, automatically return to start
 // 	    Redirect.move(50);
-// 	} else {
-// 		// fish mech is below horizontal, let it just coast
-// 		return_fishmech = false;
-// 		Redirect.move(0);
-// 		Redirect.set_brake_mode(MOTOR_BRAKE_BRAKE);
-// 	}
-// }
-//pid tester
- //if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
- //driveStraight(100);
+//  	} else {
+// // 		// fish mech is below horizontal, let it just coast
+//  		return_fishmech = false;
+//  		Redirect.move(0);
+//  		Redirect.set_brake_mode(MOTOR_BRAKE_BRAKE);
+ //	}
  //}
-
-
 
 //Intake
 if (con.get_digital(E_CONTROLLER_DIGITAL_R1)){
@@ -224,13 +219,12 @@ else if (con.get_digital(E_CONTROLLER_DIGITAL_R2)){
 //lady brown macro 
 if(con.get_digital(E_CONTROLLER_DIGITAL_L1)){
 	LadyBrown.move(127);
-	// LBC = false;
+	 LBC = false;
 } else if(con.get_digital(E_CONTROLLER_DIGITAL_L2)){
 	LadyBrown.move(-127);
-	// LBC = false;
-// } else if (LBC = false){
-// 	LadyBrown.move(0);
-// }
+	 LBC = false;
+ } else if (LBC = false){
+ 	LadyBrown.move(0);
 } else {
 LadyBrown.move(0);
 LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
@@ -238,19 +232,19 @@ LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 
 if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_UP)){
 	Macro ++;
-	LBC = false;
+	LBC = true;
 }
 
 if(LBC){
 	setConstants(MACRO_KP, MACRO_KI, MACRO_KD);
 	if (Macro == 0){
-		LadyBrown.move(calcPID(15000, roto.get_angle(), 0, 0));
+		LadyBrown.move(calcPID(35991, roto.get_angle(), 0, 0));//need to get the right angle optimal angle 166.9
 	} else if (Macro == 1){
-		LadyBrown.move(calcPID(20000, roto.get_angle(), 0, 0));
+		LadyBrown.move(calcPID(32985, roto.get_angle(), 0, 0));
 	} else if(Macro == 2){
-		LadyBrown.move(calcPID(27000, roto.get_angle(), 0, 0));
+		LadyBrown.move(calcPID(16700, roto.get_angle(), 0, 0));
 	} else {
-		Macro = 0;
+		Macro = 1;
 	}
 }
 
@@ -293,7 +287,7 @@ RB.move(right);
 if (time % 50 == 0 && time % 100 !=0 && time % 150 !=0){
     con.print(0,0,"Time:%f       ", float(time2));//viewTime
 } else if (time% 100 == 0 && time % 150 !=0){
-    con.print(1,0,"HeadingError!%f          ", float(imu.get_heading()));
+    con.print(1,0,"HeadingError!%f      ", float(Macro));
 } else if (time % 150 == 0){
     con.print(2,0,"Error:%f      ",float(error));
 }

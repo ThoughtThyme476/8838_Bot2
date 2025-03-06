@@ -79,7 +79,7 @@ extern int viewTime;
 #define ARC_HEADING_MAX_INTEGRAL 0
 #define ARC_HEADING_INTEGRAL_KI 0 // to- do list, tune 
 
-#define MACRO_KP 0.5
+#define MACRO_KP 10
 #define MACRO_KI 0
 #define MACRO_KD 0
 
