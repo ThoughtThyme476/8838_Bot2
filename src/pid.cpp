@@ -358,7 +358,11 @@ void driveStraight(int target) {
 
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
-         setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);   
+         if(abs(target - encoderAVG) < 25){
+            setConstants(2.5, 0, 0);
+        } else{
+            setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
+        }   
         voltage = calcPID(target, encoderAVG, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
       
        double position = imu.get_heading();
@@ -435,8 +439,12 @@ void driveStraight(int target) {
     // variKD = ((-0.000000010414) * pow(x,5)) + (0.00000436151 * pow(x,4)) + (-0.000635881 * pow(x,3)) + (0.0378021 * pow(x,2)) + (-0.805858 * x) + 69.3766;
     // variKP = ((0.00000000017809) * pow(x,5)) + (-0.000000087322 * pow(x,4)) + (0.000015948* pow(x,3)) + (-0.00128717 * pow(x,2)) + (0.041072 * x) + 6.7388;
     //setConstants(variKP, TURN_KI, variKD);
-    setConstants(TURN_KP, TURN_KI, TURN_KD);
-    timeout = (0.0000000488652*pow(x,5)) + (0.0000280973*pow(x,4)) + (0.00602929*pow(x,3)) + (-0.582606*pow(x,2)) + (27.80565*(x)) + 244.964;
+    if(abs(error) < 2){
+        setConstants(2.5, 0, 0);
+    } else{
+        setConstants(TURN_KP, TURN_KI, TURN_KD); 
+    } 
+   // timeout = (0.0000000488652*pow(x,5)) + (0.0000280973*pow(x,4)) + (0.00602929*pow(x,3)) + (-0.582606*pow(x,2)) + (27.80565*(x)) + 244.964;
     imu.tare_heading();
 
     while(true) { 
@@ -516,11 +524,18 @@ void driveStraight(int target) {
     double variKD = 0;
     double variKP = 0;
     x = double(abs(turnv));
-   timeout = (0.0000000488652*pow(x,5)) + (0.0000280973*pow(x,4)) + (0.00602929*pow(x,3)) + (-0.582606*pow(x,2)) + (27.80565*(x)) + 244.964;
+  // timeout = (0.0000000488652*pow(x,5)) + (0.0000280973*pow(x,4)) + (0.00602929*pow(x,3)) + (-0.582606*pow(x,2)) + (27.80565*(x)) + 244.964;
     // variKD = ((-0.000000010414) * pow(x,5)) + (0.00000436151 * pow(x,4)) + (-0.000635881 * pow(x,3)) + (0.0378021 * pow(x,2)) + (-0.805858 * x) + 69.3766;
     // variKP = ((0.00000000017809) * pow(x,5)) + (-0.000000087322 * pow(x,4)) + (0.000015948* pow(x,3)) + (-0.00128717 * pow(x,2)) + (0.041072 * x) + 6.7388;
-    setConstants(TURN_KP, TURN_KI, TURN_KD);
+
+   // setConstants(TURN_KP, TURN_KI, TURN_KD); 
     while(true) { 
+
+    if(abs(error) <= 2){
+        setConstants(15, 0, 0);
+    } else{
+         setConstants(TURN_KP, TURN_KI, TURN_KD); 
+    }     
     position = imu.get_heading();
      if(position > 180){
         position = ((360 - position)*-1);
@@ -551,7 +566,7 @@ void driveStraight(int target) {
 
         if (count >= 20 || time2 > timeout) {
 
-            break;
+            //break;
         }
         if(time2 % 50 == 0 && time2 % 100 != 0 && time2 % 150!= 0){
             con.print(0,0, "ERROR: %f           ", float(error));
@@ -612,10 +627,14 @@ void driveTurnT(int target){
     double variKD = 0;
     double variKP = 0;
     x = double(abs(turnv));
-   timeout = (0.0000000488652*pow(x,5)) + (0.0000280973*pow(x,4)) + (0.00602929*pow(x,3)) + (-0.582606*pow(x,2)) + (27.80565*(x)) + 244.964;
+   //timeout = (0.0000000488652*pow(x,5)) + (0.0000280973*pow(x,4)) + (0.00602929*pow(x,3)) + (-0.582606*pow(x,2)) + (27.80565*(x)) + 244.964;
     // variKD = ((-0.000000010414) * pow(x,5)) + (0.00000436151 * pow(x,4)) + (-0.000635881 * pow(x,3)) + (0.0378021 * pow(x,2)) + (-0.805858 * x) + 69.3766;
     // variKP = ((0.00000000017809) * pow(x,5)) + (-0.000000087322 * pow(x,4)) + (0.000015948* pow(x,3)) + (-0.00128717 * pow(x,2)) + (0.041072 * x) + 6.7388;
-    setConstants(TURNT_KP, TURNT_KI, TURNT_KD);
+    if(abs(error) < 2){
+        setConstants(2.5, 0, 0);
+    } else{
+        setConstants(TURN_KP, TURN_KI, TURN_KD); 
+    }  
     while(true) { 
     position = imu.get_heading();
      if(position > 180){
@@ -677,7 +696,7 @@ void driveStraight2(int target) {
 
     double x = 0;
     x = double(abs(target));
-    timeout = (0.000000000000886095* pow(x,5)) + ( -0.00000000472127 * pow(x,4)) + (0.00000851584 * pow(x,3)) + (-0.00652001* pow(x,2)) + (2.86386 * x) + 222.47509;
+   // timeout = (0.000000000000886095* pow(x,5)) + ( -0.00000000472127 * pow(x,4)) + (0.00000851584 * pow(x,3)) + (-0.00652001* pow(x,2)) + (2.86386 * x) + 222.47509;
     double voltage;
     double encoderAVG;
     int count = 0;
@@ -692,7 +711,11 @@ void driveStraight2(int target) {
 
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
-        setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);   
+        if(abs(target - encoderAVG) < 25){
+            setConstants(2.5, 0, 0);
+        } else{
+            setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
+        }  
         voltage = calcPID(target, encoderAVG, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
 
 if(trueTarget > 180) {
@@ -739,7 +762,7 @@ if(trueTarget > 180) {
             con.print(0,0, "time2: %f           ", float(time2));
         }
          if(time2 % 50 == 0 && time2 % 100 != 0){
-            con.print(2,0, "EncoderAVG: %f           ", float(trueTarget));
+            con.print(2,0, "EncoderAVG: %f           ", float(time2));
         }
          if(time2 % 50 == 0){
             con.print(1,0, "error %f           ", float(error));
@@ -781,7 +804,11 @@ void driveStraightRush(int target) {
 
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
-        setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);   
+        if(abs(target - encoderAVG) < 25){
+            setConstants(2.5, 0, 0);
+        } else{
+            setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
+        }   
         voltage = calcPID(target, encoderAVG, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
 
 if(trueTarget > 180) {
@@ -876,7 +903,11 @@ void driveStraightC(int target) {
 
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
-        setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);   
+        if(abs(target - encoderAVG) < 25){
+            setConstants(2.5, 0, 0);
+        } else{
+            setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
+        }   
         voltage = calcPID(target, encoderAVG, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
 
 if(trueTarget > 180) {
@@ -974,7 +1005,11 @@ void driveClamp(int target, int clampDistance) {
 
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
-        setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);   
+        if(abs(target - encoderAVG) < 25){
+            setConstants(2.5, 0, 0);
+        } else{
+            setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
+        }   
         voltage = calcPID(target, encoderAVG, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
 
 if(trueTarget > 180) {
@@ -1068,7 +1103,11 @@ void driveClampS(int target, int clampDistanceFromTarget, int speed) {
 
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
-        setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);   
+        if(abs(target - encoderAVG) < 25){
+            setConstants(2.5, 0, 0);
+        } else{
+            setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
+        }   
         voltage = calcPID(target, encoderAVG, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
 
 if(trueTarget > 180) {
@@ -1163,7 +1202,11 @@ void driveStraightSlow(int target, int speed) { // RETUNE TIMEOUT!! SLOW PID!
 
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
-        setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);   
+        if(abs(target - encoderAVG) < 25){
+            setConstants(2.5, 0, 0);
+        } else{
+            setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
+        }   
         voltage = calcPID(target, encoderAVG, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
 
 if(trueTarget > 180) {

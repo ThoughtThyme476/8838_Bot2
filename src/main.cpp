@@ -112,14 +112,12 @@ bool return_fishmech = false;
 bool MogoMechToggle = false;
 bool LBC = false;
 int Macro = 0;
+eyes.set_led_pwm(100);
 
 while (true) {
 
 	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
-		driveStraightC(500);
-		driveArcRF(90, 600, 1000, 50);
-		driveStraight2(10);
-		
+			driveTurn2(90);
 	}
 
 //macro fishy
@@ -293,7 +291,7 @@ RB.move(right);
 }
 
 if (time % 50 == 0 && time % 100 !=0 && time % 150 !=0){
-    con.print(0,0,"Time:%f       ", float(time));//viewTime
+    con.print(0,0,"Time:%f       ", float(time2));//viewTime
 } else if (time% 100 == 0 && time % 150 !=0){
     con.print(1,0,"HeadingError!%f          ", float(imu.get_heading()));
 } else if (time % 150 == 0){
