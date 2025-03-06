@@ -117,9 +117,10 @@ while (true) {
 
 	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
 		
-	driveTurn(90);
+		driveArcR(90, 600, 10, 100);
 		delay(3000);
 	}
+	
 
 //macro fishy
 // if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_UP)){

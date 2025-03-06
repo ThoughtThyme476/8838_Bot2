@@ -24,15 +24,16 @@ extern void driveClamp (int target, int clampDistance);
 extern void setConstants( double kp, double ki, double kd);
 extern void driveClampS (int target, int clampDistance, int speed);
 extern void driveIntakeSlow (int target, int start, int stop, int speed);
-extern void driveArcR(double theta, double radius, int timeout);
-extern void driveArcLF(double theta, double radius, int timeout);
-extern void driveArcL(double theta, double radius, int timeout);
-extern void driveArcRF(double theta, double radius, int timeout);
+extern void driveArcR(double theta, double radius, int timeout, int speed);
+extern void driveArcLF(double theta, double radius, int timeout, int speed);
+extern void driveArcL(double theta, double radius, int timeout, int speed);
+extern void driveArcRF(double theta, double radius, int timeout, int speed);
 extern void ColorSenseIntakeRed(int speed);
 extern void ColorSenseIntakeBlue(int speed);
 extern void WallStakePos(int speed, int SlowSense);
 extern void RingHold(int speed);
 extern void driveTurnT(int target);
+
 //extern void ColorSort(int color);
 
 

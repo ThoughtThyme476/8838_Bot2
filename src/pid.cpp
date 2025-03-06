@@ -1231,7 +1231,7 @@ if(trueTarget > 180) {
     
 }
 
-void driveArcL(double theta, double radius, int timeout, int speed = 100){
+void driveArcL(double theta, double radius, int timeout, int speed){
     setConstants(STRAIGHT_KI, STRAIGHT_KI, STRAIGHT_KD);
 
     trueTarget -= theta;
@@ -1312,7 +1312,7 @@ int fix = calcPID3((trueTarget + leftcorrect), position, ARC_HEADING_INTEGRAL_KI
     }   
 }
 
-void driveArcR(double theta, double radius, int timeout, int speed = 100){
+void driveArcR(double theta, double radius, int timeout, int speed){
     setConstants(STRAIGHT_KI, STRAIGHT_KI, STRAIGHT_KD);
 
     trueTarget += theta;
@@ -1391,7 +1391,7 @@ int fix = calcPID3((trueTarget + rightcorrect), position, ARC_HEADING_INTEGRAL_K
     }   
 }
 
-void driveArcLF(double theta, double radius, int timeout, int speed = 100){
+void driveArcLF(double theta, double radius, int timeout, int speed){
 
 setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);
 trueTarget -= theta;
