@@ -5,9 +5,9 @@
 #ifndef PIDH
 #define PIDH
 
-#define STRAIGHT_KP 3.1   //make it bigger untill it goes back and fourth and make sure that the error is less than 2-3 //8.05
-#define STRAIGHT_KI 0.8 // 0.001(breaks out of the loop) //0.5
-#define STRAIGHT_KD 20 // start at what kp is at then make it bigger //50
+#define STRAIGHT_KP 0.5 //make it bigger untill it goes back and fourth and make sure that the error is less than 2-3 //8.05
+#define STRAIGHT_KI 0.1 // 0.001(breaks out of the loop) //0.5
+#define STRAIGHT_KD 5 // start at what kp is at then make it bigger //50
 
 #define STRAIGHT_INTEGRAL_KI 40//
 #define STRAIGHT_MAX_INTEGRAL 14.5//
@@ -47,9 +47,9 @@ extern int viewTime;
 
 
 
-#define TURN_KP 9//
-#define TURN_KI 0.5// 
-#define TURN_KD 70// 
+#define TURN_KP 3//
+#define TURN_KI 0// 
+#define TURN_KD 20// 
 
 #define TURN_INTRGRAL_KI 30
 #define TURN_MAX_INTEGRAL 25
@@ -73,9 +73,9 @@ extern int viewTime;
 #define HEADING_INTEGRAL_KI 0
 
 //arc turn stuff
-#define ARC_HEADING_KP 6 //make it bigger untill u can see it correcting along the path // 40
-#define ARC_HEADING_KI 0.1
-#define ARC_HEADING_KD 10 // make it bigger untill it is smooth //18
+#define ARC_HEADING_KP 8 //make it bigger untill u can see it correcting along the path // 40
+#define ARC_HEADING_KI 0.2
+#define ARC_HEADING_KD 20 // make it bigger untill it is smooth //18
 #define ARC_HEADING_MAX_INTEGRAL 0
 #define ARC_HEADING_INTEGRAL_KI 0 // to- do list, tune 
 
