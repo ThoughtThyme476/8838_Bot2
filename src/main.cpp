@@ -227,24 +227,23 @@ if(con.get_digital(E_CONTROLLER_DIGITAL_L1)){
  	LadyBrown.move(0);
 } else {
 LadyBrown.move(0);
-LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
 }
 
-if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_UP)){
-	Macro ++;
+if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_DOWN)){
+	Macro = 0;
 	LBC = true;
+	Macro++ ;
 }
 
-if(LBC){
+if(LBC = true){
+	//LadyBrown.move(127);
 	setConstants(MACRO_KP, MACRO_KI, MACRO_KD);
 	if (Macro == 0){
 		LadyBrown.move(calcPID(35991, roto.get_angle(), 0, 0));//need to get the right angle optimal angle 166.9
 	} else if (Macro == 1){
-		LadyBrown.move(calcPID(32985, roto.get_angle(), 0, 0));
-	} else if(Macro == 2){
-		LadyBrown.move(calcPID(16700, roto.get_angle(), 0, 0));
+		LadyBrown.move(calcPID(-32985, roto.get_angle(), 0, 0));
 	} else {
-		Macro = 1;
+		Macro = 0;
 	}
 }
 
