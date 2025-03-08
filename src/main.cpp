@@ -218,34 +218,44 @@ else if (con.get_digital(E_CONTROLLER_DIGITAL_R2)){
 
 //lady brown macro 
 if(con.get_digital(E_CONTROLLER_DIGITAL_L1)){
-	LadyBrown.move(127);
-	 LBC = false;
+	LBC = false;
+	LadyBrown.move(90);
+	
+	
 } else if(con.get_digital(E_CONTROLLER_DIGITAL_L2)){
-	LadyBrown.move(-127);
-	 LBC = false;
+	LBC = false;
+	LadyBrown.move(-90);
+
+	
+	
  } else if (LBC = false){
  	LadyBrown.move(0);
+	 LadyBrown.brake();
 } else {
 LadyBrown.move(0);
+LadyBrown.brake();
 }
 
 if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_DOWN)){
-	Macro = 0;
 	LBC = true;
 	Macro++ ;
 }
 
-if(LBC = true){
-	//LadyBrown.move(127);
-	setConstants(MACRO_KP, MACRO_KI, MACRO_KD);
-	if (Macro == 0){
-		LadyBrown.move(calcPID(35991, roto.get_angle(), 0, 0));//need to get the right angle optimal angle 166.9
-	} else if (Macro == 1){
-		LadyBrown.move(calcPID(-32985, roto.get_angle(), 0, 0));
-	} else {
-		Macro = 0;
-	}
-}
+//if(LBC = true){
+// 	//LadyBrown.move(127);
+// 	setConstants(MACRO_KP, MACRO_KI, MACRO_KD);
+// 	Macro = 0;
+// 	if (Macro == 0){
+// 		LadyBrown.move(calcPID(35000, roto.get_angle(), 0, 0));//need to get the right angle optimal angle `
+// 	} else if (Macro == 1){
+// 		LadyBrown.move(calcPID(31000, roto.get_angle(), 0, 0));
+// 	}else {
+// 		//LadyBrown.move(0);
+		
+// 	}
+// }
+
+
 
 //pistons for mogo
 

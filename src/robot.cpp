@@ -35,6 +35,6 @@ pros::Distance dis (DISTANCE_PORT);
 pros::Controller con (pros::E_CONTROLLER_MASTER);
 
 
-pros::ADIDigitalOut MogoMech ('A',true);
+pros::ADIDigitalOut MogoMech ('B',true);//out soloniod was stolen so I changed this
 pros::ADIDigitalOut StakeWing('H',false);
-pros::ADIDigitalIn selec ('C');//bla
+pros::ADIDigitalIn selec ('C');//
