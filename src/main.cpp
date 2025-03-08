@@ -228,18 +228,30 @@ if(con.get_digital(E_CONTROLLER_DIGITAL_L1)){
 
 	
 	
- } else if (LBC = false){
+ } else if (LBC == false){
  	LadyBrown.move(0);
 	 LadyBrown.brake();
-} else {
-LadyBrown.move(0);
-LadyBrown.brake();
-}
+ }
 
-if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_DOWN)){
-	LBC = true;
-	Macro++ ;
-}
+
+
+if (con.get_digital(E_CONTROLLER_DIGITAL_UP)) {
+  // Set it into Macro Mode
+  LBC = true;
+  Macro++;
+
+  // Finds the angle that we need to move 
+  double current_angle = roto.get_angle() / 100.0;
+  double target_angle = 230.0;
+  double change_angle = target_angle - current_angle;
+  
+  // Finding how far to move the motor
+  double motor_ticks = change_angle * 5;
+
+  // Move motor to the desired position
+  LadyBrown.move_relative(motor_ticks, 90);
+} 
+
 
 //if(LBC = true){
 // 	//LadyBrown.move(127);
