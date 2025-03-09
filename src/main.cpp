@@ -26,59 +26,59 @@ void on_center_button() {
 //bla bla bla
 
 void initialize() {
-	pros::lcd::initialize();
-	pros::lcd::set_text(1, "Hello PROS User!");
+	// pros::lcd::initialize();
+	// pros::lcd::set_text(1, "Hello PROS User!");
 
-	pros::lcd::register_btn1_cb(on_center_button);
+	// pros::lcd::register_btn1_cb(on_center_button);
 
-	while(true){
-		if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
-			atn++;
-		}
-		if(atn>7){//change number to number of autons
-			atn=0;
-		}
-		if (atn == 0) {
-			autstr = "NONE";
-			con.print(0,0, "Aut 0:%s", autstr);
-		}
-		else if (atn ==1) {
-			autstr = "RED RING";
-			con.print(0,0, "Aut 1: %s", autstr);
-		}
-		else if (atn ==2) {
-			autstr = "BLUE RING";
-			con.print(0,0, "Aut 2: %s", autstr);
-		}
-		else if (atn ==3) {
-			autstr = "RED GOAL QUALS";
-			con.print(0,0, "Aut 3: %s", autstr);
-		}
-		else if (atn ==4) {
-			autstr = "BLUE GOAL QUALS";
-			con.print(0,0, "Aut 4: %s", autstr);
-		}
-		else if (atn ==5) {
-			autstr = "RED GOAL ELIMS";
-			con.print(0,0, "Aut 5: %s", autstr);
-		}
-		else if (atn ==6) {
-			autstr = "BLUE GOALS ELIMS";
-			con.print(0,0, "Aut 6: %s", autstr);
-		}
-		else if (atn ==7) {
-			autstr = "SKILLS";
-			con.print(0,0, "Aut 7: %s", autstr);
-		}
+	// while(true){
+	// 	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
+	// 		atn++;
+	// 	}
+	// 	if(atn>7){//change number to number of autons
+	// 		atn=0;
+	// 	}
+	// 	if (atn == 0) {
+	// 		autstr = "NONE";
+	// 		con.print(0,0, "Aut 0:%s", autstr);
+	// 	}
+	// 	else if (atn ==1) {
+	// 		autstr = "RED RING";
+	// 		con.print(0,0, "Aut 1: %s", autstr);
+	// 	}
+	// 	else if (atn ==2) {
+	// 		autstr = "BLUE RING";
+	// 		con.print(0,0, "Aut 2: %s", autstr);
+	// 	}
+	// 	else if (atn ==3) {
+	// 		autstr = "RED GOAL QUALS";
+	// 		con.print(0,0, "Aut 3: %s", autstr);
+	// 	}
+	// 	else if (atn ==4) {
+	// 		autstr = "BLUE GOAL QUALS";
+	// 		con.print(0,0, "Aut 4: %s", autstr);
+	// 	}
+	// 	else if (atn ==5) {
+	// 		autstr = "RED GOAL ELIMS";
+	// 		con.print(0,0, "Aut 5: %s", autstr);
+	// 	}
+	// 	else if (atn ==6) {
+	// 		autstr = "BLUE GOALS ELIMS";
+	// 		con.print(0,0, "Aut 6: %s", autstr);
+	// 	}
+	// 	else if (atn ==7) {
+	// 		autstr = "SKILLS";
+	// 		con.print(0,0, "Aut 7: %s", autstr);
+	// 	}
 
-		if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_X)){
-			break;
-		}
-
-
+	// 	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_X)){
+	// 		break;
+	// 	}
 
 
-			}
+
+
+	// 		}
 
 //auton selector
 
@@ -117,87 +117,15 @@ eyes.set_led_pwm(100);
 while (true) {
 
 	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
-			driveTurn2(90);
+		driveStraight2(250);
+			driveArcL(90, 600, 1000, 100);
 	}
-
-//macro fishy
-// if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_UP)){
-// 	fishy_macro=!fishy_macro;
-// }
 
 //Stakewing toggle
  if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)) {
              StakeWingToggle = !StakeWingToggle;
 			  }
   StakeWing.set_value(StakeWingToggle);
-
-//  Fish mech
-//bool is_above = (fishy.get_angle() >= 9000) && (fishy.get_angle() < 27000);
-//if (con.get_digital(E_CONTROLLER_DIGITAL_L1)){
-// 	 Rotates fishmech back to the starting position
-//bool forbidden = ((fishy.get_angle() >= 27000) && (fishy.get_angle() <= 34000));
-
-//     if (forbidden == false) {
-// 		 Safe to move
-// 		int speed = 70;
-// 		if (!is_above && (fishy.get_angle() >= 27000)) {
-// 			 Close to the limit so slow down
-// 			speed = 20;
-// 		}
-//     	Redirect.move(speed);
-// 	} else 
-// 		// There isn't a BRAKE mode, so just move the other way to
-// 		// stay in place
-// 		Redirect.move(0);
-// 	} else if (con.get_digital(E_CONTROLLER_DIGITAL_L2)){
-// 	// Rotates fishmech to put the ring on the stake
-// 	bool forbidden = (is_above && (fishy.get_angle() >= 23000));
-
-//     if (forbidden == false) {
-// 		// Safe to move
-// 		int speed = -70;
-// 		if (is_above && (fishy.get_angle() >= 19000)) {
-// 			// Close to the limit so slow down
-// 			speed = -20;
-// 		}
-//     	Redirect.move(speed);
-// 	} else {
-// 		// There isn't a BRAKE mode, so just move the other way to stay in place 
-// 		Redirect.move(10);
-// 	}
-
-// 	// Once we are above automatically return to start
-// 	if (is_above) {
-// 		return_fishmech = true;
-// 	}
-
-// 	fishy_macro=false; 
-// 	liftAngle = fishy.get_position();
-// 	Redirect.set_brake_mode(MOTOR_BRAKE_HOLD);
-//  } 
-//   else if (fishy_macro){
-//  	setConstants(LIFT_KP,LIFT_KI,LIFT_KD);
-// 	Redirect.move(calcPID(37000,fishy.get_position(),0,0));
-//  	if(abs(fishy.get_position()-37000)<200){
-//  		fishy_macro=false;
-//  	}
-//  }
- // We aren't in macro mode, and no buttons are pressed
-	// setConstants(LIFT_KP,LIFT_KI,LIFT_KD);
- 	// Redirect.move(0);
- 	//Redirect.move(calPID(liftAngle,fishy.get_position(),0,0));
-//  else {
-	
-// 	if (return_fishmech && is_above) {
-// // 		// fish mech is above horizontal, automatically return to start
-// 	    Redirect.move(50);
-//  	} else {
-// // 		// fish mech is below horizontal, let it just coast
-//  		return_fishmech = false;
-//  		Redirect.move(0);
-//  		Redirect.set_brake_mode(MOTOR_BRAKE_BRAKE);
- //	}
- //}
 
 //Intake
 if (con.get_digital(E_CONTROLLER_DIGITAL_R1)){
@@ -219,12 +147,12 @@ else if (con.get_digital(E_CONTROLLER_DIGITAL_R2)){
 //lady brown macro 
 if(con.get_digital(E_CONTROLLER_DIGITAL_L1)){
 	LBC = false;
-	LadyBrown.move(90);
+	LadyBrown.move(127);
 	
 	
 } else if(con.get_digital(E_CONTROLLER_DIGITAL_L2)){
 	LBC = false;
-	LadyBrown.move(-90);
+	LadyBrown.move(-127);
 
 	
 	
@@ -242,7 +170,7 @@ if (con.get_digital(E_CONTROLLER_DIGITAL_UP)) {
 
   // Finds the angle that we need to move 
   double current_angle = roto.get_angle() / 100.0;
-  double target_angle = 230.0;
+  double target_angle = 242;
   double change_angle = target_angle - current_angle;
   
   // Finding how far to move the motor
@@ -252,7 +180,39 @@ if (con.get_digital(E_CONTROLLER_DIGITAL_UP)) {
   LadyBrown.move_relative(motor_ticks, 90);
 } 
 
-
+if (con.get_digital(E_CONTROLLER_DIGITAL_DOWN)) {
+	// Set it into Macro Mode
+	LBC = true;
+	Macro++;
+  
+	// Finds the angle that we need to move 
+	double current_angle = roto.get_angle() / 100.0;
+	double target_angle = 140.0;
+	double change_angle = target_angle - current_angle;
+	
+	// Finding how far to move the motor
+	double motor_ticks = change_angle * 5;
+  
+	// Move motor to the desired position
+	LadyBrown.move_relative(motor_ticks, 90);
+  } 
+  
+  if (con.get_digital(E_CONTROLLER_DIGITAL_LEFT)) {
+	// Set it into Macro Mode
+	LBC = true;
+	Macro++;
+  
+	// Finds the angle that we need to move 
+	double current_angle = roto.get_angle() / 100.0;
+	double target_angle = 230.0;
+	double change_angle = target_angle - current_angle;
+	
+	// Finding how far to move the motor
+	double motor_ticks = change_angle * 5;
+  
+	// Move motor to the desired position
+	LadyBrown.move_relative(motor_ticks, 90);
+  }
 //if(LBC = true){
 // 	//LadyBrown.move(127);
 // 	setConstants(MACRO_KP, MACRO_KI, MACRO_KD);

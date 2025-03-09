@@ -2,7 +2,7 @@
 #include "robot.h"
 using namespace pros;
 using namespace std;
-extern void autons1();
+extern void Solo_AWP_red();
 extern void autons2();
 extern void autons3();
 extern void arc();

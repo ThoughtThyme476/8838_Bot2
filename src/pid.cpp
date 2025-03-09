@@ -334,8 +334,7 @@ void driveStraight(int target) {
 
     double x = 0;
     x = double(abs(target));
-   //timeout = (0.000000000000886095* pow(x,5)) + ( -0.00000000472127 * pow(x,4)) + (0.00000851584 * pow(x,3)) + (-0.00652001* pow(x,2)) + (2.86386 * x) + 222.47509;
-
+   //   timeout = (-0.000000000000750853* pow(x,5)) + (  0.00000000378468 * pow(x,4)) + (-0.00000629527 * pow(x,3)) + (0.00422834* pow(x,2)) + (-0.665814 * x) + 707.21366;
     imu.tare();
 
     
@@ -359,7 +358,7 @@ void driveStraight(int target) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
          if(abs(target - encoderAVG) < 25){
-            setConstants(2.5, 0, 0);
+            setConstants(5, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -440,11 +439,11 @@ void driveStraight(int target) {
     // variKP = ((0.00000000017809) * pow(x,5)) + (-0.000000087322 * pow(x,4)) + (0.000015948* pow(x,3)) + (-0.00128717 * pow(x,2)) + (0.041072 * x) + 6.7388;
     //setConstants(variKP, TURN_KI, variKD);
     if(abs(error) < 2){
-        setConstants(2.5, 0, 0);
+        setConstants(16.75, 0, 0);
     } else{
         setConstants(TURN_KP, TURN_KI, TURN_KD); 
     } 
-   // timeout = (0.0000000488652*pow(x,5)) + (0.0000280973*pow(x,4)) + (0.00602929*pow(x,3)) + (-0.582606*pow(x,2)) + (27.80565*(x)) + 244.964;
+   //timeout = (-0.000000141031*pow(x,5)) + (0.0000650427*pow(x,4)) + (-0.0105768*pow(x,3)) + (0.678481*pow(x,2)) + (-8.01221*(x)) + 353.39229;
     imu.tare_heading();
 
     while(true) { 
@@ -524,7 +523,7 @@ void driveStraight(int target) {
     double variKD = 0;
     double variKP = 0;
     x = double(abs(turnv));
-  // timeout = (0.0000000488652*pow(x,5)) + (0.0000280973*pow(x,4)) + (0.00602929*pow(x,3)) + (-0.582606*pow(x,2)) + (27.80565*(x)) + 244.964;
+   timeout = (-0.000000141031*pow(x,5)) + (0.0000650427*pow(x,4)) + (-0.0105768*pow(x,3)) + (0.678481*pow(x,2)) + (-8.01221*(x)) + 353.39229;
     // variKD = ((-0.000000010414) * pow(x,5)) + (0.00000436151 * pow(x,4)) + (-0.000635881 * pow(x,3)) + (0.0378021 * pow(x,2)) + (-0.805858 * x) + 69.3766;
     // variKP = ((0.00000000017809) * pow(x,5)) + (-0.000000087322 * pow(x,4)) + (0.000015948* pow(x,3)) + (-0.00128717 * pow(x,2)) + (0.041072 * x) + 6.7388;
 
@@ -532,7 +531,7 @@ void driveStraight(int target) {
     while(true) { 
 
     if(abs(error) <= 2){
-        setConstants(15, 0, 0);
+        setConstants(16.75, 0, 0);
     } else{
          setConstants(TURN_KP, TURN_KI, TURN_KD); 
     }     
@@ -566,7 +565,7 @@ void driveStraight(int target) {
 
         if (count >= 20 || time2 > timeout) {
 
-            //break;
+            break;
         }
         if(time2 % 50 == 0 && time2 % 100 != 0 && time2 % 150!= 0){
             con.print(0,0, "ERROR: %f           ", float(error));
@@ -627,11 +626,11 @@ void driveTurnT(int target){
     double variKD = 0;
     double variKP = 0;
     x = double(abs(turnv));
-   //timeout = (0.0000000488652*pow(x,5)) + (0.0000280973*pow(x,4)) + (0.00602929*pow(x,3)) + (-0.582606*pow(x,2)) + (27.80565*(x)) + 244.964;
+    timeout = timeout = (-0.000000141031*pow(x,5)) + (0.0000650427*pow(x,4)) + (-0.0105768*pow(x,3)) + (0.678481*pow(x,2)) + (-8.01221*(x)) + 353.39229;
     // variKD = ((-0.000000010414) * pow(x,5)) + (0.00000436151 * pow(x,4)) + (-0.000635881 * pow(x,3)) + (0.0378021 * pow(x,2)) + (-0.805858 * x) + 69.3766;
     // variKP = ((0.00000000017809) * pow(x,5)) + (-0.000000087322 * pow(x,4)) + (0.000015948* pow(x,3)) + (-0.00128717 * pow(x,2)) + (0.041072 * x) + 6.7388;
     if(abs(error) < 2){
-        setConstants(2.5, 0, 0);
+        setConstants(16.75, 0, 0);
     } else{
         setConstants(TURN_KP, TURN_KI, TURN_KD); 
     }  
@@ -696,7 +695,7 @@ void driveStraight2(int target) {
 
     double x = 0;
     x = double(abs(target));
-   // timeout = (0.000000000000886095* pow(x,5)) + ( -0.00000000472127 * pow(x,4)) + (0.00000851584 * pow(x,3)) + (-0.00652001* pow(x,2)) + (2.86386 * x) + 222.47509;
+   timeout = (-0.000000000000750853* pow(x,5)) + (  0.00000000378468 * pow(x,4)) + (-0.00000629527 * pow(x,3)) + (0.00422834* pow(x,2)) + (-0.665814 * x) + 707.21366;
     double voltage;
     double encoderAVG;
     int count = 0;
@@ -712,7 +711,7 @@ void driveStraight2(int target) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(2.5, 0, 0);
+            setConstants(5, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }  
@@ -789,8 +788,7 @@ void driveStraightRush(int target) {
 
     double x = 0;
     x = double(abs(target));
-    //timeout = (0.000000000000886095* pow(x,5)) + ( -0.00000000472127 * pow(x,4)) + (0.00000851584 * pow(x,3)) + (-0.00652001* pow(x,2)) + (2.86386 * x) + 222.47509;
-    double voltage;
+    timeout = (-0.000000000000750853* pow(x,5)) + (  0.00000000378468 * pow(x,4)) + (-0.00000629527 * pow(x,3)) + (0.00422834* pow(x,2)) + (-0.665814 * x) + 707.21366;    double voltage;
     double encoderAVG;
     int count = 0;
    // double init_heading = imu.get_heading();
@@ -805,7 +803,7 @@ void driveStraightRush(int target) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(2.5, 0, 0);
+            setConstants(5, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -882,8 +880,7 @@ void driveStraightC(int target) {
 
     double x = 0;
     x = double(abs(target));
-    timeout = (0.000000000000886095* pow(x,5)) + ( -0.00000000472127 * pow(x,4)) + (0.00000851584 * pow(x,3)) + (-0.00652001* pow(x,2)) + (2.86386 * x) + 222.47509;
- if (target > 0){
+    timeout = (-0.000000000000750853* pow(x,5)) + (  0.00000000378468 * pow(x,4)) + (-0.00000629527 * pow(x,3)) + (0.00422834* pow(x,2)) + (-0.665814 * x) + 707.21366; if (target > 0){
     target = target + 500;
  } else{
     target = target - 500;
@@ -904,7 +901,7 @@ void driveStraightC(int target) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(2.5, 0, 0);
+            setConstants(5, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -990,8 +987,7 @@ void driveClamp(int target, int clampDistance) {
 
     double x = 0;
     x = double(abs(target));
-    timeout = (0.000000000000886095* pow(x,5)) + ( -0.00000000472127 * pow(x,4)) + (0.00000851584 * pow(x,3)) + (-0.00652001* pow(x,2)) + (2.86386 * x) + 222.47509;
-    double voltage;
+    timeout = (-0.000000000000750853* pow(x,5)) + (  0.00000000378468 * pow(x,4)) + (-0.00000629527 * pow(x,3)) + (0.00422834* pow(x,2)) + (-0.665814 * x) + 707.21366;    double voltage;
     double encoderAVG;
     int count = 0;
     //double init_heading = imu.get_heading();
@@ -1006,7 +1002,7 @@ void driveClamp(int target, int clampDistance) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(2.5, 0, 0);
+            setConstants(5, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -1045,7 +1041,7 @@ if(trueTarget > 180) {
         }
 
         if((target - position) < clampDistance){
-            MogoMech.set_value(true);
+            MogoMech.set_value(false);
         }
 
         chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));
@@ -1086,8 +1082,7 @@ void driveClampS(int target, int clampDistanceFromTarget, int speed) {
 
     double x = 0;
     x = double(abs(target));
-    timeout = (0.000000000000886095* pow(x,5)) + ( -0.00000000472127 * pow(x,4)) + (0.00000851584 * pow(x,3)) + (-0.00652001* pow(x,2)) + (2.86386 * x) + 222.47509;
-    timeout = timeout * (2 - (double(speed)/100.0));
+    timeout = (-0.000000000000750853* pow(x,5)) + (  0.00000000378468 * pow(x,4)) + (-0.00000629527 * pow(x,3)) + (0.00422834* pow(x,2)) + (-0.665814 * x) + 707.21366;    timeout = timeout * (2 - (double(speed)/100.0));
 
     double voltage;
     double encoderAVG;
@@ -1104,7 +1099,7 @@ void driveClampS(int target, int clampDistanceFromTarget, int speed) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(2.5, 0, 0);
+            setConstants(5, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -1143,7 +1138,7 @@ if(trueTarget > 180) {
         }
 
   if(abs(target - encoderAVG) < clampDistanceFromTarget){
-            MogoMech.set_value(true);
+     MogoMech.set_value(false);
         }
 
         chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));
@@ -1185,8 +1180,7 @@ void driveStraightSlow(int target, int speed) { // RETUNE TIMEOUT!! SLOW PID!
 
     double x = 0;
     x = double(abs(target));
-    timeout = (0.000000000000886095* pow(x,5)) + ( -0.00000000472127 * pow(x,4)) + (0.00000851584 * pow(x,3)) + (-0.00652001* pow(x,2)) + (2.86386 * x) + 222.47509;
-    timeout = timeout * (2 - (double(speed)/100.0));
+    timeout = (-0.000000000000750853* pow(x,5)) + (  0.00000000378468 * pow(x,4)) + (-0.00000629527 * pow(x,3)) + (0.00422834* pow(x,2)) + (-0.665814 * x) + 707.21366;    timeout = timeout * (2 - (double(speed)/100.0));
 
     double voltage;
     double encoderAVG;
@@ -1203,7 +1197,7 @@ void driveStraightSlow(int target, int speed) { // RETUNE TIMEOUT!! SLOW PID!
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(2.5, 0, 0);
+            setConstants(5, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -1291,7 +1285,7 @@ time2 = 0;
 resetEncoders();
 
 ltarget = double((theta/360) *2 * pi * radius);
-rtarget = double((theta / 360) * 2 * pi *(radius + 850)); 
+rtarget = double((theta / 360) * 2 * pi *(radius + 725)); 
 
 while (true){
 
@@ -1371,7 +1365,7 @@ time2 = 0;
 resetEncoders();
 
 rtarget = double((theta/360) *2 * pi * radius);
-ltarget = double((theta / 360) * 2 * pi *(radius + 850)); 
+ltarget = double((theta / 360) * 2 * pi *(radius + 725)); 
 
 while (true){
 
@@ -1558,14 +1552,14 @@ int count = 0;
 int time2 = 0;
 resetEncoders();
 rtargetF = double((theta/360) *2 * pi * radius);
-ltargetF= double((theta / 360) * 2 * pi *(radius + 850)); 
+ltargetF= double((theta / 360) * 2 * pi *(radius + 725)); 
 if(theta > 0){
 theta = theta + 45;
 } else {
     theta = theta - 45;
 }
 rtarget = double((theta/360) *2 * pi * radius);
-ltarget = double((theta / 360) * 2 * pi *(radius + 850)); 
+ltarget = double((theta / 360) * 2 * pi *(radius + 725)); 
 
 while (true){
 
