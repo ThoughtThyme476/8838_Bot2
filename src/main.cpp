@@ -118,7 +118,8 @@ while (true) {
 
 	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
 		driveStraight2(250);
-			driveArcL(90, 600, 1000, 100);
+		driveArcL(90, 1000, 1000, 100);
+		driveStraight2(100);
 	}
 
 //Stakewing toggle

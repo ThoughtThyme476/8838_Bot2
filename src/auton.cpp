@@ -15,7 +15,7 @@
 
  //don't use autons 1 and that stuff anymore just use the above 
  void Solo_AWP_red(){
-  
+
     LadyBrown.move_relative(-160, 70);
     delay(150);
     Intake.move(70);
@@ -25,14 +25,25 @@
     driveStraight2(1206);
     LadyBrown.move_relative(-520, 90);
     delay(750);
-    driveStraightC(-650);
+    driveStraightC(-600);
     driveTurn2(-90);
     LadyBrown.move_relative(700, 70);
-    driveClampS(-1200, 100, 50);
+    driveStraight2(-1100);
+    driveClampS(-100, 25, 25);
     Intake.move(127);
     driveTurn2(-45);
-    driveStraight2(1050);
-    //driveTurn2()
+    driveStraight2(1000);
+    driveTurn2(-80);
+    driveStraight2(750);
+    // driveTurn2(-40);
+    // StakeWing.set_value(true);
+    // driveStraightC(-1000);
+    // driveTurn2(180);
+    // StakeWing.set_value(false);
+    // driveTurn2(140);
+    // LadyBrown.move_relative(-80, 127);
+    // driveStraight2(1300);
+    // //driveTurn2()
 //     driveTurn2(0);
 //     driveStraight2(1175);
 //     driveTurn2(-25);
