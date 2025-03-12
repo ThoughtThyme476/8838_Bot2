@@ -25,6 +25,6 @@ extern pros::Controller con;
 
 extern pros::ADIDigitalOut MogoMech;
 extern pros::ADIDigitalOut StakeWing;
-
+extern pros::ADIDigitalOut Intake_Piston;
 
 #endif

@@ -13,7 +13,7 @@
 #define IMU_PORT 1
 #define Intake_port 7
 #define LadyBrown_PORT 8
-#define OPTICAL_PORT 18
+#define OPTICAL_PORT 21
 #define DISTANCE_PORT 19
 #define ROTATION_PORT 10
 
@@ -37,4 +37,5 @@ pros::Controller con (pros::E_CONTROLLER_MASTER);
 
 pros::ADIDigitalOut MogoMech ('B',true);//out soloniod was stolen so I changed this
 pros::ADIDigitalOut StakeWing('H',false);
+pros::ADIDigitalOut Intake_Piston ('A',false);
 pros::ADIDigitalIn selec ('C');//

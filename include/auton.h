@@ -3,8 +3,8 @@
 using namespace pros;
 using namespace std;
 extern void Solo_AWP_red();
-extern void autons2();
-extern void autons3();
+extern void Standard_AWP();
+extern void Goal_Rush();
 extern void arc();
 extern void autons4();
 extern void autons5();

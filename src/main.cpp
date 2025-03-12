@@ -112,15 +112,15 @@ bool return_fishmech = false;
 bool MogoMechToggle = false;
 bool LBC = false;
 int Macro = 0;
+bool  IntakePiston = false;
 eyes.set_led_pwm(100);
 
 while (true) {
 
 	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
-		driveStraight2(250);
-		driveArcL(90, 1000, 1000, 100);
-		driveStraight2(100);
-	}
+		 IntakePiston = !IntakePiston;
+		 }
+Intake_Piston.set_value(IntakePiston);
 
 //Stakewing toggle
  if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)) {
@@ -171,7 +171,7 @@ if (con.get_digital(E_CONTROLLER_DIGITAL_UP)) {
 
   // Finds the angle that we need to move 
   double current_angle = roto.get_angle() / 100.0;
-  double target_angle = 242;
+  double target_angle = 245;
   double change_angle = target_angle - current_angle;
   
   // Finding how far to move the motor
@@ -188,7 +188,7 @@ if (con.get_digital(E_CONTROLLER_DIGITAL_DOWN)) {
   
 	// Finds the angle that we need to move 
 	double current_angle = roto.get_angle() / 100.0;
-	double target_angle = 140.0;
+	double target_angle = 145.0;
 	double change_angle = target_angle - current_angle;
 	
 	// Finding how far to move the motor
@@ -205,7 +205,7 @@ if (con.get_digital(E_CONTROLLER_DIGITAL_DOWN)) {
   
 	// Finds the angle that we need to move 
 	double current_angle = roto.get_angle() / 100.0;
-	double target_angle = 230.0;
+	double target_angle = 225.0;
 	double change_angle = target_angle - current_angle;
 	
 	// Finding how far to move the motor

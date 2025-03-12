@@ -15,152 +15,83 @@
 
  //don't use autons 1 and that stuff anymore just use the above 
  void Solo_AWP_red(){
-
-    LadyBrown.move_relative(-160, 70);
-    delay(150);
-    Intake.move(70);
-    driveStraight2(1700);
-    driveTurn2(-41.5);
-    Intake.move(0);
-    driveStraight2(1206);
-    LadyBrown.move_relative(-520, 90);
-    delay(750);
-    driveStraightC(-600);
-    driveTurn2(-90);
-    LadyBrown.move_relative(700, 70);
-    driveStraight2(-1100);
-    driveClampS(-100, 25, 25);
-    Intake.move(127);
-    driveTurn2(-45);
-    driveStraight2(1000);
-    driveTurn2(-80);
-    driveStraight2(750);
-    // driveTurn2(-40);
-    // StakeWing.set_value(true);
-    // driveStraightC(-1000);
-    // driveTurn2(180);
-    // StakeWing.set_value(false);
-    // driveTurn2(140);
-    // LadyBrown.move_relative(-80, 127);
-    // driveStraight2(1300);
-    // //driveTurn2()
-//     driveTurn2(0);
-//     driveStraight2(1175);
-//     driveTurn2(-25);
-//     driveStraightSlow(225, 50);
-//     driveTurn2(-42);
-//     driveStraight2(210);
-//     LadyBrown.move_relative(-510, 127);
-//     delay(950);
-//     driveStraightC(-250);
-//     LadyBrown.move_relative(750, 90);
-//     driveTurn2(0);
-//     Intake.move(127);
-//     driveStraight2(350);
-//  //   LadyBrown.set_zero_position(0);
-//     delay(200);
-//     Intake.move(0);
-//     driveTurn2(25);
-//     Intake.move(127);
-//     LadyBrown.move_relative(120, 90);
-//     driveStraight2(100);
-
+  // driveStraight2(3000);
+        LadyBrown.move_relative(-160, 70);
+        delay(150);
+        Intake.move(70);
+        driveStraight2(1400);
+        driveStraightSlow(300, 50);
+        driveTurn2(-42);
+        Intake.move(0);
+        driveStraight2(1210);
+        LadyBrown.move_relative(-520, 90);
+        delay(750);
+        driveStraightC(-400);
+        LadyBrown.move_relative(670, 70);
+        driveTurn2(0);
+        Intake.move(127);
+        driveStraight2(440);
+        delay(100);
+        Intake.move(-10);
+        delay(100);
+        LadyBrown.move_relative(-300, 50);
+        Intake.move(0);
+        delay(500);
+        Intake.move(127);
+        driveStraight2(30);
+        delay(250);
+        driveStraightC(-500);
+        Intake.move(0);
+        driveTurn2(-100);
+        driveStraight2(-1000);
+        driveClampS(-275, 25, 25);
+        Intake.move(127);
+        driveStraightC(400);
+        driveTurn2(0);
+        driveStraight2(1000);
+    // LadyBrown.move_relative(750, 70);
+    // driveStraightSlow(-1000, 75);
+    // driveClampS(-200, 50, 50);
+    // delay(10);
+    // Intake.move(127);
+    // driveStraightC(600);
+    // driveTurn2(0);
+          // //driveArcRF(90, 500, 1000, 100);
+          // driveStraight2(700);
+          // delay(100);
+          // driveStraightC(-700);
+          // driveTurn2(55);
+          // driveStraight2(1500);
+          // StakeWing.set_value(true);
    }
- void autons2(){
-   //skills
-    LadyBrown.move(-127);
-    delay(550);
-    LadyBrown.move(127);
-    delay(450);
-    LadyBrown.move(0);
-    driveStraight2(-445);
-    driveTurn2(89);
-    driveStraight2(-660);
-    driveTurn2(88);
-    driveClampS(-330, 10, 20);
-    driveTurn2(-170);
-    Intake.move(-100);
-    //ErrorFixayer1.move(-127);
-    driveStraight2(950);
-    delay(500);
-    driveTurn2(-90);
-    driveStraight2(750);
-    delay(500);
-    driveTurn2(-135);
-    driveStraight2(1000);
-    driveStraight2(-600);
-    driveTurn2(5);
-    driveStraightSlow(1650,50);
-    driveTurn2(135);
-    MogoMech.set_value(false);
-    driveStraight2(-1000);
-    delay(1000);
-    driveStraight2(500);
-  // //  driveAr m n=cRF(90, 750, 1500);
-  //  driveStraight2(50);
-  //  delay(100);
-  //  driveTurn2(-155);
-  //  Intake.move(-90);
-  //  driveStraight2(700);
-  //  delay(500);
-  //  driveStraight2(-600);
-  //  driveTurn2(0);
-
-  
-
-
+ void Standard_AWP(){
+  LadyBrown.move_relative(-900, 127);
+  delay(750);
+  driveStraightC(-400);
+  driveTurn2(75);
+  driveStraight2(-1000);
+  driveClampS(-400, 25, 50);
+  driveTurn2(-220);
+  // LadyBrown.move_relative(-700, 127);
+  // delay(250);
+   Intake.move(127);
+   driveStraight2(750);
+  // driveTurn2(-200);
 
  }
- void autons3(){
-  //blue ring side
- LadyBrown.move(-17);
-  delay(50);
-  driveTurn2(40);
-  driveStraightSlow(350, 100);
-   LadyBrown.move(-127);
-   delay(650);
-   LadyBrown.move(127);
-   delay(500);
-   LadyBrown.move(0);
-   LadyBrown.set_brake_mode(E_MOTOR_BRAKE_HOLD);
-   driveStraight2(-1140);
-   driveTurn2(-11);
-   driveStraightSlow(-800, 60);
-   driveTurn2(-5);
-   driveClampS(-250, 10, 30);
-   //driveStraight2(300);
-   driveTurn2(-115);
-   Intake.move(-100);
-   //ErrorFixayer1.move(-127);
-   driveStraight2(680);
-   delay(200);
-   driveTurn2(-105);
-   driveStraight2(300);
-   delay(550);
-   driveTurn2(-20);
-   driveStraight2(500);
-   delay(550);
-   driveTurn2(100);
-   LadyBrown.move(-35);
-   driveStraight2(1200);
-  //
-  //  StakeWing.set_value(true);
-  //  delay(400);
-  //  driveTurn2(-50);
-  //  driveArcRF(100, 400, 1000);
-  //  driveStraight2(10);
-  //  driveTurn2(120);
-  //  StakeWing.set_value(false);
-  //  delay(50);
-  //  driveTurn2(100);
-  //  delay(50);
-  // //  Intake.move(-105);
-  //  driveStraightSlow(1500, 70);
-  //  driveTurn2(-60);
-  //  StakeWing.set_value(false);
-  //  driveTurn2(-25);
-  //  driveStraight2(400);
-   //finsihed code!! Don't touch!!
+ void Goal_Rush(){ // power beans goal rush w/ dunk
+  LadyBrown.move_relative(-240, 70);
+  //driveTurn2(-10);
+  Intake.move(127);
+  driveStraightC(1000);
+  driveSortHoldRed(1300, 100);
+  // LadyBrown.move_relative(-700, 127);
+  StakeWing.set_value(true);
+  delay(100);
+  driveStraight2(-1000);
+  StakeWing.set_value(true);
+  
+  //driveTurn2(45);
  }
  void autons4(){
    //red goal rush/45% awp
@@ -291,7 +222,7 @@
  void autonomous(){
   if (atn == 0) {
   } else if (atn == 1) {
-    Solo_AWP_red();
+    Goal_Rush();
   } 
   else if (atn ==2) {
 
