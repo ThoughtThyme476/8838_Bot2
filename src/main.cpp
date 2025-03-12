@@ -9,7 +9,7 @@ bool stay_clamp = true;
 using namespace pros;
 using namespace std;
 
-int atn = 1;
+int atn = 2;
 string autstr;
 // Task colorSortTask;
 // bool colorSortActive = false;
@@ -118,9 +118,10 @@ while (true) {
 
 	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
 		//driveStraightC(250);
-		driveTurn2(0);
-		driveArcLF(90, 1200, 15000, 100);
+		// Intake.move(127);
+		// driveSortHoldRed(1000, 50);
 		//driveStraight2(500);
+		MogoMech.set_value(true);
 	}
 
 //Stakewing toggle

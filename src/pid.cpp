@@ -1099,6 +1099,7 @@ void driveClampS(int target, int clampDistanceFromTarget, int speed) {
     resetEncoders();
 
     while (true){
+        
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
             setConstants(4, 0, 0);
@@ -1238,7 +1239,7 @@ if(trueTarget > 180) {
 
   if(eyes.get_hue() <30){
     Intake.move(0);
-        }
+  }
 
         chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));
         if (abs(target - encoderAVG) <= 4) count++;

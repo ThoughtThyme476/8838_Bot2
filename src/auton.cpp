@@ -64,22 +64,29 @@
           // driveStraight2(1500);
           // StakeWing.set_value(true);
    }
- void Standard_AWP(){
+ void Standard_AWP_red(){
   LadyBrown.move_relative(-900, 127);
   delay(750);
   driveStraightC(-400);
-  driveTurn2(75);
+  driveTurn2(65);
   driveStraight2(-1000);
-  driveClampS(-400, 25, 50);
-  driveTurn2(-220);
-  // LadyBrown.move_relative(-700, 127);
-  // delay(250);
-   Intake.move(127);
-   driveStraight2(750);
-  // driveTurn2(-200);
-
+  driveClampS(-500, 25, 50);
+  driveTurn2(-215);
+  Intake.move(127);
+  driveStraightC(730);
+  driveTurn2(238);
+  delay(100);
+  driveStraight2(750);
+  delay(250);
+  driveTurn2(-3);
+  driveStraight2(2200);
+  MogoMech.set_value(true);
+  driveSortHoldRed(950, 40);
+  LadyBrown.move_relative(980, 127);
+  delay(100);
+  driveTurn2(-100);
  }
- void Goal_Rush(){ // power beans goal rush w/ dunk
+ void Goal_Rush_red(){ // power beans goal rush 
   LadyBrown.move_relative(-240, 70);
   //driveTurn2(-10);
   Intake.move(127);
@@ -90,54 +97,33 @@
   delay(100);
   driveStraight2(-1000);
   StakeWing.set_value(true);
-  
+
   //driveTurn2(45);
  }
- void autons4(){
-   //red goal rush/45% awp
-  driveStraightC(100);
-  driveTurn2(12);
-  driveStraightC(1500);
-  driveTurn2(-55);
-  driveStraight2(200);
-  StakeWing.set_value(true);
-  delay(150);
-  driveTurn2(-90);
-  driveTurn2(-70);
-  StakeWing.set_value(false);
-  delay(500);
-  driveTurn2(-140);
-  //ErrorFixayer1.move(-127);
-  driveStraightSlow(720, 75);
+ void Standard_AWP_blue(){
+  LadyBrown.move_relative(-900, 127);
+  delay(750);
+  driveStraightC(-400);
+  driveTurn2(-65);
+  driveStraight2(-1000);
+  driveClampS(-500, 25, 50);
+  driveTurn2(215);
+  Intake.move(127);
+  driveStraightC(730);
+  driveTurn2(-238);
+  delay(100);
+  driveStraight2(750);
+  delay(250);
+  driveTurn2(3);
+  driveStraight2(2200);
+  MogoMech.set_value(true);
+  driveSortHoldRed(950, 40);
+  LadyBrown.move_relative(980, 127);
   delay(100);
   driveTurn2(100);
-  delay(50);
-  driveStraight2(-737.5);
-  driveTurn2(95);
-  driveClampS(-580, 10, 20);
-  MogoMech.set_value(true);
-  delay(100);
-  Intake.move(-100);
-  //ErrorFixayer1.move(-127);
-  delay(700);
-  // StakeWing.set_value(true);
-  // driveTurn2(-180);
-  // //ErrorFixayer1.move(127);
-  // driveArcLF(90, 1300, 1500);
-  // driveStraight2(10); 
-  // driveTurn2(10);
-  // driveStraight2(250);
-  // StakeWing.set_value(false);
-  // driveTurn2(-45);
-  // MogoMech.set_value(false);
-  // driveStraight2(-500);
-  // // driveStraight2(-250);
-  // driveTurn2(-45);
-  // MogoMech.set_value(false);
-  // driveStraight2(-500);
-
-
  }
+
+
  void autons5(){
   //blue goal rush
  driveStraightC(100);
@@ -222,13 +208,13 @@
  void autonomous(){
   if (atn == 0) {
   } else if (atn == 1) {
-    Goal_Rush();
+    Standard_AWP_red();
   } 
   else if (atn ==2) {
-
+    Standard_AWP_blue();
   } 
   else if (atn ==3) {
-
+    Goal_Rush_red();
   } 
   else if (atn ==4) {
 

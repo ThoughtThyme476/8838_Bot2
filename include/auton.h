@@ -3,10 +3,9 @@
 using namespace pros;
 using namespace std;
 extern void Solo_AWP_red();
-extern void Standard_AWP();
-extern void Goal_Rush();
-extern void arc();
-extern void autons4();
+extern void Standard_AWP_red();
+extern void Goal_Rush_red();
+extern void Standard_AWP_blue();
 extern void autons5();
 extern void autons6();
 extern void fiveRing();
