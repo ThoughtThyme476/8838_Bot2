@@ -1567,7 +1567,7 @@ double leftcorrect = -(encoderAvgL * 360) / (2 * pi * radius);
 
 if(((trueTarget + leftcorrect) < 0) && (position > 0)){
         if((position - (trueTarget + leftcorrect) ) >= 180){
-            trueTarget = trueTarget + 360;
+            leftcorrect = leftcorrect + 360;
             position = imu.get_heading();
         }
     } else if(((trueTarget + leftcorrect) > 0) && (position < 0)){
@@ -1594,27 +1594,28 @@ if(((trueTarget + leftcorrect) < 0) && (position > 0)){
  setConstants(ARC_HEADING_KP, ARC_HEADING_KI, ARC_HEADING_KD);
 int fix = calcPID3((trueTarget + leftcorrect), position, ARC_HEADING_INTEGRAL_KI, ARC_HEADING_MAX_INTEGRAL);
 if (abs(ltarget - encoderAvgL) <= 25) fix = 0;  
+   // fix = 0;
         chasMove( (voltageL + fix), (voltageL + fix), (voltageL + fix), (voltageR - fix), (voltageR - fix), (voltageR - fix));
 
          if(abs(trueTarget-position) > true_theta){
         over = true;
     }
-        // if (theta > 0){
-        //     if ((encoderAvgL - ltargetF) > 0){
-        //         over = true;
-        //     }
-        // } else {
-        //     if ((ltargetF - encoderAvgL)>0){
-        //         over = true;
-        //     }
-        // }
+        if (theta > 0){
+            if ((encoderAvgL - ltargetF) > 0){
+                over = true;
+            }
+        } else {
+            if ((ltargetF - encoderAvgL)>0){
+                over = true;
+            }
+        }
 
         if (over || time > timeout){
             break;
         }
 
      if(time2 % 50 == 0 && time2 % 100 != 0 && time2 % 150!= 0){
-            con.print(0,0, "ERROR: %f           ", float(time2));
+            con.print(0,0, "fix: %f           ", float(fix));
         }
          if(time2 % 50 == 0 && time2 % 100 != 0){
             con.print(2,0, "EncoderAVG: %f           ", float(LF.get_encoder_units()));
@@ -1706,15 +1707,15 @@ int fix = calcPID3((trueTarget + rightcorrect), position, ARC_HEADING_INTEGRAL_K
     if(abs(trueTarget-position) > true_theta){
         over = true;
     }
-//    if (theta > 0){
-//     if ((encoderAVGR - (rtargetF)) > 0){
-//         over = true;
-//     }
-//    } else {
-//     if(((rtarget) - encoderAVGR) > 0){
-//         over = true;
-//     }
-//    }
+   if (theta > 0){
+    if ((encoderAVGR - (rtargetF)) > 0){
+        over = true;
+    }
+   } else {
+    if(((rtarget) - encoderAVGR) > 0){
+        over = true;
+    }
+   }
     if (over || time2 > timeout){
         break;
     }
