@@ -9,7 +9,7 @@ bool stay_clamp = true;
 using namespace pros;
 using namespace std;
 
-int atn = 2;
+int atn = 1;
 string autstr;
 // Task colorSortTask;
 // bool colorSortActive = false;
@@ -32,8 +32,9 @@ void initialize() {
 	// pros::lcd::register_btn1_cb(on_center_button);
 
 	// while(true){
-	// 	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
+	// 	if (selec.get_value() == true){
 	// 		atn++;
+	//delay(350);
 	// 	}
 	// 	if(atn>7){//change number to number of autons
 	// 		atn=0;
@@ -93,7 +94,50 @@ void disabled() {
 //void autonomous moved into just auton.cpp
 
 void competition_initialize() {
+// while(true){
+	// 	if (selec.get_value() == true){
+	// 		atn++;
+	//delay(350);
+	// 	}
+	// 	if(atn>7){//change number to number of autons
+	// 		atn=0;
+	// 	}
+	// 	if (atn == 0) {
+	// 		autstr = "NONE";
+	// 		con.print(0,0, "Aut 0:%s", autstr);
+	// 	}
+	// 	else if (atn ==1) {
+	// 		autstr = "RED RING";
+	// 		con.print(0,0, "Aut 1: %s", autstr);
+	// 	}
+	// 	else if (atn ==2) {
+	// 		autstr = "BLUE RING";
+	// 		con.print(0,0, "Aut 2: %s", autstr);
+	// 	}
+	// 	else if (atn ==3) {
+	// 		autstr = "RED GOAL QUALS";
+	// 		con.print(0,0, "Aut 3: %s", autstr);
+	// 	}
+	// 	else if (atn ==4) {
+	// 		autstr = "BLUE GOAL QUALS";
+	// 		con.print(0,0, "Aut 4: %s", autstr);
+	// 	}
+	// 	else if (atn ==5) {
+	// 		autstr = "RED GOAL ELIMS";
+	// 		con.print(0,0, "Aut 5: %s", autstr);
+	// 	}
+	// 	else if (atn ==6) {
+	// 		autstr = "BLUE GOALS ELIMS";
+	// 		con.print(0,0, "Aut 6: %s", autstr);
+	// 	}
+	// 	else if (atn ==7) {
+	// 		autstr = "SKILLS";
+	// 		con.print(0,0, "Aut 7: %s", autstr);
+	// 	}
 
+	// 	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_X)){
+	// 		break;
+	// 	}
 }
 
 
@@ -112,23 +156,31 @@ bool return_fishmech = false;
 bool MogoMechToggle = false;
 bool LBC = false;
 int Macro = 0;
+bool IntakePiston = false;
 eyes.set_led_pwm(100);
 
 while (true) {
 
-	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
-		//driveStraightC(250);
-		// Intake.move(127);
-		// driveSortHoldRed(1000, 50);
-		//driveStraight2(500);
-		MogoMech.set_value(true);
-	}
+	// if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
+	// 	//driveStraightC(250);
+	// 	// Intake.move(127);
+	// 	// driveSortHoldRed(1000, 50);
+	// 	//driveStraight2(500);
+	// 	MogoMech.set_value(true);
+	// }
 
 //Stakewing toggle
- if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)) {
-             StakeWingToggle = !StakeWingToggle;
+ if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
+	color = 1;
+	driveStraightSlow(2000, 50);
 			  }
-  StakeWing.set_value(StakeWingToggle);
+
+  
+
+  if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)) {
+	StakeWingToggle = !StakeWingToggle;
+	 }
+StakeWing.set_value(StakeWingToggle);
 
 //Intake
 if (con.get_digital(E_CONTROLLER_DIGITAL_R1)){

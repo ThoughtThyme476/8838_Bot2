@@ -89,63 +89,139 @@ void hooks(int speed){
     direc = speed; 
 }
 
-// void stall(){
-// if(stallProt){
-//     prevhookpos = hookspos;
-//     hookspos = Intake.get_position();
+void stall(){
+    bool stallProt = false;
+if(stallProt){
+    prevhookpos = hookspos;
+    hookspos = Intake.get_position();
 
-//     if((hookspos == prevhookpos)){
-//         stallC = 0;
-//     } else {
-//         stallC = 0;
-//     }
+    if((hookspos == prevhookpos)){
+        stallC = 0;
+    } else {
+        stallC = 0;
+    }
 
-//     if(stallC>100){
-//         stalled = true;
-//     }
+    if(stallC>100){
+        stalled = true;
+    }
 
-//     if (stalled){
-//         Intake.move(-direc);
-//         stallTime+= 10;
-//         if (stallTime += 300){
-//             stalled = false;
-//             stallTime = 0;
-//         }
-//         //view = 1;
-//     } else {
-//         Intake,move(direc);
-//         stallTime = 0;
-//     }
-// }
+    if (stalled){
+        Intake.move(-direc);
+        stallTime+= 10;
+        if (stallTime += 300){
+            stalled = false;
+            stallTime = 0;
+        }
+        //view = 1;
+    } else {
+        Intake.move(direc);
+        stallTime = 0;
+    }
+}
 
-// }
+}
 
+// void ColorSort(int color){
+    // //Red Sort
+    //         if(color == 1){
+    //         if(eyes.get_hue() < 40 && eyes.get_hue() > 12){
+    //             Intake.move(127);
+    //         }
+    //         else if(eyes.get_hue() > 180 && eyes.get_hue() < 240){
+    //             delay(100);
+    //             Intake.move(0);
+    //         }
+    //     }
+    // //Blue Sort
+    //     if(color == 2){
+    //         if(eyes.get_hue() > 180 && eyes.get_hue() < 240){
+    //             Intake.move(127);
+    //         }
+    //         else if(eyes.get_hue() < 40 && eyes.get_hue() > 12){
+    //             delay(100);
+    //             Intake.move(0);
+    //     }
+    //     }
+
+    bool InitColor = false;
+bool InitCorrect = false;
+int ColorCount;
+bool Backwards = false;
 void ColorSort(int color){
-    //Red Sort
-        while(true){
-            if(color == 1){
-            if(eyes.get_hue() < 40 && eyes.get_hue() > 12){
-                Intake.move(127);
-            }
-            else if(eyes.get_hue() > 180 && eyes.get_hue() < 240){
-                delay(100);
-                Intake.move(0);
-            }
+    //blue color rejection
+    if (color == 1){  //
+        if(eyes.get_hue()<240 && eyes.get_hue()>140){
+            InitColor = true;
         }
-    //Blue Sort
-        if(color == 2){
-            if(eyes.get_hue() > 180 && eyes.get_hue() < 240){
-                Intake.move(127);
-            }
-            else if(eyes.get_hue() < 40 && eyes.get_hue() > 12){
-                delay(100);
-                Intake.move(0);
-        }
-        }
-    }
 
-//  
+        if (InitColor){
+            if(Backwards == false){
+                Intake.move(127);
+                if(Intake.get_position() > 400){
+                    Backwards = true;
+                }
+            } else {
+                Intake.move(-127);
+                if(Intake.get_position() < 100){
+                    Backwards = false;
+                    InitColor = false;
+                }
+            }
+        } else {
+            Intake.move(127);
+            Intake.tare_position();
+        }
+    } else if(color == 2){ //red ring rejection from here down
+        if(eyes.get_hue()<40 && eyes.get_hue()>1){
+            InitColor = true;
+        }
+
+        if (InitColor){
+            if(Backwards == false){
+                Intake.move(127);
+                if(Intake.get_position() > 400){
+                    Backwards = true;
+                }
+            } else {
+                Intake.move(-127);
+                if(Intake.get_position() < 100){
+                    Backwards = false;
+                    InitColor = false;
+                }
+            }
+        } else {
+            Intake.move(127);
+            Intake.tare_position();
+        }   
     }
+    }
+//}
+
+//stall prot for intake
+void StallProtection(){
+bool stuck = false;
+prevhookpos = hookspos;
+hookspos = Intake.get_position();
+
+if(hookspos == prevhookpos);
+stuck = true;
+
+    if(stuck){
+        Intake.move(-127);
+        stallTime+= 10;
+        if (stallTime += 100){
+            stuck = false;
+            stallTime = 0;
+        }
+} else { 
+    stuck = false;
+    Intake.move(127);
+}
+
+} 
+
+
+    
     
 void setConstants(double kp, double ki, double kd){
 
@@ -179,7 +255,8 @@ double calcPID(double target, double input, int integralKI, int maxIntegral){
     // Odometry2();
     // stall();
     //replaced text;
-   // ColorSort(color);
+   ColorSort(color);
+  // StallProtection();
     
     int integral;
     prevError = error;
@@ -206,6 +283,8 @@ double calcPID(double target, double input, int integralKI, int maxIntegral){
 
 double calcPID2(double target2, double input2, int integralKI2, int maxIntegral2){
     //replaced text;
+    ColorSort(color);
+    //StallProtection();
 
     int integral2;
     prevError2 = error2;
@@ -233,6 +312,8 @@ double calcPID2(double target2, double input2, int integralKI2, int maxIntegral2
 
 double calcPID3(double target3, double input3, int integralKI3, int maxIntegral3){
     //replaced text;
+    ColorSort(color);
+    //StallProtection();
 
     int integral3;
     prevError3 = error3;
@@ -260,6 +341,8 @@ double calcPID3(double target3, double input3, int integralKI3, int maxIntegral3
 
 double calcPID4(double target4, double input4, int integralKI4, int maxIntegral4){
     //replaced text;
+    ColorSort(color);
+    //StallProtection();
 
     int integral4;
     prevError4 = error4;
@@ -763,7 +846,7 @@ if(trueTarget > 180) {
             con.print(0,0, "time2: %f           ", float(time2));
         }
          if(time2 % 50 == 0 && time2 % 100 != 0){
-            con.print(2,0, "EncoderAVG: %f           ", float(time2));
+            con.print(2,0, "TrueTarget: %f           ", float(trueTarget));
         }
          if(time2 % 50 == 0){
             con.print(1,0, "error %f           ", float(error));
@@ -1273,6 +1356,104 @@ if(trueTarget > 180) {
     
 }
 
+
+void driveSortHoldblue(int target, int speed) {
+
+    int timeout = 30000;
+
+    double x = 0;
+    x = double(abs(target));
+    timeout = (-0.000000000000750853* pow(x,5)) + (  0.00000000378468 * pow(x,4)) + (-0.00000629527 * pow(x,3)) + (0.00422834* pow(x,2)) + (-0.665814 * x) + 707.21366;    timeout = timeout * (2 - (double(speed)/100.0));
+
+    double voltage;
+    double encoderAVG;
+    int count = 0;
+    //double init_heading = imu.get_heading();
+    double headingError = 0;
+    int cycleTime = 0;
+    time2 = 0;
+
+    setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);
+    
+    resetEncoders();
+
+    while (true){
+        encoderAVG = (LF.get_position() + RF.get_position()) / 2;
+        if(abs(target - encoderAVG) < 25){
+            setConstants(4, 0, 0);
+        } else{
+            setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
+        }   
+        voltage = calcPID(target, encoderAVG, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
+
+if(trueTarget > 180) {
+    trueTarget = (trueTarget - 360);
+}
+
+
+        
+       double position = imu.get_heading();
+
+      if(position > 180){
+        position = position - 360;
+      }
+
+    if((trueTarget < 0) && (position > 0)){
+        if((position - trueTarget ) >= 180){
+            trueTarget = trueTarget + 360;
+            position = imu.get_heading();
+        }
+    } else if((trueTarget > 0) && (position < 0)){
+        if ((trueTarget - position) >= 180){
+            position = imu.get_heading();
+        }
+     }
+    
+    setConstants(HEADING_KP, HEADING_KI, HEADING_KD);  
+        headingError = calcPID2(trueTarget, position, HEADING_INTEGRAL_KI, HEADING_MAX_INTEGRAL);
+
+        if(voltage > 127 * double(speed)/100){
+            voltage = 127 * double(speed)/100;
+        } else if (voltage < -127 * double(speed)/100){
+            voltage = -127 * double(speed)/100;
+        }
+
+  if(eyes.get_hue() > 150){
+    Intake.move(0);
+  }
+
+        chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));
+        if (abs(target - encoderAVG) <= 4) count++;
+        if (count >= 20 || time2 > timeout){
+           break;
+        }
+
+        delay(10);
+        if(time2 % 50 == 0 && time2 % 100 != 0 && time2 % 150!= 0){
+            con.print(0,0, "ERROR: %f           ", float(error));
+        }
+         if(time2 % 50 == 0 && time2 % 100 != 0){
+            con.print(2,0, "EncoderAVG: %f           ", float(imu.get_heading()));
+        }
+         if(time2 % 50 == 0){
+            con.print(1,0, "Time2: %f           ", float(time2));
+        }
+        
+        
+        time2 += 10;
+
+
+    }
+    LF.brake();
+    RF.brake();
+    LM.brake();
+    RM.brake();
+    LB.brake();
+    RB.brake();
+
+    
+}
+
 void driveStraightSlow(int target, int speed) { // RETUNE TIMEOUT!! SLOW PID!
 
     int timeout = 30000;
@@ -1370,7 +1551,6 @@ if(trueTarget > 180) {
 void driveArcL(double theta, double radius, int timeout, int speed){
     setConstants(STRAIGHT_KI, STRAIGHT_KI, STRAIGHT_KD);
 
-    trueTarget -= theta;
 
 double ltarget = 0;
 double rtarget = 0;
@@ -1398,11 +1578,11 @@ if(position > 180){
 }
 double encoderAVGL = (LF.get_position() + LB.get_position()) /2;
 double encoderAVGR = (RB.get_position() + RB.get_position()) /2;
-double leftcorrect = (encoderAVGL * 360) / (2 * pi * radius);
+double leftcorrect = -(encoderAVGL * 360) / (2 * pi * radius);
 
 if(((trueTarget + leftcorrect) < 0) && (position > 0)){
     if((position - (trueTarget + leftcorrect) ) >= 180){
-        trueTarget = trueTarget + 360;
+        leftcorrect = leftcorrect + 360;
         position = imu.get_heading();
     }
 } else if(((trueTarget + leftcorrect) > 0) && (position < 0)){
@@ -1430,10 +1610,11 @@ if(((trueTarget + leftcorrect) < 0) && (position > 0)){
     setConstants(ARC_HEADING_KP, ARC_HEADING_KI, ARC_HEADING_KD);
 int fix = calcPID3((trueTarget + leftcorrect), position, ARC_HEADING_INTEGRAL_KI, ARC_HEADING_MAX_INTEGRAL);
     if (abs(ltarget - encoderAVGL) <= 25) fix = 0;  
-
+    //fix = 0;
     chasMove( (voltageL + fix), (voltageL + fix ), (voltageL + fix), (voltageR - fix), (voltageR - fix), (voltageR - fix));
     if ((abs(ltarget - encoderAVGL) <= 4) && (abs(rtarget - encoderAVGR)<= 4)) count++;
     if (count >= 20  || time2 > timeout){
+    trueTarget -= theta;
        break;
     }
      if(time2 % 50 == 0 && time2 % 100 != 0 && time2 % 150!= 0){
@@ -1451,7 +1632,7 @@ int fix = calcPID3((trueTarget + leftcorrect), position, ARC_HEADING_INTEGRAL_KI
 void driveArcR(double theta, double radius, int timeout, int speed){
     setConstants(STRAIGHT_KI, STRAIGHT_KI, STRAIGHT_KD);
 
-    trueTarget += theta;
+  
 double ltarget = 0;
 double rtarget = 0;
 double pi =  3.14159265359;
@@ -1513,6 +1694,7 @@ int fix = calcPID3((trueTarget + rightcorrect), position, ARC_HEADING_INTEGRAL_K
     chasMove( (voltageL + fix), (voltageL + fix ), (voltageL + fix), (voltageR - fix), (voltageR - fix), (voltageR - fix));
     if ((abs(ltarget - encoderAVGL) <= 4) && (abs(rtarget - encoderAVGR)<= 4)) count++;
     if (count >= 20  || time2 > timeout){
+        trueTarget += theta;
        break;
     }
      if(time2 % 50 == 0 && time2 % 100 != 0 && time2 % 150!= 0){
@@ -1530,7 +1712,7 @@ int fix = calcPID3((trueTarget + rightcorrect), position, ARC_HEADING_INTEGRAL_K
 void driveArcLF(double theta, double radius, int timeout, int speed){
 
 setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);
-trueTarget -= theta;
+
 int true_theta = theta;
 double ltarget = 0; 
 double rtarget = 0;
@@ -1543,14 +1725,14 @@ int count = 0;
 bool over = false;
 resetEncoders();
 ltargetF = double(( theta/360) *2 * pi * radius);
-rtargetF = double((theta / 360) * 2 * pi *(radius + 850 ));
+rtargetF = double((theta / 360) * 2 * pi *(radius + 725 ));
 if(theta > 0){
 theta = theta + 45;
 } else {
     theta = theta - 45;
 }
 ltarget = double(( theta/360) *2 * pi * radius);
-rtarget = double((theta / 360) * 2 * pi *(radius + 850 ));
+rtarget = double((theta / 360) * 2 * pi *(radius + 725 ));
 while(true){
 
 if(trueTarget > 180){
@@ -1612,6 +1794,7 @@ if (abs(ltarget - encoderAvgL) <= 25) fix = 0;
         }
 
         if (over || time > timeout){
+            trueTarget -= true_theta;
             break;
         }
 
@@ -1635,7 +1818,7 @@ if (abs(ltarget - encoderAvgL) <= 25) fix = 0;
 
 void driveArcRF(double theta, double radius, int timeout, int speed){
     setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);
-    trueTarget += theta;
+
     int true_theta = theta;
 bool over = false;
 double ltargetF = 0;
@@ -1718,6 +1901,7 @@ int fix = calcPID3((trueTarget + rightcorrect), position, ARC_HEADING_INTEGRAL_K
     }
    }
     if (over || time2 > timeout){
+        trueTarget += true_theta;
         break;
     }
      if(time2 % 50 == 0 && time2 % 100 != 0 && time2 % 150!= 0){
