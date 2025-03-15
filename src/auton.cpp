@@ -68,39 +68,42 @@
   color == 1;//1 = no blue rings, 2 = no red rings
   eyes.set_led_pwm(100); //always do this
   LadyBrown.move_relative(-900, 127);
-  delay(700);
-  driveStraightC(-550);
+  driveStraight2(60);
+  delay(300);
+  driveStraightC(-561);
   driveTurn2(70);
-  driveStraight2(-870);
-  driveClampS(-620, 25, 100); //grabs goal
+  driveStraight2(-850);
+  driveClampS(-570, 50, 100); //grabs goal
   driveTurn2(-215);
   Intake.move(127);
   driveStraightC(500);
-  driveTurn2(260);
-  //driveArcRF(140, 200, 1500, 50);
-  driveStraightC(400);
+  driveTurn2(245);
+  driveStraightC(500);
   driveTurn2(235);
-  driveStraight2(400);
-  delay(250);
-  driveTurn2(220);
-      // StakeWing.set_value(true);
-      // delay(20);
-      // driveStraight2(-750);
-      // StakeWing.set_value(false);
-      // driveArcRF(120, 200, 500, 55);
-      // driveStraight2(200);
-      // delay(250);
-      // Intake_Piston.set_value(true);
-      // driveStraight2(2000);
-      // MogoMech.set_value(false);
-      // LadyBrown.move_relative(600, 127);
-      // driveTurn2(10); //might need this. Its been sometimes needing this and sometimes not
-      // driveSortHoldblue(455, 100);
-      // Intake_Piston.set_value(false);
-      // delay(150);
-      // driveTurn2(-125);
-      //driveStraight2(500);
-      //LadyBrown.move_relative(-825, 127);
+  delay(300);
+  //driveTurn2(220);
+  StakeWing.set_value(true);
+  delay(100);
+  driveStraight2(-1000);
+  StakeWing.set_value(false);
+  driveTurn2(200);
+  driveStraightC(100);
+  driveArcRF(140, 200, 500, 55);
+  driveTurn2(5);
+  driveStraight2(200);
+  Intake.move(127);
+  driveStraight2(1000);
+  driveTurn2(-10);
+  Intake_Piston.set_value(true);
+  driveStraightC(1600);
+  Intake_Piston.set_value(false);
+  LadyBrown.move_relative(750, 127);
+  driveTurn2(-125);
+  LadyBrown.move_relative(-500, 120);
+  // driveArcRF(200, 220, 1200, 75);
+  Intake.move(127);
+  driveStraight2(2000);
+
  }
  void Goal_Rush_red(){ // power beans goal rush 
   LadyBrown.move_relative(-240, 70);
@@ -110,19 +113,21 @@
   driveSortHoldRed(1300, 100);
   // LadyBrown.move_relative(-700, 127);
   StakeWing.set_value(true);
-  delay(100);
-  driveStraight2(-1000);
-  StakeWing.set_value(true);
+  delay(500);
+  driveTurn2(90);
+  StakeWing.set_value(false);
 
   //driveTurn2(45);
  }
  void Standard_AWP_blue(){
   color == 2;
   eyes.set_led_pwm(100);
+ // driveTurn2(-5);
   LadyBrown.move_relative(-900, 127);
-  delay(700);
+  driveStraight2(50);
+  delay(500);
   driveStraightC(-550);
-  driveTurn2(-72);
+  driveTurn2(-70);
   driveStraight2(-870);
   driveClampS(-600, 25, 100);
   driveTurn2(215);
@@ -133,26 +138,27 @@
   //delay(250);
   driveTurn2(-245);
   StakeWing.set_value(true);
-  delay(20);
+  delay(50);
   driveStraight2(-750);
   //driveTurn2(20);
   StakeWing.set_value(false);
-  driveArcLF(120, 200, 500, 55);
-  driveStraight2(200);
-  delay(250);
-  Intake_Piston.set_value(true);
+  driveTurn2(210);
+  driveArcLF(120, 300, 500, 55);
+  driveStraightC(200);
   driveStraight2(2000);
+  Intake_Piston.set_value(true);
   MogoMech.set_value(false);
-  LadyBrown.move_relative(600, 127);
-  driveTurn2(-10); //might need this. Its been sometimes needing this and sometimes not
-  driveSortHoldblue(455, 100);
+  LadyBrown.move_relative(500, 127);
+  driveTurn2(10); //might 5seed this. Its been sometimes needing this and sometimes not
+  driveStraight2(575);
   Intake_Piston.set_value(false);
-  delay(150);
+  delay(550);
   driveTurn2(125);
   // driveArcRF(200, 220, 1200, 75);
-    // Intake.move(0);
+    Intake.move(127);
     driveStraight2(500);
     LadyBrown.move_relative(-825, 127);
+
     // 
     // LadyBrown.move_relative(-825, 127);
   //driveClampS(500, 25, 75);;

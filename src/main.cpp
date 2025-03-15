@@ -9,7 +9,7 @@ bool stay_clamp = true;
 using namespace pros;
 using namespace std;
 
-int atn = 1;
+int atn = 3;
 string autstr;
 // Task colorSortTask;
 // bool colorSortActive = false;
