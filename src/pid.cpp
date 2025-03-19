@@ -150,14 +150,14 @@ bool Backwards = false;
 void ColorSort(int color){
     //blue color rejection
     if (color == 1){  //
-        if(eyes.get_hue()<240 && eyes.get_hue()>140){
+        if(eyes.get_hue()<240 && eyes.get_hue()>170){
             InitColor = true;
         }
 
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 400){
+                if(Intake.get_position() > 332){
                     Backwards = true;
                 }
             } else {
@@ -172,14 +172,14 @@ void ColorSort(int color){
             Intake.tare_position();
         }
     } else if(color == 2){ //red ring rejection from here down
-        if(eyes.get_hue()<40 && eyes.get_hue()>1){
+        if(eyes.get_hue()<30 && eyes.get_hue()>1){
             InitColor = true;
         }
 
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 400){
+                if(Intake.get_position() > 328){
                     Backwards = true;
                 }
             } else {
@@ -1320,7 +1320,7 @@ if(trueTarget > 180) {
             voltage = -127 * double(speed)/100;
         }
 
-  if(eyes.get_hue() <30){
+  if(eyes.get_hue() <40){
     Intake.move(0);
   }
 
@@ -1418,9 +1418,9 @@ if(trueTarget > 180) {
             voltage = -127 * double(speed)/100;
         }
 
-  if(eyes.get_hue() > 150){
-    Intake.move(0);
-  }
+   if(eyes.get_hue() > 170){
+    Intake.move(127);
+    } 
 
         chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));
         if (abs(target - encoderAVG) <= 4) count++;

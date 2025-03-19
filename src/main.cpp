@@ -9,7 +9,7 @@ bool stay_clamp = true;
 using namespace pros;
 using namespace std;
 
-int atn = 3;
+int atn = 4;
 string autstr;
 // Task colorSortTask;
 // bool colorSortActive = false;
@@ -171,8 +171,9 @@ while (true) {
 
 //Stakewing toggle
  if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
-	color = 1;
-	driveStraightSlow(2000, 50);
+	Intake.move(127);
+
+	driveSortHoldblue(1000, 50);
 			  }
 
   
