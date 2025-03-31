@@ -172,9 +172,12 @@ while (true) {
 //Stakewing toggle
  if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
 	Intake.move(127);
-
-	driveSortHoldblue(1000, 50);
-			  }
+	color = 2;
+	while(true){
+		ColorSort();
+		delay(10);
+	}
+ }
 
   
 
@@ -326,7 +329,7 @@ if (time % 50 == 0 && time % 100 !=0 && time % 150 !=0){
 } else if (time% 100 == 0 && time % 150 !=0){
     con.print(1,0,"HeadingError!%f      ", float(Macro));
 } else if (time % 150 == 0){
-    con.print(2,0,"Error:%f      ",float(error));
+    con.print(2,0,"Error:%f      ",float(eyes.get_hue()));
 }
 
 delay(10);

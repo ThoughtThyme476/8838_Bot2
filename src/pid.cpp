@@ -147,17 +147,22 @@ if(stallProt){
 bool InitCorrect = false;
 int ColorCount;
 bool Backwards = false;
-void ColorSort(int color){
+bool stuck = false;
+int stuck_time = 0;
+void ColorSort(){
+
+prevhookpos = hookspos;
+hookspos = Intake.get_position();
     //blue color rejection
     if (color == 1){  //
-        if(eyes.get_hue()<240 && eyes.get_hue()>170){
+        if((eyes.get_hue()<240 && eyes.get_hue()>170) && eyes.get_proximity() > 75){ // 50
             InitColor = true;
         }
 
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 332){
+                if(Intake.get_position() > 300){
                     Backwards = true;
                 }
             } else {
@@ -168,18 +173,38 @@ void ColorSort(int color){
                 }
             }
         } else {
-            Intake.move(127);
+            if(hookspos == prevhookpos){
+                stuck_time += 10;
+            } else {
+                stuck_time = 0;
+            }
+            if(stuck_time > 100){
+                stuck = true;
+                stuck_time = 0;
+            }
+                
+            if(stuck){
+                        Intake.move(-127);
+                        stallTime+= 10;
+                        if (stallTime >= 100){
+                            stuck = false;
+                            stallTime = 0;
+                        }
+                } else { 
+                    stuck = false;
+                    Intake.move(127);
+                }
             Intake.tare_position();
         }
     } else if(color == 2){ //red ring rejection from here down
-        if(eyes.get_hue()<30 && eyes.get_hue()>1){
+        if((eyes.get_hue()<30 && eyes.get_hue()>1) && eyes.get_proximity() > 75){ // 50
             InitColor = true;
         }
 
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 328){
+                if(Intake.get_position() > 300){
                     Backwards = true;
                 }
             } else {
@@ -190,26 +215,46 @@ void ColorSort(int color){
                 }
             }
         } else {
-            Intake.move(127);
+            if(hookspos == prevhookpos){
+                stuck_time += 10;
+            } else {
+                stuck_time = 0;
+            }
+            if(stuck_time > 100){
+                stuck = true;
+                stuck_time = 0;
+            }
+                
+            if(stuck){
+                        Intake.move(-127);
+                        stallTime+= 10;
+                        if (stallTime >= 100){
+                            stuck = false;
+                            stallTime = 0;
+                        }
+                } else { 
+                    stuck = false;
+                    Intake.move(127);
+                }
             Intake.tare_position();
-        }   
+        }
     }
     }
 //}
 
 //stall prot for intake
 void StallProtection(){
-bool stuck = false;
-prevhookpos = hookspos;
-hookspos = Intake.get_position();
 
-if(hookspos == prevhookpos);
+
+
+if(hookspos == prevhookpos){
 stuck = true;
+}
 
     if(stuck){
         Intake.move(-127);
         stallTime+= 10;
-        if (stallTime += 100){
+        if (stallTime >= 100){
             stuck = false;
             stallTime = 0;
         }
@@ -217,7 +262,7 @@ stuck = true;
     stuck = false;
     Intake.move(127);
 }
-
+    // delay(10);
 } 
 
 
@@ -255,7 +300,7 @@ double calcPID(double target, double input, int integralKI, int maxIntegral){
     // Odometry2();
     // stall();
     //replaced text;
-   ColorSort(color);
+   ColorSort();
   // StallProtection();
     
     int integral;
@@ -283,7 +328,6 @@ double calcPID(double target, double input, int integralKI, int maxIntegral){
 
 double calcPID2(double target2, double input2, int integralKI2, int maxIntegral2){
     //replaced text;
-    ColorSort(color);
     //StallProtection();
 
     int integral2;
@@ -312,7 +356,6 @@ double calcPID2(double target2, double input2, int integralKI2, int maxIntegral2
 
 double calcPID3(double target3, double input3, int integralKI3, int maxIntegral3){
     //replaced text;
-    ColorSort(color);
     //StallProtection();
 
     int integral3;
@@ -341,7 +384,6 @@ double calcPID3(double target3, double input3, int integralKI3, int maxIntegral3
 
 double calcPID4(double target4, double input4, int integralKI4, int maxIntegral4){
     //replaced text;
-    ColorSort(color);
     //StallProtection();
 
     int integral4;
@@ -1419,7 +1461,7 @@ if(trueTarget > 180) {
         }
 
    if(eyes.get_hue() > 170){
-    Intake.move(127);
+    Intake.move(0);
     } 
 
         chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));

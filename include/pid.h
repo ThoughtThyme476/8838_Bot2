@@ -13,6 +13,7 @@
 #define STRAIGHT_MAX_INTEGRAL 14.5//
 
 extern double calcPID(double target, double input, int integralKi, int maxIntergral);
+extern void ColorSort();
 extern void driveStraight(int target);
 extern void driveStraight2(int target);
 extern void driveStraightC(int target);
