@@ -222,24 +222,24 @@ if(con.get_digital(E_CONTROLLER_DIGITAL_L1)){
 
 
 
-if (con.get_digital(E_CONTROLLER_DIGITAL_UP)) {
+if (con.get_digital(E_CONTROLLER_DIGITAL_UP)) { //lady brown loading macro
   // Set it into Macro Mode
   LBC = true;
   Macro++;
 
   // Finds the angle that we need to move 
   double current_angle = roto.get_angle() / 100.0;
-  double target_angle = 245;
+  double target_angle = 240;
   double change_angle = target_angle - current_angle;
   
   // Finding how far to move the motor
   double motor_ticks = change_angle * 5;
 
   // Move motor to the desired position
-  LadyBrown.move_relative(motor_ticks, 90);
+  LadyBrown.move_absolute(motor_ticks, 90);
 } 
 
-if (con.get_digital(E_CONTROLLER_DIGITAL_DOWN)) {
+if (con.get_digital(E_CONTROLLER_DIGITAL_DOWN)) { //descore macro
 	// Set it into Macro Mode
 	LBC = true;
 	Macro++;
@@ -253,10 +253,10 @@ if (con.get_digital(E_CONTROLLER_DIGITAL_DOWN)) {
 	double motor_ticks = change_angle * 5;
   
 	// Move motor to the desired position
-	LadyBrown.move_relative(motor_ticks, 90);
+	LadyBrown.move_absolute(motor_ticks, 90);
   } 
   
-  if (con.get_digital(E_CONTROLLER_DIGITAL_LEFT)) {
+  if (con.get_digital(E_CONTROLLER_DIGITAL_LEFT)) { // double load macro
 	// Set it into Macro Mode
 	LBC = true;
 	Macro++;
@@ -270,9 +270,9 @@ if (con.get_digital(E_CONTROLLER_DIGITAL_DOWN)) {
 	double motor_ticks = change_angle * 5;
   
 	// Move motor to the desired position
-	LadyBrown.move_relative(motor_ticks, 90);
+	LadyBrown.move_absolute(motor_ticks, 90);
   }
-//if(LBC = true){
+// if(LBC){
 // 	//LadyBrown.move(127);
 // 	setConstants(MACRO_KP, MACRO_KI, MACRO_KD);
 // 	Macro = 0;

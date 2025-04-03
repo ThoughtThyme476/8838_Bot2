@@ -36,6 +36,6 @@ pros::Controller con (pros::E_CONTROLLER_MASTER);
 
 
 pros::ADIDigitalOut MogoMech ('B',true);//out soloniod was stolen so I changed this
-pros::ADIDigitalOut StakeWing('H',false);
+pros::ADIDigitalOut StakeWing('A',false);
 pros::ADIDigitalOut Intake_Piston ('A',false);
 pros::ADIDigitalIn selec ('C');//

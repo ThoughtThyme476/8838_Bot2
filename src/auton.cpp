@@ -66,33 +66,11 @@
    }
  void Standard_AWP_red(){//1 = no blue rings, 2 = no red rings
   eyes.set_led_pwm(100); //always do this
-  LadyBrown.move_relative(-900, 127);
-  driveStraight2(50);
-  Intake.move(127);
-  delay(500);
-  driveStraightC(-600);
-  driveTurn2(70);
-  driveStraight2(-870);
-  driveClampS(-600, 25, 50);
-  driveTurn2(-215);
-  Intake.move(127);
-  driveStraight2(900);
-  delay(500);
-  LadyBrown.move_relative(600, 127);
-  driveTurn2(-3);
-  Intake_Piston.set_value(true); //might need this. Its been sometimes needing this and sometimes not
-  driveStraight2(2000);
-  driveTurn2(-10);
-  driveStraightSlow(250, 50);
-  Intake_Piston.set_value(false);
-  delay(150);
-  Intake.move(50);
-  driveTurn2(-130);
-    Intake.move(127);
-    delay(500);
-    Intake.move(0);
-    driveSortHoldblue(500, 100);
-    LadyBrown.move_relative(-825, 127);
+  color = 1;
+  LadyBrown.move(-127);
+  driveStraight2(650);
+  LadyBrown.move(90);
+  driveClamp(-2800, 50);
 
  }
  void Goal_Rush_red(){ // power beans goal rush kinda. Did this saturday night/sunday moring durning states 

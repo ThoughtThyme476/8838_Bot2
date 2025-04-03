@@ -1167,8 +1167,8 @@ if(trueTarget > 180) {
             voltage = -127;
         }
 
-        if((target - position) < clampDistance){
-            MogoMech.set_value(false);
+        if(abs((target - position)) < clampDistance){
+            MogoMech.set_value(false); // mabye reveres this?
         }
 
         chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));
@@ -1266,7 +1266,7 @@ if(trueTarget > 180) {
         }
 
   if(abs(target - encoderAVG) < clampDistanceFromTarget){
-     MogoMech.set_value(false);
+     MogoMech.set_value(false); // mabye reveres this?
         }
 
         chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));

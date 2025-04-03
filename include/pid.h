@@ -13,6 +13,8 @@
 #define STRAIGHT_MAX_INTEGRAL 14.5//
 
 extern double calcPID(double target, double input, int integralKi, int maxIntergral);
+extern double calcPID2(double target2, double input2, int integralKI2, int maxIntegral2);
+extern void chasMove(int voltageLF, int voltageLM, int voltageLB, int voltageRF, int voltageRM, int voltageRB);
 extern void ColorSort();
 extern void driveStraight(int target);
 extern void driveStraight2(int target);
