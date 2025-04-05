@@ -9,7 +9,7 @@ bool stay_clamp = true;
 using namespace pros;
 using namespace std;
 
-int atn = 4;
+int atn = 2;
 string autstr;
 // Task colorSortTask;
 // bool colorSortActive = false;
@@ -159,8 +159,11 @@ int Macro = 0;
 bool IntakePiston = false;
 eyes.set_led_pwm(100);
 
+
 while (true) {
 
+	//ColorSort();
+	//delay(10);
 	// if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
 	// 	//driveStraightC(250);
 	// 	// Intake.move(127);
@@ -172,7 +175,7 @@ while (true) {
 //Stakewing toggle
  if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
 	Intake.move(127);
-	color = 2;
+	color = 1;
 	while(true){
 		ColorSort();
 		delay(10);
@@ -229,49 +232,49 @@ if (con.get_digital(E_CONTROLLER_DIGITAL_UP)) { //lady brown loading macro
 
   // Finds the angle that we need to move 
   double current_angle = roto.get_angle() / 100.0;
-  double target_angle = 240;
+  double target_angle = 247;
   double change_angle = target_angle - current_angle;
   
   // Finding how far to move the motor
   double motor_ticks = change_angle * 5;
 
   // Move motor to the desired position
-  LadyBrown.move_absolute(motor_ticks, 90);
+  LadyBrown.move_relative(motor_ticks, 90);
 } 
 
-if (con.get_digital(E_CONTROLLER_DIGITAL_DOWN)) { //descore macro
+if (con.get_digital(E_CONTROLLER_DIGITAL_DOWN)) { //lady brown descore macro
 	// Set it into Macro Mode
 	LBC = true;
 	Macro++;
   
 	// Finds the angle that we need to move 
 	double current_angle = roto.get_angle() / 100.0;
-	double target_angle = 140.0;
+	double target_angle = 125;
 	double change_angle = target_angle - current_angle;
 	
 	// Finding how far to move the motor
 	double motor_ticks = change_angle * 5;
   
 	// Move motor to the desired position
-	LadyBrown.move_absolute(motor_ticks, 90);
+	LadyBrown.move_relative(motor_ticks, 90);
   } 
   
-  if (con.get_digital(E_CONTROLLER_DIGITAL_LEFT)) { // double load macro
+  if (con.get_digital(E_CONTROLLER_DIGITAL_LEFT)) { //lady brown double loading macro
 	// Set it into Macro Mode
 	LBC = true;
 	Macro++;
   
 	// Finds the angle that we need to move 
 	double current_angle = roto.get_angle() / 100.0;
-	double target_angle = 230.0;
+	double target_angle = 220;
 	double change_angle = target_angle - current_angle;
 	
 	// Finding how far to move the motor
 	double motor_ticks = change_angle * 5;
   
 	// Move motor to the desired position
-	LadyBrown.move_absolute(motor_ticks, 90);
-  }
+	LadyBrown.move_relative(motor_ticks, 90);
+  } 
 // if(LBC){
 // 	//LadyBrown.move(127);
 // 	setConstants(MACRO_KP, MACRO_KI, MACRO_KD);
@@ -285,7 +288,7 @@ if (con.get_digital(E_CONTROLLER_DIGITAL_DOWN)) { //descore macro
 		
 // 	}
 // }
-
+// make conversion variable
 
 
 //pistons for mogo

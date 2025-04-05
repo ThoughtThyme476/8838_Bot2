@@ -217,7 +217,8 @@
     Standard_AWP_red();
   } 
   else if (atn ==2) {
-    Standard_AWP_blue();
+    color = 1;
+    ColorSort();
   } 
   else if (atn ==3) {
     Goal_Rush_red();
