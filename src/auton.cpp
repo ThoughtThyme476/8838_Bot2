@@ -14,64 +14,41 @@
 // autons5 = auto skills
 
  //don't use autons 1 and that stuff anymore just use the above 
- void Solo_AWP_red(){
-  // driveStraight2(3000);
-        LadyBrown.move_relative(-160, 70);
-        delay(150);
-        Intake.move(70);
-        driveStraight2(1400);
-        driveStraightSlow(300, 50);
-        driveTurn2(-42);
-        Intake.move(0);
-        driveStraight2(1210);
-        LadyBrown.move_relative(-520, 90);
-        delay(750);
-        driveStraightC(-400);
-        LadyBrown.move_relative(670, 70);
-        driveTurn2(0);
-        Intake.move(127);
-        driveStraight2(440);
-        delay(100);
-        Intake.move(-10);
-        delay(100);
-        LadyBrown.move_relative(-300, 50);
-        Intake.move(0);
-        delay(500);
-        Intake.move(127);
-        driveStraight2(30);
-        delay(250);
-        driveStraightC(-500);
-        Intake.move(0);
-        driveTurn2(-100);
-        driveStraight2(-1000);
-        driveClampS(-275, 25, 25);
-        Intake.move(127);
-        driveStraightC(400);
-        driveTurn2(0);
-        driveStraight2(1000);
-    // LadyBrown.move_relative(750, 70);
-    // driveStraightSlow(-1000, 75);
-    // driveClampS(-200, 50, 50);
-    // delay(10);
-    // Intake.move(127);
-    // driveStraightC(600);
-    // driveTurn2(0);
-          // //driveArcRF(90, 500, 1000, 100);
-          // driveStraight2(700);
-          // delay(100);
-          // driveStraightC(-700);
-          // driveTurn2(55);
-          // driveStraight2(1500);
-          // StakeWing.set_value(true);
-   }
- void Standard_AWP_red(){//1 = no blue rings, 2 = no red rings
-  eyes.set_led_pwm(100); //always do this
-  color = 1;
-  LadyBrown.move(-127);
-  driveStraight2(650);
-  LadyBrown.move(90);
-  driveClamp(-2800, 50);
 
+ void Standard_AWP_red(){
+  //1 = no blue rings, 2 = no red rings
+  eyes.set_led_pwm(100); //always do this
+  LadyBrown.move(-110);
+  driveStraight2(225);
+  LadyBrown.move(20);
+  driveStraightC(-400);
+  LadyBrown.move(90);
+  driveStraight2(-900);
+  driveTurn2(5);
+  ColorSort();
+  driveClampS(-850, 300, 100);
+  driveTurn2(165);
+  Intake.move(127);
+  //color = 1;
+  driveStraight2(580);
+  //delay(200);
+  driveTurn2(60);
+  driveStraight2(500);
+  driveTurn2(-30);
+  driveStraightC(1650);
+  MogoMech.set_value(false);
+  Intake.move(127);
+  driveArcLF(20, 400, 500, 100);
+  driveStraight2(100);
+  //driveTurn2(-25);
+  driveSortHoldRed(1100, 50);
+  Intake.move(0);
+  driveTurn2(37);
+  driveStraight2(-900);
+  driveClampS(-550, 200, 60);
+  Intake.move(127);
+  driveTurn2(165);
+  LadyBrown.move(-90);
  }
  void Goal_Rush_red(){ // power beans goal rush kinda. Did this saturday night/sunday moring durning states 
   // color = 1;//1 = no blue rings, 2 = no red rings
@@ -86,8 +63,8 @@
   driveTurn2(110);
   StakeWing.set_value(false);
   driveTurn2(70);
-  driveStraight2(-600);
-  driveClampS(-800, 50, 50);
+  driveStraight2(-450);
+  driveClampS(-200, 50, 50);
   delay(100);
   Intake.move(127);
   driveStraightC(600);
@@ -98,40 +75,44 @@
   driveStraightSlow(300, 50);
   delay(500);
   driveStraight2(-500);
-  driveTurn2(-45);
+  driveTurn2(-42.5);
   driveStraight2(-1000);
 
  }
  void Standard_AWP_blue(){
-  eyes.set_led_pwm(100);
- // color = 2;
-  LadyBrown.move_relative(-900, 127);
-  driveStraight2(50);
-  Intake.move(127);
-  delay(500);
-  driveStraightC(-600);
-  driveTurn2(-70);
-  driveStraight2(-870);
-  driveClampS(-600, 25, 50);
-  driveTurn2(215);
-  Intake.move(127);
-  driveStraight2(800);
-  delay(500);
-  LadyBrown.move_relative(600, 127);
-  driveTurn2(3);
-  Intake_Piston.set_value(true); //might need this. Its been sometimes needing this and sometimes not
-  driveStraight2(2000);
-  driveTurn2(10);
-  driveStraightSlow(250, 50);
-  Intake_Piston.set_value(false);
-  delay(150);
-  driveTurn2(135);
-  // driveArcRF(200, 220, 1200, 75);
-    Intake.move(127);
-    delay(250);
-    Intake.move(0);
-    driveSortHoldRed(1000, 100);
-    LadyBrown.move_relative(-825, 127);
+   //1 = no blue rings, 2 = no red rings
+   eyes.set_led_pwm(100); //always do this
+   LadyBrown.move(-110);
+   driveStraight2(200);
+   LadyBrown.move(20);
+   driveStraightC(-400);
+   LadyBrown.move(90);
+   driveStraight2(-900);
+   //driveTurn2(0);
+   ColorSort();
+   driveClampS(-850, 300, 100);
+   driveTurn2(-165);
+   Intake.move(127);
+   //color = 1;
+   driveStraight2(610);
+   //delay(200);
+   driveTurn2(-60);
+   driveStraight2(500);
+   driveTurn2(10);
+   driveStraightC(1850);
+   MogoMech.set_value(false);
+   Intake.move(127);
+   driveArcRF(20, 400, 500, 100);
+   driveStraight2(100);
+   //driveTurn2(-25);
+   driveSortHoldblue(1200, 50);
+  //  Intake.move(0);
+  //  driveTurn2(-35);
+  //  driveStraight2(-900);
+  //  driveClampS(-550, 200, 60);
+  //  Intake.move(127);
+  //  driveTurn2(-165);
+  //  LadyBrown.move(-90);
   }
 
 
@@ -214,11 +195,11 @@
  void autonomous(){
   if (atn == 0) {
   } else if (atn == 1) {
-    Standard_AWP_red();
+    // color = 1;
+  Standard_AWP_red();
   } 
   else if (atn ==2) {
-    color = 1;
-    ColorSort();
+  Standard_AWP_blue();
   } 
   else if (atn ==3) {
     Goal_Rush_red();
@@ -233,6 +214,8 @@
 
   } 
   else if (atn ==7) {
-
+    eyes.set_led_pwm(100);
+    Intake.move(127);
+    driveSortHoldRed(750, 25);
   }
 }
