@@ -9,7 +9,7 @@ bool stay_clamp = true;
 using namespace pros;
 using namespace std;
 
-int atn = 2;
+int atn = 3;
 string autstr;
 // Task colorSortTask;
 // bool colorSortActive = false;
@@ -174,12 +174,15 @@ while (true) {
 
 //Stakewing toggle
  if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
-	Intake.move(127);
-	color = 1;
-	while(true){
-		ColorSort();
-		delay(10);
-	}
+	// Intake.move(127);
+	// color = 1;
+	// while(true){
+	// 	ColorSort();
+	// 	delay(10);
+	// }
+	driveStraight2(100);
+	driveArcRF(90, 600, 1500, 100);
+	driveStraight2(100);
  }
 
   
@@ -249,7 +252,7 @@ if (con.get_digital(E_CONTROLLER_DIGITAL_DOWN)) { //lady brown descore macro
   
 	// Finds the angle that we need to move 
 	double current_angle = roto.get_angle() / 100.0;
-	double target_angle = 125;
+	double target_angle = 135;
 	double change_angle = target_angle - current_angle;
 	
 	// Finding how far to move the motor
@@ -267,6 +270,23 @@ if (con.get_digital(E_CONTROLLER_DIGITAL_DOWN)) { //lady brown descore macro
 	// Finds the angle that we need to move 
 	double current_angle = roto.get_angle() / 100.0;
 	double target_angle = 220;
+	double change_angle = target_angle - current_angle;
+	
+	// Finding how far to move the motor
+	double motor_ticks = change_angle * 5;
+  
+	// Move motor to the desired position
+	LadyBrown.move_relative(motor_ticks, 90);
+  } 
+
+  if (con.get_digital(E_CONTROLLER_DIGITAL_RIGHT)) { //lady brown double loading macro
+	// Set it into Macro Mode
+	LBC = true;
+	Macro++;
+  
+	// Finds the angle that we need to move 
+	double current_angle = roto.get_angle() / 100.0;
+	double target_angle = 105;
 	double change_angle = target_angle - current_angle;
 	
 	// Finding how far to move the motor
@@ -326,13 +346,13 @@ RF.move(right);
 RM.move(right);
 RB.move(right);
 }
-
+double  chasstemp = ((RF.get_temperature() + RB.get_temperature() + LF.get_temperature() + LB.get_temperature())/4);
 if (time % 50 == 0 && time % 100 !=0 && time % 150 !=0){
     con.print(0,0,"Time:%f       ", float(time2));//viewTime
 } else if (time% 100 == 0 && time % 150 !=0){
     con.print(1,0,"HeadingError!%f      ", float(Macro));
 } else if (time % 150 == 0){
-    con.print(2,0,"Error:%f      ",float(eyes.get_hue()));
+    con.print(2,0,"C:%i H:%i LB:%i      ",int(chasstemp), int(Intake.get_temperature()), int(LadyBrown.get_temperature()));
 }
 
 delay(10);

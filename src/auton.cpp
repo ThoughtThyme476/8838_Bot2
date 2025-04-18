@@ -66,72 +66,93 @@
    }
  void Standard_AWP_red(){//1 = no blue rings, 2 = no red rings
   eyes.set_led_pwm(100); //always do this
-  color = 1;
+  LadyBrown.move(-110);
+  driveStraight2(225);
+  LadyBrown.move(20);
+  driveTurn2(3);
+  driveStraightC(-400);
   LadyBrown.move(-127);
-  driveStraight2(650);
   LadyBrown.move(90);
-  driveClamp(-2800, 50);
-
+  driveStraight2(-900);
+  driveTurn2(-10);
+  driveClampS(-850, 300, 100);
+  driveTurn2(165);
+  Intake.move(127);
+  color = 1;
+  driveStraight2(580);
+  //delay(200);
+  driveTurn2(60);
+  driveStraight2(500);
+  driveTurn2(-30);
+  driveStraightC(1650);
+  MogoMech.set_value(false);
+  color = 0;
+  Intake.move(127);
+  driveArcLF(20, 400, 500, 100);
+  driveStraight2(100);
+  //driveTurn2(-25);
+  Intake.move(127);
+  driveSortHoldRed(1100, 50);
+  Intake.move(0);
+  driveTurn2(37);
+  driveStraight2(-900);
+  driveClampS(-550, 200, 60);
+  Intake.move(127);
+  driveTurn2(165);
+  LadyBrown.move(-127);
  }
  void Goal_Rush_red(){ // power beans goal rush kinda. Did this saturday night/sunday moring durning states 
   // color = 1;//1 = no blue rings, 2 = no red rings
   eyes.set_led_pwm(100);
-  Intake.move(127);
-  driveStraight2(1500);
-  Intake.move(100);
-  driveSortHoldRed(1000, 100);
   StakeWing.set_value(true);
-  delay(100);
-  Intake_Piston.set_value(true);
-  driveTurn2(110);
+  driveStraightC(1300);
+  driveArcRF(42, 360, 950, 100);
   StakeWing.set_value(false);
-  driveTurn2(70);
-  driveStraight2(-600);
-  driveClampS(-800, 50, 50);
-  delay(100);
-  Intake.move(127);
-  driveStraightC(600);
-  driveTurn2(-180);
-  Intake_Piston.set_value(false);
-  driveStraight2(2000);
- // color = 1;
-  driveStraightSlow(300, 50);
-  delay(500);
+  driveStraightC(10);
+  driveStraightC(-302);
+  driveTurn2(0);
+  driveStraightC(-750);
+  StakeWing.set_value(true);
   driveStraight2(-500);
-  driveTurn2(-45);
-  driveStraight2(-1000);
-
+  StakeWing.set_value(false);
+  driveTurn2(30);
+  driveSortHoldblue(1500, 100);
  }
  void Standard_AWP_blue(){
-  eyes.set_led_pwm(100);
- // color = 2;
-  LadyBrown.move_relative(-900, 127);
-  driveStraight2(50);
-  Intake.move(127);
-  delay(500);
-  driveStraightC(-600);
-  driveTurn2(-70);
-  driveStraight2(-870);
-  driveClampS(-600, 25, 50);
-  driveTurn2(215);
-  Intake.move(127);
-  driveStraight2(800);
-  delay(500);
-  LadyBrown.move_relative(600, 127);
-  driveTurn2(3);
-  Intake_Piston.set_value(true); //might need this. Its been sometimes needing this and sometimes not
-  driveStraight2(2000);
+  eyes.set_led_pwm(100); //always do this
+  LadyBrown.move(-110);
+  driveStraight2(250);
+  LadyBrown.move(20);
+  driveTurn2(-3);
+  driveStraightC(-400);
+  LadyBrown.move(90);
+  driveStraight2(-900);
   driveTurn2(10);
-  driveStraightSlow(250, 50);
-  Intake_Piston.set_value(false);
-  delay(150);
-  driveTurn2(135);
-  // driveArcRF(200, 220, 1200, 75);
-    Intake.move(127);
-    delay(250);
-    Intake.move(0);
-    driveSortHoldRed(1000, 100);
-    LadyBrown.move_relative(-825, 127);
+  driveClampS(-850, 300, 100);
+  driveTurn2(-160);
+  color = 2;
+  //color = 1;
+  driveStraight2(590);
+  //delay(200);
+  driveTurn2(-60);
+  driveStraight2(500);
+  driveTurn2(25);
+  driveStraightC(1650);
+  MogoMech.set_value(false);
+  Intake.move(127);
+  driveArcRF(15, 400, 1000, 100);
+  driveStraight2(100);
+  // //driveTurn2(-25);
+  color = 0;
+  Intake.move(127);
+  driveSortHoldblue(1100, 50);
+  Intake.move(0);
+  driveTurn2(-45);
+  driveStraight2(-1100);
+  driveClampS(-550, 200, 60);
+  Intake.move(127);
+  driveTurn2(-165);
+  LadyBrown.move(-127);
   }
 
 
@@ -217,8 +238,7 @@
     Standard_AWP_red();
   } 
   else if (atn ==2) {
-    color = 1;
-    ColorSort();
+   Standard_AWP_blue();
   } 
   else if (atn ==3) {
     Goal_Rush_red();

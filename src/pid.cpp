@@ -155,7 +155,7 @@ prevhookpos = hookspos;
 hookspos = Intake.get_position();
     //blue color rejection
     if (color == 1){  //
-        if((eyes.get_hue()<230 && eyes.get_hue()>180) && eyes.get_proximity() > 50){ // 50
+        if((eyes.get_hue()<230 && eyes.get_hue()>180) && eyes.get_proximity() > 150){ // 50
             InitColor = true;
         }
 
@@ -197,7 +197,7 @@ hookspos = Intake.get_position();
             Intake.tare_position();
         }
     } else if(color == 2){ //red ring rejection 
-        if((eyes.get_hue()<40 && eyes.get_hue()>5) && eyes.get_proximity() > 50){ // 50
+        if((eyes.get_hue()<40 && eyes.get_hue()>5) && eyes.get_proximity() > 150){ // 50
             InitColor = true;
         }
 
@@ -1168,7 +1168,7 @@ if(trueTarget > 180) {
         }
 
         if(abs((target - position)) < clampDistance){
-            MogoMech.set_value(false); // mabye reveres this?
+            MogoMech.set_value(true); // mabye reveres this?
         }
 
         chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));
@@ -1266,7 +1266,7 @@ if(trueTarget > 180) {
         }
 
   if(abs(target - encoderAVG) < clampDistanceFromTarget){
-     MogoMech.set_value(false); // mabye reveres this?
+     MogoMech.set_value(true); // mabye reveres this?
         }
 
         chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));
@@ -1362,7 +1362,7 @@ if(trueTarget > 180) {
             voltage = -127 * double(speed)/100;
         }
 
-  if(eyes.get_hue() <40){
+  if((eyes.get_hue()<40 && eyes.get_hue()>5) && eyes.get_proximity() > 150){
     Intake.move(0);
   }
 
@@ -1460,7 +1460,7 @@ if(trueTarget > 180) {
             voltage = -127 * double(speed)/100;
         }
 
-   if(eyes.get_hue() > 170){
+   if((eyes.get_hue()<230 && eyes.get_hue()>170) && eyes.get_proximity() > 150){
     Intake.move(0);
     } 
 
