@@ -162,7 +162,7 @@ hookspos = Intake.get_position();
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 300){
+                if(Intake.get_position() > 340){
                     Backwards = true;
                 }
             } else {
@@ -204,7 +204,7 @@ hookspos = Intake.get_position();
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 300){
+                if(Intake.get_position() > 360){
                     Backwards = true;
                 }
             } else {
@@ -838,7 +838,7 @@ void driveStraight2(int target) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(3.75, 0, 0);
+            setConstants(4, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }  
@@ -1168,7 +1168,7 @@ if(trueTarget > 180) {
         }
 
         if(abs((target - position)) < clampDistance){
-            MogoMech.set_value(true); 
+            MogoMech.set_value(false); // mabye reveres this?
         }
 
         chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));
@@ -1266,7 +1266,7 @@ if(trueTarget > 180) {
         }
 
   if(abs(target - encoderAVG) < clampDistanceFromTarget){
-     MogoMech.set_value(true); 
+     MogoMech.set_value(false); // mabye reveres this?
         }
 
         chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));
@@ -1362,9 +1362,9 @@ if(trueTarget > 180) {
             voltage = -127 * double(speed)/100;
         }
 
-        if((eyes.get_hue()<40 && eyes.get_hue()>5) && eyes.get_proximity() > 50){ // 50
-           Intake.move(0);
-        }
+  if(eyes.get_hue() <40){
+    Intake.move(0);
+  }
 
         chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));
         if (abs(target - encoderAVG) <= 4) count++;
@@ -1380,7 +1380,7 @@ if(trueTarget > 180) {
             con.print(2,0, "EncoderAVG: %f           ", float(imu.get_heading()));
         }
          if(time2 % 50 == 0){
-            con.print(1,0, "Time2: %f           ", float(eyes.get_hue()));
+            con.print(1,0, "Time2: %f           ", float(time2));
         }
         
         

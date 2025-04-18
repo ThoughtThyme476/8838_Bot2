@@ -9,7 +9,7 @@ bool stay_clamp = true;
 using namespace pros;
 using namespace std;
 
-int atn = 1;
+int atn = 2;
 string autstr;
 // Task colorSortTask;
 // bool colorSortActive = false;
@@ -161,9 +161,6 @@ eyes.set_led_pwm(100);
 
 
 while (true) {
-	// delay(4000);
-	// Standard_AWP_red();
-	// break;
 
 	//ColorSort();
 	//delay(10);
@@ -178,12 +175,11 @@ while (true) {
 //Stakewing toggle
  if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
 	Intake.move(127);
-	// color = 1;
-	// while(true){
-	// 	ColorSort();
-	// 	delay(10);
-	// }
-	driveSortHoldRed(750, 50);
+	color = 1;
+	while(true){
+		ColorSort();
+		delay(10);
+	}
  }
 
   
