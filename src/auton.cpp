@@ -114,9 +114,14 @@
   driveStraightC(-750);
   StakeWing.set_value(true);
   driveStraight2(-500);
-  StakeWing.set_value(false);
   driveTurn2(30);
-  driveSortHoldblue(1500, 100);
+  Intake.move(127);
+  driveStraight2(700);
+  driveSortHoldblue(600, 75);
+  StakeWing.set_value(false);
+  driveTurn2(95);
+  driveClampS(-1000, 50, 75);
+  MogoMech.set_value(true);
  }
  void Standard_AWP_blue(){
   eyes.set_led_pwm(100); //always do this
