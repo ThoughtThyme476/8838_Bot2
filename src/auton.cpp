@@ -101,27 +101,37 @@
   driveTurn2(165);
   LadyBrown.move(-127);
  }
- void Goal_Rush_red(){ // power beans goal rush kinda. Did this saturday night/sunday moring durning states 
+ void Goal_Rush_red(){ 
   // color = 1;//1 = no blue rings, 2 = no red rings
   eyes.set_led_pwm(100);
   StakeWing.set_value(true);
   driveStraightC(1300);
-  driveArcRF(42, 360, 950, 100);
+  driveArcRF(41, 380, 950, 100);
   StakeWing.set_value(false);
   driveStraightC(10);
-  driveStraightC(-302);
+    // driveStraightC(10);
+  driveStraightSlow(-300, 75);
   driveTurn2(0);
-  driveStraightC(-750);
-  StakeWing.set_value(true);
-  driveStraight2(-500);
-  driveTurn2(30);
-  Intake.move(127);
-  driveStraight2(700);
-  driveSortHoldblue(600, 75);
+  driveStraightC(-450);
+  //StakeWing.set_value(true); put this back when you have air 
+  driveStraight2(-850);
   StakeWing.set_value(false);
-  driveTurn2(95);
-  driveClampS(-1000, 50, 75);
-  MogoMech.set_value(true);
+  driveTurn2(-110);
+  driveStraightC(-950); //tune 
+  driveTurn2(-115);
+  driveClampS(-900, 50, 75);
+  driveTurn2(42);
+  driveStraight2(900); //tune 
+  //StakeWing.set_value(true);
+  driveStraightC(-1600);
+  //StakeWing.set_value(false);
+  driveStraight2(-400);
+  color = 2;
+  driveArcLF(135, 200, 750, 100);
+  driveStraightC(500);
+  driveTurn2(-180);
+  driveStraight2(2000);
+
  }
  void Standard_AWP_blue(){
   eyes.set_led_pwm(100); //always do this
