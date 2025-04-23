@@ -33,6 +33,7 @@ extern void driveArcL(double theta, double radius, int timeout, int speed);
 extern void driveArcRF(double theta, double radius, int timeout, int speed);
 extern void ColorSenseIntakeRed(int speed);
 extern void ColorSenseIntakeBlue(int speed);
+extern void driveStraightRush(int target);
 extern void driveSortHoldRed(int target, int speed);
 extern void driveSortHoldblue(int target, int speed);
 extern void WallStakePos(int speed, int SlowSense);

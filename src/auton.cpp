@@ -105,34 +105,103 @@
   // color = 1;//1 = no blue rings, 2 = no red rings
   eyes.set_led_pwm(100);
   StakeWing.set_value(true);
-  driveStraightC(1300);
-  driveArcRF(41, 380, 950, 100);
+  Intake.move(127);
+  driveSortHoldblue(1780, 100);
+  Intake.move(0);
   StakeWing.set_value(false);
-  driveStraightC(10);
-    // driveStraightC(10);
-  driveStraightSlow(-300, 75);
-  driveTurn2(0);
-  driveStraightC(-450);
-  //StakeWing.set_value(true); put this back when you have air 
+  driveStraightRush(-1100);
+  StakeWing.set_value(true);
+  driveStraight2(-300);
+  StakeWing.set_value(false);
+  Intake.move(30);
+  driveTurn2(-197);
+  delay(100);
   driveStraight2(-850);
-  StakeWing.set_value(false);
-  driveTurn2(-110);
-  driveStraightC(-950); //tune 
-  driveTurn2(-115);
-  driveClampS(-900, 50, 75);
-  driveTurn2(42);
-  driveStraight2(900); //tune 
-  //StakeWing.set_value(true);
-  driveStraightC(-1600);
-  //StakeWing.set_value(false);
-  driveStraight2(-400);
+  driveClampS(-500, 225, 80);
   color = 2;
-  driveArcLF(135, 200, 750, 100);
-  driveStraightC(500);
-  driveTurn2(-180);
+  driveTurn2(-210);
   driveStraight2(2000);
+  driveTurn2(20);
+  MogoMech.set_value(false);
+  driveStraight2(1000);
+  driveTurn2(-165);
+  driveClampS(-1050, 50, 70);
+  driveTurn2(-90);
+  // driveStraight2(1000);
+  // StakeWing.set_value(true);
+  // driveStraightC(-500);
+  // MogoMech.set_value(false);
+  // color = 2;
+  // driveStraight2(500);
+
+
+  // delay(100);
+  // color = 0; 
+  // MogoMech.set_value(false);
+  // driveArcLF(90, 200, 750, 100);
+  // driveSortHoldblue(1000, 100);
+  // // driveArcLF(90, 100, 750, 100);
+  // driveTurn2(225);
+  // driveStraightC(-450);
+  // driveArcRF(-90, 500, 1500, 100);
+  // driveStraight2(-1000);
+
+
+  // driveArcRF(42, 375, 950, 100);
+  // StakeWing.set_value(false);
+  // driveStraightC(10);
+  //   // driveStraightC(10);
+  // driveStraightC(-300);
+  // driveTurn2(0);
+  // driveStraightC(-450);
+  // StakeWing.set_value(true); 
+  // driveStraight2(-850);
+  // StakeWing.set_value(false);
+  // driveTurn2(-112);
+  // driveStraightC(-950); //good
+  // driveTurn2(-115);
+  // driveClampS(-900, 450, 100);
+  // driveTurn2(47);
+  // driveStraight2(750); //tune 
+  // StakeWing.set_value(true);
+  // driveStraightC(-1600);
+  // StakeWing.set_value(false);
+  // driveStraight2(-400);
+  // color = 2;
+  // driveStraightC(50);
+  // driveArcLF(135, 250, 750, 100);
+  // driveStraightC(500);
+  // driveTurn2(-185);
+  // driveStraight2(2150);
 
  }
+
+ void goal_safe_side_red(){ //not tested 
+  //driveTurn2(10);
+  driveStraight2(-1300);
+  driveClampS(-600, 90, 50);
+  driveTurn2(100);
+  driveStraight2(750);
+  driveTurn2(110);
+  StakeWing.set_value(true);
+  delay(250);
+  driveStraight2(-2000);
+  StakeWing.set_value(false);
+  color = 2;
+  driveStraight2(-250);
+  driveTurn2(-100);
+  driveArcRF(170, 300, 1000, 100);
+  driveStraight2(800);
+  delay(100);
+  driveTurn2(140);
+  driveStraightC(-1000);
+  MogoMech.set_value(false);
+  driveStraightC(-1000);
+  driveStraight2(2100);
+  driveTurn2(10);
+  }
+
+
  void Standard_AWP_blue(){
   eyes.set_led_pwm(100); //always do this
   LadyBrown.move(-110);
@@ -201,33 +270,29 @@
  }
 
 //blue ring side touch bar bc not doing corner stack
- void autons6(){
- //blue ring side
-   LadyBrown.move(-17);
-   delay(50);
-   driveTurn2(39);
-   driveStraight2(360);
-   LadyBrown.move(-127);
-   delay(650);
-   LadyBrown.move(127);
-   delay(300);
-   LadyBrown.move(0);
-   driveStraight2(-1150);
-   driveTurn2(-11);
-   driveClampS(-1250, 100, 50);
-   driveStraight2(500);
-   driveTurn2(-90);
-   Intake.move(-90);
-   //ErrorFixayer1.move(-127);
-   driveStraight2(900);
-   delay(400);
-   driveTurn2(-180);
-   driveStraight2(470);
-   driveTurn2(-115);
-   driveStraight2(100);
-   delay(150);
-   driveTurn2(80);
-   driveStraight2(1111);
+ void goal_safe_side_blue(){
+  //driveTurn2(10);
+  driveStraight2(-1300);
+  driveClampS(-600, 90, 50);
+  driveTurn2(-100);
+  driveStraight2(750);
+  driveTurn2(-110);
+  StakeWing.set_value(true);
+  delay(250);
+  driveStraight2(-2000);
+  StakeWing.set_value(false);
+  color = 2;
+  driveStraight2(-250);
+  driveTurn2(-100);
+  driveArcLF(170, 300, 1000, 100);
+  driveStraight2(800);
+  delay(100);
+  driveTurn2(-140);
+  driveStraightC(-1000);
+  MogoMech.set_value(false);
+  driveStraightC(-1000);
+  driveStraight2(2100);
+  driveTurn2(-10);
   }
  
  void skill_run(){
@@ -262,10 +327,10 @@
     Goal_Rush_Blue();
   } 
   else if (atn ==5) {
-    skill_run();
+    goal_safe_side_blue();
   } 
   else if (atn ==6) {
-
+    goal_safe_side_red();
   } 
   else if (atn ==7) {
 
