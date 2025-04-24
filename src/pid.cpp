@@ -690,7 +690,7 @@ void driveStraight(int target) {
 
         if(abs(target - position) <= 0.95) count++;
 
-        if (count >= 20 || time2 > timeout) {
+        if (count >= 25 || time2 > timeout) {
 
             break;
         }
@@ -1007,7 +1007,8 @@ void driveStraightC(int target) {
 
     double x = 0;
     x = double(abs(target));
-    timeout = (-0.000000000000750853* pow(x,5)) + (  0.00000000378468 * pow(x,4)) + (-0.00000629527 * pow(x,3)) + (0.00422834* pow(x,2)) + (-0.665814 * x) + 707.21366; if (target > 0){
+    timeout = (-0.000000000000750853* pow(x,5)) + (  0.00000000378468 * pow(x,4)) + (-0.00000629527 * pow(x,3)) + (0.00422834* pow(x,2)) + (-0.665814 * x) + 707.21366; 
+    if (target > 0){
     target = target + 500;
  } else{
     target = target - 500;
@@ -1302,7 +1303,11 @@ if(trueTarget > 180) {
 }
 
 void driveSortHoldRed(int target, int speed) {
-
+    if (target > 0){
+        target = target + 500;
+     } else{
+        target = target - 500;
+     }
     int timeout = 30000;
 
     double x = 0;
@@ -1400,6 +1405,11 @@ if(trueTarget > 180) {
 
 
 void driveSortHoldblue(int target, int speed) {
+    if (target > 0){
+        target = target + 500;
+     } else{
+        target = target - 500;
+     }
 
     int timeout = 30000;
 
@@ -1495,6 +1505,217 @@ if(trueTarget > 180) {
 
     
 }
+
+
+void driveSortHoldRedC(int target, int speed) {
+
+    int timeout = 30000;
+    bool over = false;
+    double x = 0;
+    x = double(abs(target));
+    timeout = (-0.000000000000750853* pow(x,5)) + (  0.00000000378468 * pow(x,4)) + (-0.00000629527 * pow(x,3)) + (0.00422834* pow(x,2)) + (-0.665814 * x) + 707.21366;    timeout = timeout * (2 - (double(speed)/100.0));
+
+    double voltage;
+    double encoderAVG;
+    int count = 0;
+    //double init_heading = imu.get_heading();
+    double headingError = 0;
+    int cycleTime = 0;
+    time2 = 0;
+
+    setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);
+    
+    resetEncoders();
+
+    while (true){
+        encoderAVG = (LF.get_position() + RF.get_position()) / 2;
+        if(abs(target - encoderAVG) < 25){
+            setConstants(3.5, 0, 0);
+        } else{
+            setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
+        }   
+        voltage = calcPID(target, encoderAVG, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
+
+if(trueTarget > 180) {
+    trueTarget = (trueTarget - 360);
+}
+
+
+        
+       double position = imu.get_heading();
+
+      if(position > 180){
+        position = position - 360;
+      }
+
+    if((trueTarget < 0) && (position > 0)){
+        if((position - trueTarget ) >= 180){
+            trueTarget = trueTarget + 360;
+            position = imu.get_heading();
+        }
+    } else if((trueTarget > 0) && (position < 0)){
+        if ((trueTarget - position) >= 180){
+            position = imu.get_heading();
+        }
+     }
+    
+    setConstants(HEADING_KP, HEADING_KI, HEADING_KD);  
+        headingError = calcPID2(trueTarget, position, HEADING_INTEGRAL_KI, HEADING_MAX_INTEGRAL);
+
+        if(voltage > 127 * double(speed)/100){
+            voltage = 127 * double(speed)/100;
+        } else if (voltage < -127 * double(speed)/100){
+            voltage = -127 * double(speed)/100;
+        }
+
+  if((eyes.get_hue()<40 && eyes.get_hue()>5) && eyes.get_proximity() > 150){
+    Intake.move(0);
+  }
+
+        chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));
+        if(target > 0){
+            if((encoderAVG - (target-500)) > 0){
+                over = true;
+            }
+        } else if(((target+500) - encoderAVG) > 0){
+        over = true;
+        }
+
+        if(over || time2 > timeout){
+            break;
+        }
+
+        delay(10);
+        if(time2 % 50 == 0 && time2 % 100 != 0 && time2 % 150!= 0){
+            con.print(0,0, "ERROR: %f           ", float(error));
+        }
+         if(time2 % 50 == 0 && time2 % 100 != 0){
+            con.print(2,0, "EncoderAVG: %f           ", float(imu.get_heading()));
+        }
+         if(time2 % 50 == 0){
+            con.print(1,0, "Time2: %f           ", float(time2));
+        }
+        
+        
+        time2 += 10;
+
+
+    }
+    LF.brake();
+    RF.brake();
+    LM.brake();
+    RM.brake();
+    LB.brake();
+    RB.brake();
+
+    
+}
+
+
+void driveSortHoldblueC(int target, int speed){
+
+    int timeout = 30000;
+    bool over = false;
+    double x = 0;
+    x = double(abs(target));
+    timeout = (-0.000000000000750853* pow(x,5)) + (  0.00000000378468 * pow(x,4)) + (-0.00000629527 * pow(x,3)) + (0.00422834* pow(x,2)) + (-0.665814 * x) + 707.21366;    timeout = timeout * (2 - (double(speed)/100.0));
+
+    double voltage;
+    double encoderAVG;
+    int count = 0;
+    //double init_heading = imu.get_heading();
+    double headingError = 0;
+    int cycleTime = 0;
+    time2 = 0;
+
+    setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD);
+    
+    resetEncoders();
+
+    while (true){
+        encoderAVG = (LF.get_position() + RF.get_position()) / 2;
+        if(abs(target - encoderAVG) < 25){
+            setConstants(3.5, 0, 0);
+        } else{
+            setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
+        }   
+        voltage = calcPID(target, encoderAVG, STRAIGHT_INTEGRAL_KI, STRAIGHT_MAX_INTEGRAL);
+
+if(trueTarget > 180) {
+    trueTarget = (trueTarget - 360);
+}
+
+
+        
+       double position = imu.get_heading();
+
+      if(position > 180){
+        position = position - 360;
+      }
+
+    if((trueTarget < 0) && (position > 0)){
+        if((position - trueTarget ) >= 180){
+            trueTarget = trueTarget + 360;
+            position = imu.get_heading();
+        }
+    } else if((trueTarget > 0) && (position < 0)){
+        if ((trueTarget - position) >= 180){
+            position = imu.get_heading();
+        }
+     }
+    
+    setConstants(HEADING_KP, HEADING_KI, HEADING_KD);  
+        headingError = calcPID2(trueTarget, position, HEADING_INTEGRAL_KI, HEADING_MAX_INTEGRAL);
+
+        if(voltage > 127 * double(speed)/100){
+            voltage = 127 * double(speed)/100;
+        } else if (voltage < -127 * double(speed)/100){
+            voltage = -127 * double(speed)/100;
+        }
+
+   if((eyes.get_hue()<230 && eyes.get_hue()>170) && eyes.get_proximity() > 150){
+    Intake.move(0);
+    } 
+
+        chasMove((voltage + headingError), (voltage + headingError), (voltage + headingError), (voltage - headingError), (voltage - headingError),(voltage - headingError));
+        if(target > 0){
+            if((encoderAVG - (target-500)) > 0){
+                over = true;
+            }
+        } else if(((target+500) - encoderAVG) > 0){
+        over = true;
+        }
+
+        if(over || time2 > timeout){
+            break;
+        }
+
+        delay(10);
+        if(time2 % 50 == 0 && time2 % 100 != 0 && time2 % 150!= 0){
+            con.print(0,0, "ERROR: %f           ", float(error));
+        }
+         if(time2 % 50 == 0 && time2 % 100 != 0){
+            con.print(2,0, "EncoderAVG: %f           ", float(imu.get_heading()));
+        }
+         if(time2 % 50 == 0){
+            con.print(1,0, "Time2: %f           ", float(time2));
+        }
+        
+        
+        time2 += 10;
+
+
+    }
+    LF.brake();
+    RF.brake();
+    LM.brake();
+    RM.brake();
+    LB.brake();
+    RB.brake();
+
+    
+}
+
 
 void driveStraightSlow(int target, int speed) { // RETUNE TIMEOUT!! SLOW PID!
 

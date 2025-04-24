@@ -9,7 +9,7 @@ bool stay_clamp = true;
 using namespace pros;
 using namespace std;
 
-int atn = 5;
+int atn = 0;
 string autstr;
 // Task colorSortTask;
 // bool colorSortActive = false;
@@ -94,50 +94,59 @@ void disabled() {
 //void autonomous moved into just auton.cpp
 
 void competition_initialize() {
-// while(true){
-	// 	if (selec.get_value() == true){
-	// 		atn++;
-	//delay(350);
-	// 	}
-	// 	if(atn>7){//change number to number of autons
-	// 		atn=0;
-	// 	}
-	// 	if (atn == 0) {
-	// 		autstr = "NONE";
-	// 		con.print(0,0, "Aut 0:%s", autstr);
-	// 	}
-	// 	else if (atn ==1) {
-	// 		autstr = "RED RING";
-	// 		con.print(0,0, "Aut 1: %s", autstr);
-	// 	}
-	// 	else if (atn ==2) {
-	// 		autstr = "BLUE RING";
-	// 		con.print(0,0, "Aut 2: %s", autstr);
-	// 	}
-	// 	else if (atn ==3) {
-	// 		autstr = "RED GOAL QUALS";
-	// 		con.print(0,0, "Aut 3: %s", autstr);
-	// 	}
-	// 	else if (atn ==4) {
-	// 		autstr = "BLUE GOAL QUALS";
-	// 		con.print(0,0, "Aut 4: %s", autstr);
-	// 	}
-	// 	else if (atn ==5) {
-	// 		autstr = "RED GOAL ELIMS";
-	// 		con.print(0,0, "Aut 5: %s", autstr);
-	// 	}
-	// 	else if (atn ==6) {
-	// 		autstr = "BLUE GOALS ELIMS";
-	// 		con.print(0,0, "Aut 6: %s", autstr);
-	// 	}
-	// 	else if (atn ==7) {
-	// 		autstr = "SKILLS";
-	// 		con.print(0,0, "Aut 7: %s", autstr);
-	// 	}
+	int pressed = 0;
 
-	// 	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_X)){
-	// 		break;
-	// 	}
+
+	
+while(true){
+	if(selec.get_value() == true){
+		pressed ++;
+	} else {
+		pressed = 0;
+	}
+
+	if(pressed ==1){
+		atn++;
+	}
+
+
+		if(atn>7){//change number to number of autons
+			atn=0;
+		}
+		if (atn == 0) {
+			autstr = "NONE";
+			con.print(0,0, "Aut 0:%s", autstr);
+		}
+		else if (atn ==1) {
+			autstr = "RED AWP";
+			con.print(0,0, "Aut 1: %s", autstr);
+		}
+		else if (atn ==2) {
+			autstr = "BLUE AWP";
+			con.print(0,0, "Aut 2: %s", autstr);
+		}
+		else if (atn ==3) {
+			autstr = "RED GOAL E";
+			con.print(0,0, "Aut 3: %s", autstr);
+		}
+		else if (atn ==4) {
+			autstr = "BLUE GOAL E";
+			con.print(0,0, "Aut 4: %s", autstr);
+		}
+		else if (atn ==5) {
+			autstr = "RED GOAL Q";
+			con.print(0,0, "Aut 5: %s", autstr);
+		}
+		else if (atn ==6) {
+			autstr = "BLUE GOALS Q";
+			con.print(0,0, "Aut 6: %s", autstr);
+		}
+		else if (atn ==7) {
+			autstr = "SKILLS";
+			con.print(0,0, "Aut 7: %s", autstr);
+		}
+	}
+
 }
 
 

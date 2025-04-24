@@ -178,27 +178,28 @@
 
  void goal_safe_side_red(){ //not tested 
   //driveTurn2(10);
-  driveStraight2(-1300);
-  driveClampS(-600, 90, 50);
+  driveStraight2(-1200);
+  driveClampS(-700, 90, 50);
   driveTurn2(100);
   driveStraight2(750);
-  driveTurn2(110);
+  driveTurn2(165);
   StakeWing.set_value(true);
   delay(250);
-  driveStraight2(-2000);
-  StakeWing.set_value(false);
-  color = 2;
-  driveStraight2(-250);
-  driveTurn2(-100);
-  driveArcRF(170, 300, 1000, 100);
-  driveStraight2(800);
-  delay(100);
-  driveTurn2(140);
-  driveStraightC(-1000);
-  MogoMech.set_value(false);
-  driveStraightC(-1000);
-  driveStraight2(2100);
-  driveTurn2(10);
+  driveTurn2(110);
+  // driveStraight2(-2000);
+  // StakeWing.set_value(false);
+  // color = 2;
+  // driveStraight2(-250);
+  // driveTurn2(-100);
+  // driveArcRF(170, 300, 1000, 100);
+  // driveStraight2(800);
+  // delay(100);
+  // driveTurn2(140);
+  // driveStraightC(-1000);
+  // MogoMech.set_value(false);
+  // driveStraightC(-1000);
+  // driveStraight2(2100);
+  // driveTurn2(10);
   }
 
 
@@ -243,30 +244,29 @@
  void Goal_Rush_Blue(){ // need to fix color sensor and goal tip side because of no double doinkers!!
   //blue goal rush
   eyes.set_led_pwm(100);
-  Intake.move(127);
-  driveStraight2(1650);
-  Intake.move(0);
-  driveStraightSlow(850, 100);
   StakeWing.set_value(true);
-  delay(100);
-  Intake_Piston.set_value(true);
-  driveTurn2(110);
-  StakeWing.set_value(false);
-  driveTurn2(-70);
-  driveStraight2(-600);
-  driveClampS(-800, 50, 50);
-  delay(100);
   Intake.move(127);
-  driveStraightC(600);
-  driveTurn2(165);
-  Intake_Piston.set_value(false);
-  driveStraight2(2000);
- // color = 1;
-  driveStraightSlow(300, 50);
-  delay(500);
+  driveSortHoldblueC(2000, 100);
+  StakeWing.set_value(false);
+  driveStraightC(50);
+  Intake.move(35);
+  driveStraightRush(-1070);
+  StakeWing.set_value(true);
   driveStraight2(-500);
-  driveTurn2(45);
-  driveStraight2(-1000);
+  StakeWing.set_value(false);
+  driveTurn2(175);
+  delay(100);
+  driveStraight2(-900);
+  driveClampS(-500, 225, 80);
+  color = 2;
+  driveTurn2(150);
+  driveStraight2(2000);
+  driveTurn2(20);
+  MogoMech.set_value(false);
+  driveStraight2(1000);
+  driveTurn2(-175);
+  driveClampS(-1100, 50, 70);
+  driveTurn2(-160);
  }
 
 //blue ring side touch bar bc not doing corner stack
