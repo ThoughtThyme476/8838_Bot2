@@ -162,7 +162,7 @@ hookspos = Intake.get_position();
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 340){
+                if(Intake.get_position() > 335){
                     Backwards = true;
                 }
             } else {
@@ -204,7 +204,7 @@ hookspos = Intake.get_position();
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 340){
+                if(Intake.get_position() > 335){
                     Backwards = true;
                 }
             } else {
@@ -485,7 +485,7 @@ void driveStraight(int target) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
          if(abs(target - encoderAVG) < 25){
-            setConstants(3.5, 0, 0);
+            setConstants(3, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -838,7 +838,7 @@ void driveStraight2(int target) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(3.5, 0, 0);
+            setConstants(3, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }  
@@ -930,7 +930,7 @@ void driveStraightRush(int target) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(3.5, 0, 0);
+            setConstants(3, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -1029,7 +1029,7 @@ void driveStraightC(int target) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(3.5, 0, 0);
+            setConstants(3, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -1130,7 +1130,7 @@ void driveClamp(int target, int clampDistance) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(3.5, 0, 0);
+            setConstants(3, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -1228,7 +1228,7 @@ void driveClampS(int target, int clampDistanceFromTarget, int speed) {
         
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(3.5, 0, 0);
+            setConstants(3, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -1329,7 +1329,7 @@ void driveSortHoldRed(int target, int speed) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(3.5, 0, 0);
+            setConstants(3, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -1432,7 +1432,7 @@ void driveSortHoldblue(int target, int speed) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(3.5, 0, 0);
+            setConstants(3, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -1530,7 +1530,7 @@ void driveSortHoldRedC(int target, int speed) {
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(3.5, 0, 0);
+            setConstants(3, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -1635,7 +1635,7 @@ void driveSortHoldblueC(int target, int speed){
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(3.5, 0, 0);
+            setConstants(3, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   
@@ -1740,7 +1740,7 @@ void driveStraightSlow(int target, int speed) { // RETUNE TIMEOUT!! SLOW PID!
     while (true){
         encoderAVG = (LF.get_position() + RF.get_position()) / 2;
         if(abs(target - encoderAVG) < 25){
-            setConstants(3.5, 0, 0);
+            setConstants(3, 0, 0);
         } else{
             setConstants(STRAIGHT_KP, STRAIGHT_KI, STRAIGHT_KD); 
         }   

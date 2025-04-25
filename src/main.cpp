@@ -9,7 +9,7 @@ bool stay_clamp = true;
 using namespace pros;
 using namespace std;
 
-int atn = 0;
+int atn = 7;
 string autstr;
 // Task colorSortTask;
 // bool colorSortActive = false;
@@ -138,10 +138,18 @@ while(true){
 			con.print(0,0, "Aut 5: %s", autstr);
 		}
 		else if (atn ==6) {
-			autstr = "BLUE GOALS Q";
+			autstr = "BLUE GOAL Q";
 			con.print(0,0, "Aut 6: %s", autstr);
 		}
 		else if (atn ==7) {
+			autstr = "Red Ring Rush";
+			con.print(0,0, "Aut 7: %s", autstr);
+		} 
+		else if (atn ==8) {
+			autstr = "Blue Ring Rush";
+			con.print(0,0, "Aut 7: %s", autstr);
+		}
+		else if (atn ==9) {
 			autstr = "SKILLS";
 			con.print(0,0, "Aut 7: %s", autstr);
 		}
@@ -261,7 +269,7 @@ if (con.get_digital(E_CONTROLLER_DIGITAL_DOWN)) { //lady brown descore macro
   
 	// Finds the angle that we need to move 
 	double current_angle = roto.get_angle() / 100.0;
-	double target_angle = 135;
+	double target_angle = 130;
 	double change_angle = target_angle - current_angle;
 	
 	// Finding how far to move the motor
