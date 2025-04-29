@@ -86,28 +86,41 @@
   eyes.set_led_pwm(100);
   driveStraight2(-1200);
   driveClampS(-700, 400, 100);
-  driveTurn2(150);
   color = 1;
-  //driveStraight2(50);
-  driveArcLF(47, 1025, 1500, 85);
-  driveStraightSlow(700, 75);
-  delay(100);
-  driveTurn2(-15);
-  driveStraightSlow(1000, 80);
-  driveArcLF(60, 1100, 2000, 100);
-  MogoMech.set_value(false);
+  driveTurn2(140);
   driveStraight2(700);
+  driveTurn2(150);
+  driveStraight2(-15);
+  delay(100);
+  StakeWing.set_value(true);
+  driveStraight2(-1485);
+  StakeWing.set_value(false);
+  driveArcLF(30, 200, 7500, 100);
+  driveStraightC(1000);
+  driveTurn2(-45);
+  driveStraightC(1750);
+  driveTurn2(-75);
+  MogoMech.set_value(false);
   color = 0;
-  Intake.move(127);
-  driveSortHoldRed(750, 50);
+  driveSortHoldRed(1000, 75);
   Intake.move(0);
-  LadyBrown.move_relative(-200, 127);
-  driveTurn2(60);
-  Intake.move(127);
-  driveStraight2(500);
+  LadyBrown.move_relative(-185, 127);
+  driveTurn2(55);
   Intake.move(0);
-  LadyBrown.move(127);
- }
+  driveStraight2(550);
+  Intake.move(127);
+  delay(500);
+  Intake.move(0);
+  LadyBrown.move(-127);
+  delay(400);
+  LadyBrown.move(45);
+  //driveArcRF(-45, 500, 1500, 100);
+  driveStraightC(-250);
+  driveTurn2(10);
+  LadyBrown.move_relative(-300, 127);
+  driveStraight2(-2200);
+
+  }
 
  void goal_safe_side_red(){ //not tested 
   //driveTurn2(10);
@@ -138,17 +151,17 @@
   driveStraightC(-400);
   LadyBrown.move(90);
   driveStraight2(-900);
-  driveTurn2(10);
+  // driveTurn2(10);
   driveClampS(-850, 300, 100);
   driveTurn2(-160);
   color = 2;
   //color = 1;
-  driveStraight2(590);
+  driveStraight2(675);
   //delay(200);
   driveTurn2(-60);
-  driveStraight2(500);
+  driveStraight2(600);
   driveTurn2(25);
-  driveStraightC(1650);
+  driveStraightC(1600);
   MogoMech.set_value(false);
   Intake.move(127);
   driveArcRF(15, 400, 1000, 100);
@@ -158,7 +171,7 @@
   Intake.move(127);
   driveSortHoldblue(1100, 50);
   Intake.move(0);
-  driveTurn2(-45);
+  driveTurn2(-30);
   driveStraight2(-1100);
   driveClampS(-550, 200, 60);
   Intake.move(127);
@@ -230,7 +243,40 @@
   void Ring_Rush_blue(){ 
     // color = 1;//1 = no blue rings, 2 = no red rings
     eyes.set_led_pwm(100);
-  
+    driveStraight2(-1200);
+    driveClampS(-700, 400, 100);
+    color = 2;
+    driveTurn2(-140);
+    driveStraight2(700);
+    driveTurn2(-120);
+    driveStraight2(400);
+    delay(200);
+    driveStraightC(-400);
+    driveTurn2(-150);
+    driveStraight2(-1385);
+    driveArcRF(30, 250, 7500, 100);
+    driveStraightC(1000);
+    driveTurn2(45);
+    driveStraight2(1950);
+    MogoMech.set_value(false);
+    color = 0;
+    Intake.move(127);
+    driveSortHoldblue(1000, 75);
+    Intake.move(0);
+    LadyBrown.move_relative(-185, 127);
+    driveTurn2(-65);
+    Intake.move(0);
+    driveStraight2(400);
+    Intake.move(127);
+    delay(500);
+    Intake.move(0);
+    LadyBrown.move(-127);
+    delay(400);
+    LadyBrown.move(45);
+    // driveStraightC(-250);
+    // driveTurn2(-10);
+    // LadyBrown.move_relative(-300, 127);
+    // driveStraight2(-2200);
    }
  
  void skill_run(){
@@ -276,7 +322,10 @@
   else if (atn ==7) {
     Ring_Rush_red();
   }
-  else if (atn ==7) {
+  else if (atn ==8) {
     Ring_Rush_blue();
+  }
+  else if (atn ==8) {
+    skill_run();
   }
 }

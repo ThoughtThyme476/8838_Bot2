@@ -162,7 +162,7 @@ hookspos = Intake.get_position();
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 335){
+                if(Intake.get_position() > 325){
                     Backwards = true;
                 }
             } else {
@@ -204,7 +204,7 @@ hookspos = Intake.get_position();
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 335){
+                if(Intake.get_position() > 325){
                     Backwards = true;
                 }
             } else {

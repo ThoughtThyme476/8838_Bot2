@@ -9,7 +9,7 @@ bool stay_clamp = true;
 using namespace pros;
 using namespace std;
 
-int atn = 7;
+int atn = 0;
 string autstr;
 // Task colorSortTask;
 // bool colorSortActive = false;
@@ -110,7 +110,7 @@ while(true){
 	}
 
 
-		if(atn>7){//change number to number of autons
+		if(atn>9){//change number to number of autons
 			atn=0;
 		}
 		if (atn == 0) {
@@ -134,11 +134,11 @@ while(true){
 			con.print(0,0, "Aut 4: %s", autstr);
 		}
 		else if (atn ==5) {
-			autstr = "RED GOAL Q";
+			autstr = "BLUE GOAL Q";
 			con.print(0,0, "Aut 5: %s", autstr);
 		}
 		else if (atn ==6) {
-			autstr = "BLUE GOAL Q";
+			autstr = "RED GOAL Q";
 			con.print(0,0, "Aut 6: %s", autstr);
 		}
 		else if (atn ==7) {
@@ -147,11 +147,11 @@ while(true){
 		} 
 		else if (atn ==8) {
 			autstr = "Blue Ring Rush";
-			con.print(0,0, "Aut 7: %s", autstr);
+			con.print(0,0, "Aut 8: %s", autstr);
 		}
 		else if (atn ==9) {
 			autstr = "SKILLS";
-			con.print(0,0, "Aut 7: %s", autstr);
+			con.print(0,0, "Aut 9: %s", autstr);
 		}
 	}
 
