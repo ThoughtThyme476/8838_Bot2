@@ -125,20 +125,26 @@
  void goal_safe_side_red(){ //not tested 
   //driveTurn2(10);
   driveStraight2(-1200);
-  driveClampS(-700, 90, 50);
-  driveTurn2(100);
-  driveStraight2(750);
-  driveTurn2(165);
+  driveClampS(-700, 300, 85);
+  driveTurn2(30);
+  color = 1;
+  driveStraight2(1300);
   StakeWing.set_value(true);
-  delay(250);
-  driveTurn2(110);
+  driveStraightC(-900);
+  driveTurn2(-60);
+  StakeWing.set_value(false);
+  delay(100);
+  driveArcLF(75, 200, 750, 100);
+  driveStraight2(10);
+  driveStraight2(600);
+  driveTurn2(-40);
+  StakeWing.set_value(true);
+  driveStraight2(1650);
+  driveTurn2(60);
+  driveArcRF(95, 600, 1500, 100);
+  MogoMech.set_value(false);
+  driveStraightC(750);
   driveTurn2(20);
-  driveStraight2(1000);
-  driveTurn2(171);
-  driveClampS(-1100, 400, 90);
-  driveTurn2(170);
-
-
   }
 
 
@@ -217,8 +223,8 @@
 //blue ring side touch bar bc not doing corner stack
  void goal_safe_side_blue(){
   //driveTurn2(10);
-  driveStraight2(-1300);
-  driveClampS(-600, 90, 50);
+  driveStraight2(-1200);
+  driveClampS(-700, 300, 85);
   driveTurn2(-100);
   driveStraight2(750);
   driveTurn2(-110);
@@ -232,12 +238,20 @@
   driveArcLF(170, 300, 1000, 100);
   driveStraight2(800);
   delay(100);
-  driveTurn2(-140);
-  driveStraightC(-1000);
+  driveTurn2(20);
+  driveStraightC(1000);
+  StakeWing.set_value(true);
+  //driveStraight2(400);
+  driveArcRF(90, 200, 1000, 100);
+  driveStraight2(50);
+  // driveSortHoldblue(2100, 100);
+  driveTurn2(-100);
+  StakeWing.set_value(false);
+  driveStraight2(250);
+  driveArcLF(75, 600, 1000, 100);
   MogoMech.set_value(false);
-  driveStraightC(-1000);
-  driveSortHoldblue(2100, 100);
-  driveTurn2(-10);
+  driveStraightC(500);
+  driveTurn2(-20);
   }
 
   void Ring_Rush_blue(){ 
