@@ -296,20 +296,21 @@
    }
  
  void skill_run(){
-  LadyBrown.move_relative(-900, 127);
-  delay(400);
-  driveStraight2(-500);
+  LadyBrown.move_relative(-850, 127);
+  delay(700);
+  LadyBrown.move(127);
+  delay(200);
+  driveStraight2(-475);
   driveTurn2(90);
-  driveClampS(-1100, 50, 50);
-  driveTurn2(-90);
-  Intake.move(127);
-  LadyBrown.move_relative(400, 127);
-  driveStraight2(1800);
-  driveTurn2(-200);
-  MogoMech.set_value(true);
-  driveStraight2(-1000);
-  delay(100);
-  driveStraight2(500);
+  driveStraight2(-700);
+  driveClampS(-400, 200, 50);
+  driveTurn2(180);
+  color = 1;
+  driveStraightC(400);
+  driveArcRF(25, 400, 1000, 100);
+  driveStraightC(1000);
+  driveArcLF(5, 400, 1000, 100);
+  driveStraight2(1250);
  }
  
  void autonomous(){
@@ -341,7 +342,7 @@
   else if (atn ==8) {
     Ring_Rush_blue();
   }
-  else if (atn ==8) {
+  else if (atn ==9) {
     skill_run();
   }
 }
