@@ -24,32 +24,33 @@
   LadyBrown.move(-127);
   LadyBrown.move(90);
   driveStraight2(-900);
-  driveTurn2(-10);
+  //driveTurn2(-10);
   driveClampS(-850, 300, 100);
   driveTurn2(165);
   Intake.move(127);
   color = 1;
-  driveStraight2(580);
+  driveStraight2(650);
   //delay(200);
   driveTurn2(60);
   driveStraight2(500);
   driveTurn2(-30);
-  driveStraightC(1650);
+  driveStraightC(1700);
   MogoMech.set_value(false);
   color = 0;
   Intake.move(127);
-  driveArcLF(20, 400, 500, 100);
+  driveArcLF(15, 400, 500, 100);
   driveStraight2(100);
   //driveTurn2(-25);
   Intake.move(127);
-  driveSortHoldRed(1100, 50);
+  driveSortHoldRed(1100, 45);
   Intake.move(0);
-  driveTurn2(37);
-  driveStraight2(-900);
+  driveTurn2(15);
+  driveStraight2(-950);
   driveClampS(-550, 200, 60);
   Intake.move(127);
   driveTurn2(165);
   LadyBrown.move(-127);
+  driveStraight2(75);
  }
  void Goal_Rush_red(){ 
   // color = 1;//1 = no blue rings, 2 = no red rings
@@ -74,9 +75,10 @@
   driveTurn2(-11);
   MogoMech.set_value(false);
   driveStraight2(500);
-  driveTurn2(170);
-  driveClampS(-1100, 200, 75);
-  driveTurn2(110);
+  driveTurn2(155);
+  driveClampS(-1100, 200, 65);
+  driveTurn2(115);
+  driveStraight2(1500);
   // driveStraightC(2900);
   // driveStraight2(100); these don't work. Trouble shoot later
  }
@@ -258,7 +260,7 @@
     // color = 1;//1 = no blue rings, 2 = no red rings
     eyes.set_led_pwm(100);
     driveStraight2(-1200);
-    driveClampS(-700, 400, 100);
+    driveClampS(-700, 400, 85);
     color = 2;
     driveTurn2(-140);
     driveStraight2(700);
@@ -275,22 +277,22 @@
     MogoMech.set_value(false);
     color = 0;
     Intake.move(127);
-    driveSortHoldblue(1000, 75);
+    driveSortHoldblue(1000, 70);
     Intake.move(0);
     LadyBrown.move_relative(-185, 127);
-    driveTurn2(-65);
+    driveTurn2(-67);
     Intake.move(0);
-    driveStraight2(400);
+    driveStraight2(450);
     Intake.move(127);
     delay(500);
     Intake.move(0);
     LadyBrown.move(-127);
     delay(400);
     LadyBrown.move(45);
-    // driveStraightC(-250);
-    // driveTurn2(-10);
-    // LadyBrown.move_relative(-300, 127);
-    // driveStraight2(-2200);
+    driveStraightC(-250);
+    driveTurn2(-10);
+    LadyBrown.move_relative(-300, 127);
+    driveStraight2(-2200);
    }
  
  void skill_run(){
