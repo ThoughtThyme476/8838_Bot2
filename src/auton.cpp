@@ -309,8 +309,35 @@
   driveStraightC(400);
   driveArcRF(25, 400, 1000, 100);
   driveStraightC(1000);
-  driveArcLF(5, 400, 1000, 100);
-  driveStraight2(1250);
+  driveArcLF(10, 400, 1000, 100);
+  driveStraightC(1000);
+  driveArcRF(5, 400, 1000, 100);
+  color = 0;
+  Intake.move(127);
+  driveStraight2(1500);
+  LadyBrown.move_relative(-250, 127);
+  driveStraightC(-1000);
+  color = 0;
+  driveStraight2(-1050);
+  // color = 0;
+  driveTurn2(-90);
+  color = 1;
+  delay(100);
+  color = 0;
+  Intake.move(0);
+  LadyBrown.move_relative(-300, 127);
+  delay(500);
+  Intake.move(127);
+  driveSortHoldRed(460, 50);
+  Intake.move(0);
+  LadyBrown.move_relative(-550, 70);
+  delay(500);
+  Intake.move(45);
+  driveStraightSlow(-600, 50);
+  LadyBrown.move_relative(1200, 127);
+  delay(700);
+  Intake.move(127);
+  driveStraightSlow(600, 75);
  }
  
  void autonomous(){
