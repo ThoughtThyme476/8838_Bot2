@@ -911,7 +911,7 @@ if(trueTarget > 180) {
 
 void driveStraightRush(int target) {
 
-    int timeout = 5000; //make sure to test this because to might waste a bunch of time for auto/cut auto short
+    int timeout = 15000; //make sure to test this because to might waste a bunch of time for auto/cut auto short
 
     double x = 0;
     x = double(abs(target));
