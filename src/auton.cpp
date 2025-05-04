@@ -296,80 +296,90 @@
    }
  
  void skill_run(){
-  LadyBrown.move_relative(-850, 127);
+  LadyBrown.move_relative(-860, 127); // alliance stake 
   delay(700);
   LadyBrown.move(90);
   driveStraight2(100);
   delay(200);
-  driveStraight2(-575);
+  driveStraight2(-575); 
   driveTurn2(90);
   driveStraight2(-700);
-  driveClampS(-400, 200, 50);
+  driveClampS(-400, 200, 50); // grabs goal 
   driveTurn2(180);
   color = 1;
-  driveStraightC(400);
-  driveArcRF(25, 400, 1000, 100);
+  driveStraightC(400);// grabs first ring 
+  driveArcRF(25, 400, 1000, 100); //around ladder
   driveStraightC(1000);
-  driveArcLF(10, 400, 1000, 100);
+  driveArcLF(10, 400, 1000, 100);//back for second ring
   driveStraightC(1000);
-  driveArcRF(5, 400, 1000, 100);
+  driveArcRF(5, 400, 1000, 100);//back for third ring for lady brown 
   color = 0;
-  Intake.move(110);
-  driveStraight2(1550);
-  LadyBrown.move_relative(-265, 127);
+  Intake.move(120);
+  driveStraight2(1500);
+  LadyBrown.move_relative(-270, 127);//ready for lady brown load 
   delay(100);
-  driveStraightC(-1050);
+  driveStraightC(-1100);
   color = 0;
   driveStraight2(-1050);
-  // color = 0;
-  driveTurn2(-90);
-  color = 1;
-  delay(100);
+  color = 1; //taps into lady brown 
+  driveTurn2(-95);
+  delay(500);
   color = 0;
   Intake.move(0);
-  LadyBrown.move_relative(-300, 127);
+  LadyBrown.move_relative(-150, 90);//makes room for second ring
   delay(500);
   Intake.move(127);
-  driveSortHoldRed(440, 40);
+  driveSortHoldRed(440, 40); //grabs secomnd ring 
   Intake.move(0);
-  LadyBrown.move_relative(-700, 70);
+  LadyBrown.move_relative(-900, 127); //scores one on wall stake 
   delay(500);
   //Intake.move(20);
   driveStraightSlow(-600, 50);
-  LadyBrown.move_relative(1000, 127);
+  LadyBrown.move_relative(1050, 127); //loads for second 
   delay(750);
   Intake.move(127);
-  driveStraightSlow(600, 60);
+  driveStraightSlow(550, 60);
   Intake.move(0);
   delay(100);
-  LadyBrown.move_relative(-600, 127);
+  LadyBrown.move_relative(-600, 127); //scores second on wall stake 
   delay(750);
   driveStraight2(-700);
   driveTurn2(-10);
-  Intake.move(-127);
+  Intake.move(-127);// anti jam thing 
   delay(100);
   Intake.move(0);
   color = 1;
-  driveStraightSlow(1200, 90);
-  delay(100);
-  driveStraightSlow(900, 60);
-  delay(100);
+  driveStraightSlow(2100, 70);  //grabs two more rings 
   driveTurn2(0);
-  driveStraightSlow(600, 60);
-  delay(100);
+  driveStraightSlow(600, 60); //grabs third ring 
   driveTurn2(-140);
-  driveStraight2(700);
+  driveStraight2(700);//sixth ring on goal 
   driveTurn2(140);
   MogoMech.set_value(false);
-  driveStraight2(-700);
+  driveStraight2(-700); //goal in corner 
   LadyBrown.move(127);
   driveStraight2(400);
-  driveTurn2(-90);
+  driveTurn2(-87);//ready for second mogo 
   color = 0;
   Intake.move(-127);
   delay(100);
-  driveStraightC(-100);
-  driveStraight2(-2900);
+  driveStraightC(-1000);
+  driveStraightC(-1000);
+  driveStraight2(-800);
+  driveTurn2(-90);
+  Intake.move(0);
+  driveClampS(-1000, 300, 50); //grabs second mogo 
+  driveTurn2(-170);
+  color = 1;
+  driveStraightC(400);// grabs first ring 
+  driveArcLF(45, 400, 1000, 100); //around ladder
+  driveStraightC(1000);
+  driveArcLF(20, 400, 1000, 100);//back for second ring
+  driveStraightC(1000);
+  driveArcRF(15, 400, 1000, 100);
+  color = 0;
+  Intake.move(120);
+  driveStraight2(1500);
  }
  
  void autonomous(){

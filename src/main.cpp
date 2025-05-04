@@ -186,21 +186,21 @@ while (true) {
 	// 	// Intake.move(127);
 	// 	// driveSortHoldRed(1000, 50);
 	// 	//driveStraight2(500);
-	// 	MogoMech.set_value(true);
+	// 	// MogoMech.set_value(true);
 	// }
 
 //Stakewing toggle
- if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
-	Intake.move(127);
-	color = 2;
-	while(true){
-		ColorSort();
-		delay(10);
-	}
-	// driveStraight2(100);
-	// driveArcRF(90, 600, 1500, 100);
-	// driveStraight2(100);
- }
+//  if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
+// 	Intake.move(127);
+// 	color = 2;
+// 	while(true){
+// 		ColorSort();
+// 		delay(10);
+// 	}
+// 	// driveStraight2(100);
+// 	// driveArcRF(90, 600, 1500, 100);
+// 	// driveStraight2(100);
+//  }
 
   
 

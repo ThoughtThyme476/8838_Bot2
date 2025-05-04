@@ -89,37 +89,34 @@ void hooks(int speed){
     direc = speed; 
 }
 
-void stall(){
-    bool stallProt = false;
-if(stallProt){
-    prevhookpos = hookspos;
-    hookspos = Intake.get_position();
+// void stall(){
+//     bool stallProt = true;
+//     if(stallProt){
+//         if(hookspos == prevhookpos){
+//             stuck_time += 10;
+//         } else {
+//             stuck_time = 0;
+//         }
+//         if(stuck_time > 100){
+//             stuck = true;
+//             stuck_time = 0;
+//         }
+            
+//         if(stuck){
+//                     Intake.move(-127);
+//                     stallTime+= 10;
+//                     if (stallTime >= 100){
+//                         stuck = false;
+//                         stallTime = 0;
+//                     }
+//             } else { 
+//                 stuck = false;
+//                 Intake.move(127);
+//             }
+//         Intake.tare_position();
+//     }
 
-    if((hookspos == prevhookpos)){
-        stallC = 0;
-    } else {
-        stallC = 0;
-    }
-
-    if(stallC>100){
-        stalled = true;
-    }
-
-    if (stalled){
-        Intake.move(-direc);
-        stallTime+= 10;
-        if (stallTime += 300){
-            stalled = false;
-            stallTime = 0;
-        }
-        //view = 1;
-    } else {
-        Intake.move(direc);
-        stallTime = 0;
-    }
-}
-
-}
+// }
 
 // void ColorSort(int color){
     // //Red Sort
@@ -2210,4 +2207,3 @@ void wallResetF(int resetTime){
 void Rings(int motorVoltage){
     Intake.move(motorVoltage);
 }
-
