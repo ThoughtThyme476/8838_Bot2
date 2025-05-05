@@ -44,7 +44,7 @@ extern void driveTurnT(int target);
 
 
 extern int color;
-
+extern bool InitColor;
 
 extern int time2;
 extern float error;

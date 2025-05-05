@@ -9,7 +9,7 @@ bool stay_clamp = true;
 using namespace pros;
 using namespace std;
 
-int atn = 9;
+int atn = 0;
 string autstr;
 // Task colorSortTask;
 // bool colorSortActive = false;
@@ -179,15 +179,14 @@ eyes.set_led_pwm(100);
 
 while (true) {
 
-	//ColorSort();
-	//delay(10);
-	// if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
-	// 	//driveStraightC(250);
-	// 	// Intake.move(127);
-	// 	// driveSortHoldRed(1000, 50);
-	// 	//driveStraight2(500);
-	// 	// MogoMech.set_value(true);
-	// }
+	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
+		color = 2;
+		while (true){
+		ColorSort();
+			delay(10);
+		}
+
+	}
 
 //Stakewing toggle
 //  if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
@@ -367,7 +366,7 @@ double  chasstemp = ((RF.get_temperature() + RB.get_temperature() + LF.get_tempe
 if (time % 50 == 0 && time % 100 !=0 && time % 150 !=0){
     con.print(0,0,"Time:%f       ", float(time2));//viewTime
 } else if (time% 100 == 0 && time % 150 !=0){
-    con.print(1,0,"HeadingError!%f      ", float(Macro));
+    con.print(1,0,"start?%f      ", bool(InitColor));
 } else if (time % 150 == 0){
     con.print(2,0,"C:%i H:%i LB:%i      ",int(chasstemp), int(Intake.get_temperature()), int(LadyBrown.get_temperature()));
 }

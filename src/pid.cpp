@@ -152,14 +152,14 @@ prevhookpos = hookspos;
 hookspos = Intake.get_position();
     //blue color rejection
     if (color == 1){  //
-        if((eyes.get_hue()<230 && eyes.get_hue()>180) && eyes.get_proximity() > 140){ // 50
+        if((eyes.get_hue()<230 && eyes.get_hue()>180) && eyes.get_proximity() > 160){ // 50
             InitColor = true;
         }
 
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 325){
+                if(Intake.get_position() > 250){
                     Backwards = true;
                 }
             } else {
@@ -201,7 +201,7 @@ hookspos = Intake.get_position();
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 325){
+                if(Intake.get_position() > 250){
                     Backwards = true;
                 }
             } else {
@@ -236,8 +236,8 @@ hookspos = Intake.get_position();
             Intake.tare_position();
         }
     }
-    }
-//}
+}
+
 
 //stall prot for intake
 void StallProtection(){
@@ -687,7 +687,7 @@ void driveStraight(int target) {
 
         if(abs(target - position) <= 0.95) count++;
 
-        if (count >= 25 || time2 > timeout) {
+        if (count >= 20 || time2 > timeout) {
 
             break;
         }
