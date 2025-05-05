@@ -152,7 +152,7 @@ prevhookpos = hookspos;
 hookspos = Intake.get_position();
     //blue color rejection
     if (color == 1){  //
-        if((eyes.get_hue()<230 && eyes.get_hue()>180) && eyes.get_proximity() > 160){ // 50
+        if((eyes.get_hue()<230 && eyes.get_hue()>180) && eyes.get_proximity() > 190){ // 50
             InitColor = true;
         }
 
@@ -194,7 +194,7 @@ hookspos = Intake.get_position();
             Intake.tare_position();
         }
     } else if(color == 2){ //red ring rejection 
-        if((eyes.get_hue()<40 && eyes.get_hue()>5) && eyes.get_proximity() > 140){ // 50
+        if((eyes.get_hue()<40 && eyes.get_hue()>5) && eyes.get_proximity() > 190){ // 50
             InitColor = true;
         }
 
@@ -236,7 +236,7 @@ hookspos = Intake.get_position();
             Intake.tare_position();
         }
     }
-}
+    }
 
 
 //stall prot for intake
