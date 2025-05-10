@@ -191,11 +191,11 @@ while (true) {
 //Stakewing toggle
 //  if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
 // 	Intake.move(127);
-// 	color = 2;
-// 	while(true){
-// 		ColorSort();
-// 		delay(10);
-// 	}
+// 	// color = 1;
+// 	// while(true){
+// 	// 	ColorSort();
+// 	// 	delay(10);
+// 	// }
 // 	// driveStraight2(100);
 // 	// driveArcRF(90, 600, 1500, 100);
 // 	// driveStraight2(100);

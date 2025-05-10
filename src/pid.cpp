@@ -201,7 +201,7 @@ hookspos = Intake.get_position();
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 250){
+                if(Intake.get_position() > 275){
                     Backwards = true;
                 }
             } else {
@@ -1670,7 +1670,7 @@ if(trueTarget > 180) {
             voltage = -127 * double(speed)/100;
         }
 
-   if((eyes.get_hue()<230 && eyes.get_hue()>170) && eyes.get_proximity() > 150){
+   if((eyes.get_hue()<260 && eyes.get_hue()>100) && eyes.get_proximity() > 100){
     Intake.move(0);
     } 
 

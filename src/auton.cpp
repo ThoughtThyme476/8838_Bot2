@@ -27,10 +27,10 @@
   driveStraight2(-905);
   //driveTurn2(-10);
   driveClampS(-850, 275, 100);
-  driveTurn2(160);
+  driveTurn2(150);
   Intake.move(127);
   color = 1;
-  driveStraight2(650);
+  driveStraight2(625);
      //delay(200);
   driveTurn2(60);
   driveStraight2(500);
@@ -45,7 +45,7 @@
   Intake.move(127);
   driveSortHoldRed(1190, 45);
   Intake.move(0);
-  driveTurn2(17);
+  driveTurn2(10);
   driveStraight2(-1200);
   driveClampS(-550, 200, 60);
   Intake.move(127);
@@ -183,7 +183,7 @@
   driveTurn2(-160);
   color = 2;
   //color = 1;
-  driveStraight2(675);
+  driveStraight2(625);
   //delay(200);
   driveTurn2(-60);
   driveStraight2(600);
@@ -198,11 +198,11 @@
   Intake.move(127);
   driveSortHoldblue(1100, 50);
   Intake.move(0);
-  driveTurn2(-45);
+  driveTurn2(-30);
   driveStraight2(-1200);
   driveClampS(-550, 200, 60);
-  Intake.move(127);
   driveTurn2(-165);
+  Intake.move(127);
   LadyBrown.move(-127);
   }
 
@@ -211,44 +211,44 @@
   //blue goal rush
   eyes.set_led_pwm(100);
   StakeWing.set_value(true);
-  Intake.move(127);
+  eyes.set_led_pwm(100);
+  Intake.move(60);
   driveSortHoldblueC(2000, 100);
   StakeWing.set_value(false);
-  driveStraightC(55);
-  Intake.move(27);
-  driveStraightRush(-1070);
+  driveStraight2(45);
+  Intake.move(0);
+  driveStraightRush(-1170);
   StakeWing.set_value(true);
   driveStraight2(-500);
   StakeWing.set_value(false);
   driveTurn2(168);
   driveStraight2(-900);
-  driveClampS(-500, 200, 90);
+  driveClampS(-600, 150, 90);
   color = 2;
   driveTurn2(150);
-  driveStraight2(500);
+  driveStraight2(350);
   delay(200);
   MogoMech.set_value(false);
   driveTurn2(70);
   driveStraight2(450);
-  driveTurn2(-121);
-  driveClampS(-1000, 200, 50);
-  driveTurn2(22);
+  driveTurn2(-130);
+  driveClampS(-1000, 150, 50);
+  driveTurn2(15);
   color = 0;
   Intake.move(0);
-  driveStraight2(750);
+  driveStraight2(850);
   StakeWing.set_value(true);
   delay(200);
-  driveStraightC(-800);
+  driveStraightC(-975);
   driveTurn2(170);
   StakeWing.set_value(false);
   delay(100);
   // driveTurn2(20);
   driveTurn2(140);
   color = 2;
-  driveArcRF(90, 400, 1500, 100);
-  driveStraightC(500);
-  StakeWing.set_value(true);
-  driveTurn2(0);
+  // StakeWing.set_value(true);
+  driveArcRF(100, 450, 1500, 100);
+  driveStraight2(600);
 
  }
 
@@ -262,11 +262,11 @@
   driveTurn2(-115);
   StakeWing.set_value(true);
   delay(250);
-  driveStraight2(-2000);
+  driveStraight2(-1900);
   StakeWing.set_value(false);
   color = 2;
   delay(100);
-  driveStraight2(-250);
+  driveStraight2(-350);
   driveTurn2(-100);
   driveArcLF(175, 250, 1000, 100);
   driveStraightC(400);
@@ -275,7 +275,7 @@
   driveStraightC(1000);
   StakeWing.set_value(true);
   //driveStraight2(400);
-  driveArcRF(90, 300, 1000, 100);
+  driveArcRF(90, 400, 1000, 100);
   driveStraight2(100);
   // // driveSortHoldblue(2100, 100);
   driveTurn2(-100);
@@ -296,14 +296,14 @@
     driveTurn2(-140);
     driveStraight2(700);
     driveTurn2(-120);
-    driveStraight2(400);
+    driveStraight2(385);
     delay(200);
     driveStraightC(-400);
     driveTurn2(-150);
     driveStraight2(-1385);
-    driveArcRF(30, 250, 7500, 100);
+    driveArcRF(40, 250, 7500, 100);
     driveStraightC(1000);
-    driveTurn2(45);
+    driveTurn2(48);
     driveStraight2(1900);
     MogoMech.set_value(false);
     color = 0;
@@ -311,9 +311,9 @@
     driveSortHoldblue(1000, 60);
     LadyBrown.move_relative(-185, 127);
     Intake.move(0);
-    driveTurn2(-67);
+    driveTurn2(-62);
     Intake.move(0);
-    driveStraight2(350);
+    driveStraight2(450);
     Intake.move(127);
     delay(500);
     Intake.move(0);
@@ -327,7 +327,7 @@
    }
  
  void skill_run(){
-  LadyBrown.move_relative(-860, 127); // alliance stake 
+  LadyBrown.move_relative(-900, 127); // alliance stake 
   delay(700);
   LadyBrown.move(90);
   driveStraight2(100);
@@ -343,16 +343,17 @@
   driveStraightC(1000);
   driveArcLF(10, 400, 1000, 100);//back for second ring
   driveStraightC(1000);
-  driveArcRF(5, 400, 1000, 100);//back for third ring for lady brown 
+  driveArcRF(10, 400, 1000, 100);//back for third ring for lady brown 
   color = 0;
   Intake.move(120);
   driveStraightC(1500);
   LadyBrown.move_relative(-270, 127);//ready for lady brown load 
   driveStraight2(50);
   delay(100);
+  driveTurn2(-165);
   driveStraightC(-1250);
   color = 0;
-  driveStraight2(-1000);
+  driveStraight2(-1015);
   color = 1; //taps into lady brown 
   driveTurn2(-95);
   delay(500);
@@ -361,13 +362,13 @@
   LadyBrown.move_relative(-150, 90);//makes room for second ring
   delay(500);
   Intake.move(127);
-  driveSortHoldRed(460, 40); //grabs second ring 
+  driveSortHoldRed(440, 40); //grabs second ring 
   Intake.move(0);
   LadyBrown.move_relative(-900, 127); //scores one on wall stake 
   delay(500);
   //Intake.move(20);
   driveStraightSlow(-600, 50);
-  LadyBrown.move_relative(1025, 127); //loads for second 
+  LadyBrown.move_relative(1050, 127); //loads for second 
   delay(750);
   Intake.move(127);
   driveStraightSlow(550, 60);
@@ -376,7 +377,7 @@
   LadyBrown.move_relative(-600, 127); //scores second on wall stake 
   delay(750);
   driveStraight2(-700);
-  driveTurn2(-10);
+  driveTurn2(-5);
   Intake.move(-127);// anti jam thing 
   delay(100);
   Intake.move(0);
@@ -400,21 +401,19 @@
   driveStraight2(-800);
   driveTurn2(-105);
   Intake.move(0);
-  driveClampS(-1000, 300, 50); //grabs second mogo 
-  driveTurn2(-170);
-  color = 1;
-  driveStraight2(50);
+  driveClampS(-1000, 200, 50); //grabs second mogo 
+  driveTurn2(-135);
+  MogoMech.set_value(false);
+  driveStraightC(-2000);
+  driveStraight2(500);
+  driveStraight2(250);
   driveTurn2(180);
-  driveStraightC(400);// grabs first ring 
-  driveArcLF(35, 400, 1000, 100); //around ladder
-  driveStraightC(1000);
-  driveArcRF(20, 400, 1000, 100);//back for second ring
-  driveStraightC(1000);
-  driveArcLF(15, 400, 1000, 100);
-  driveStraight2(10);
-  // color = 0;
-  // Intake.move(120);
-  // driveStraight2(1500);
+  driveStraightC(2000);
+  driveStraightC(2000);
+  driveStraight2(500);
+  driveTurn2(45);
+  driveClampS(-750, 100, 75);
+
  }
  
  void autonomous(){
