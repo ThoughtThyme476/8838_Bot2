@@ -13,7 +13,9 @@
 // autons4= blue side elims goal side
 // autons5 = auto skills
 //1 = no blue rings, 2 = no red rings.
-
+  void DriveStraightAuto(){
+    driveStraightSlow(250, 50);
+  }
 
  void Standard_AWP_red(){// Also retuned
   eyes.set_led_pwm(100); //always do this
@@ -120,22 +122,22 @@
   driveSortHoldRed(1000, 75);
   Intake.move(0);
   LadyBrown.move_relative(-195, 127);
-  driveTurn2(50);
+  driveTurn2(49);
   Intake.move(0);
   driveStraight2(750);
   Intake.move(127);
   delay(500);
   Intake.move(0);
-  LadyBrown.move(-127);
-  delay(700);
-  driveStraightC(-1000);
-  driveTurn2(-45);
+  LadyBrown.move(-90);
+  delay(1000);
+  // driveStraightC(-1000);
+  // driveTurn2(-45);
   LadyBrown.move(45);
   //driveArcRF(-45, 500, 1500, 100);
-  driveStraightC(-250);
-  driveTurn2(10);
-  LadyBrown.move_relative(-300, 127);
-  driveStraight2(-1500);
+  // driveStraightC(-250);
+  // driveTurn2(10);
+  // LadyBrown.move_relative(-300, 127);
+  // driveStraight2(-1500);
 
   }
 
@@ -165,7 +167,10 @@
   driveArcRF(130, 400, 1500, 100);
   driveStraight2(750);
   MogoMech.set_value(false);
-  driveTurn2(20);
+  driveTurn2(110);
+  LadyBrown.move(-70);
+  driveStraight2(250);
+
   }
 
 
@@ -261,18 +266,18 @@
   driveStraight2(750);
   driveTurn2(-115);
   StakeWing.set_value(true);
-  delay(250);
-  driveStraight2(-1900);
+  delay(300);
+  driveStraightC(-1700);
   StakeWing.set_value(false);
-  color = 2;
   delay(100);
-  driveStraight2(-350);
+  //driveStraight2(-350);
   driveTurn2(-100);
-  driveArcLF(175, 250, 1000, 100);
-  driveStraightC(400);
+  color = 2;
+  driveArcLF(175, 150, 1000, 100);
+  driveStraightC(600);
   // delay(100);
-  driveTurn2(25);
-  driveStraightC(1000);
+  driveTurn2(20);
+  driveStraightC(800);
   StakeWing.set_value(true);
   //driveStraight2(400);
   driveArcRF(90, 400, 1000, 100);
@@ -419,7 +424,7 @@
  void autonomous(){
   if (atn == 0) {
   }else if (atn == 0) {
-    driveStraight2(25);
+    DriveStraightAuto();
   }
    else if (atn == 1) {
     Standard_AWP_red();

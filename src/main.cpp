@@ -179,14 +179,15 @@ eyes.set_led_pwm(100);
 
 while (true) {
 
-	if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
-		color = 2;
-		while (true){
-		ColorSort();
-			delay(10);
-		}
 
-	}
+	// if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
+	// 	color = 2;
+	// 	while (true){
+	// 	ColorSort();
+	// 		delay(10);
+	// 	}
+
+	// }c
 
 //Stakewing toggle
 //  if (con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)) {
