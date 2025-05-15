@@ -159,7 +159,7 @@ hookspos = Intake.get_position();
         if (InitColor){
             if(Backwards == false){
                 Intake.move(127);
-                if(Intake.get_position() > 250){
+                if(Intake.get_position() > 230){
                     Backwards = true;
                 }
             } else {

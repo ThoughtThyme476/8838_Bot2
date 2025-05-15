@@ -122,7 +122,7 @@
   driveSortHoldRed(1000, 75);
   Intake.move(0);
   LadyBrown.move_relative(-195, 127);
-  driveTurn2(49);
+  driveTurn2(51);
   Intake.move(0);
   driveStraight2(750);
   Intake.move(127);
@@ -167,9 +167,9 @@
   driveArcRF(130, 400, 1500, 100);
   driveStraight2(750);
   MogoMech.set_value(false);
-  driveTurn2(110);
-  LadyBrown.move(-70);
-  driveStraight2(250);
+  driveTurn2(30);
+  driveStraight2(-500);
+
 
   }
 
